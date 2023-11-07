@@ -5,6 +5,7 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+from Description_Select import get_clinical_indications, find_match
 
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import search_parse
@@ -14,7 +15,10 @@ class PanelSearch:
 
     def __init__(self):
         self.input_type = self.get_input_string_type()
-        self.input = self.get_input_string()
+        
+        if self.input_type == 'R-code':
+            self.input = self.get_input_string()
+
         self.genome_build = self.get_genome_build()
 
     def get_genome_build(self):
@@ -34,7 +38,7 @@ class PanelSearch:
         if input_type == '1':
             return 'R-code'
         elif input_type == '2':
-            return 'Disease-desc'
+            return 'disease_desc'
         else:
             print('Invalid input type - exiting... Please try again.')
             exit()
@@ -51,7 +55,13 @@ if __name__ == '__main__':
 
     if SEARCH.input_type == 'R-code':
         RESPONSE = REQUEST.R_search(SEARCH.input)
-        search_parse(RESPONSE.json(), SEARCH.genome_build)
+
+    if SEARCH.input_type == 'disease_desc':
+        CLIN_INDS = get_clinical_indications()
+        DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
+        RESPONSE = REQUEST.pk_search(DISEASE_DESC)
+
+    search_parse(RESPONSE.json(), SEARCH.genome_build)
 
 
 
