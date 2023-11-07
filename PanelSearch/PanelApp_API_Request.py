@@ -30,7 +30,13 @@ class PanelAppRequest:
         # Combines base URL and user input to search API for specific panel
         self.url = f'{self.base_url}/panels/{R_code}/'
         
+        response = self.request_data()
+
+        if response.status_code == 404:
+            print("A Panel could not be found under this R-code. Please check your R-code and try again.")
+
         return self.request_data()
+
     
 if __name__ == '__main__':
     rq = PanelAppRequest()
@@ -46,6 +52,8 @@ if __name__ == '__main__':
     response_R = rq.R_search(R_code)
     print(response_R.status_code)
     print(response_R.json())
+
+    rq.R_search("140")
 
 
 
