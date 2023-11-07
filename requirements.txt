@@ -1,2 +1,3 @@
 pandas==2.1.2
 requests
+pytest==7.4.3
