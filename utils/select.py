@@ -8,9 +8,12 @@ for the /panels/{panel_pk}/genes API endpoint.
 # Import python modules
 import pandas as pd
 
+# URL for National Genomic Test Directory
+url = "https://www.england.nhs.uk/wp-content/uploads/2018/08/Rare-and-inherited-disease-national-genomic-test\
+-directory-version-5.1.xlsx"
+
 # Read National Test Directory as dataframe
-data = pd.read_excel("/home/vboxuser/PycharmProjects/2023-Software-Development-Assessment/data/Rare-and-inherited-disease-national-genomic-test-\
-directory-version-5.1.xlsx", sheet_name="R&ID indications", header=1)
+data = pd.read_excel(url, sheet_name="R&ID indications", header=1)
 dataFrame = pd.DataFrame(data)
 
 # Create dictionary of diseases from National Test Directory v5.1
