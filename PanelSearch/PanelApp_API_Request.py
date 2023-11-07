@@ -1,0 +1,35 @@
+# Import necessary modules:
+import urllib.parse
+import requests
+
+# Create a class for requesting from the PanelApp API:
+class PanelAppRequest:
+    # 
+
+    def __init__(self):
+        # Initiates a class for requesting data from the PanelApp API.
+        self.base_url = 'https://panelapp.genomicsengland.co.uk/api/v1'
+
+    def request_data(self, prms = None):
+        # Make a request to the PanelApp API using requests.get with the given parameters.
+        return requests.get(self.url, params = prms)
+    
+    def PK_search(self, disease_desc):
+        # Requests a gene list for a panel from the PanelApp API using the disease description (PK).
+        url_disease_desc = urllib.parse.quote(disease_desc)
+        self.url = f'{self.base_url}/panels/{url_disease_desc}/genes'
+        return self.request_data()
+    
+if __name__ == '__main__':
+    rq = PanelAppRequest()
+
+    ### For testing purposes ###
+    pk = 'Fetal anomalies with a likely genetic cause'
+    response = rq.PK_search(pk)
+
+    print(response.status_code)
+    print(response.json())
+
+
+
+
