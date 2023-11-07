@@ -16,8 +16,20 @@ class PanelAppRequest:
     
     def PK_search(self, disease_desc):
         # Requests a gene list for a panel from the PanelApp API using the disease description (PK).
-        url_disease_desc = urllib.parse.quote(disease_desc)
+        
+        # Cleans string - replaces characters not allowed in URL
+        url_disease_desc = urllib.parse.quote(disease_desc) 
+        
+        # Combines base URL and user input to search API for specific panel
         self.url = f'{self.base_url}/panels/{url_disease_desc}/genes'
+        return self.request_data()
+
+    def R_search(self, R_code):
+        # Requests a gene list for a panel from the PanelApp API using the test directory Rcode.
+        
+        # Combines base URL and user input to search API for specific panel
+        self.url = f'{self.base_url}/panels/{R_code}/'
+        
         return self.request_data()
     
 if __name__ == '__main__':
@@ -26,9 +38,14 @@ if __name__ == '__main__':
     ### For testing purposes ###
     pk = 'Fetal anomalies with a likely genetic cause'
     response = rq.PK_search(pk)
-
     print(response.status_code)
     print(response.json())
+
+    ### For testing purposes ###
+    R_code = 'R140'
+    response_R = rq.R_search(R_code)
+    print(response_R.status_code)
+    print(response_R.json())
 
 
 
