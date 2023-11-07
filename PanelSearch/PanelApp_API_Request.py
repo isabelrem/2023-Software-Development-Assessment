@@ -6,13 +6,15 @@ import sys
 # Import local modules:
 import PanelApp_Request_Parse
 
-class PanelAppRequest:
+class PanelAppRequest():
     # Class for searching PanelApp using different modules.
 
     def __init__(self):
         # Initiates a class for requesting data from the PanelApp API.
         self.base_url = 'https://panelapp.genomicsengland.co.uk/api/v1'
         self.url = ''
+        self.input_type = None
+        self.input = None
 
     def request_data(self,
                      prms = None):
@@ -49,21 +51,21 @@ class PanelAppRequest:
 if __name__ == '__main__':
     RQ = PanelAppRequest()
 
+
+
     ### For testing purposes ###
     PK = 'Fetal anomalies with a likely genetic cause'
     response = RQ.pk_search(PK)
 
     print(f"Status Code: {response.status_code}")
 
-    PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')
+    # PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')
 
     ### For testing purposes ###
     R_code = 'R140'
-    response_R = rq.R_search(R_code)
-    print(response_R.status_code)
-    print(response_R.json())
+    response_R = RQ.R_search(R_code)
 
-    rq.R_search("140")
+    PanelApp_Request_Parse.search_parse(response_R.json(), 'GRch37')
 
 
 
