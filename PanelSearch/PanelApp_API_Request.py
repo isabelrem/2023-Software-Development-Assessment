@@ -1,13 +1,12 @@
 # Import necessary modules:
 import urllib.parse
 import requests
-import sys
 
 # Import local modules:
 import PanelApp_Request_Parse
 
 class PanelAppRequest():
-    # Class for searching PanelApp using different modules.
+    """ Class for searching PanelApp using different modules.y"""
 
     def __init__(self):
         # Initiates a class for requesting data from the PanelApp API.
@@ -18,13 +17,13 @@ class PanelAppRequest():
 
     def request_data(self,
                      prms = None):
-        # Make a request to the PanelApp API using requests.get with the given parameters.
+        """Make a request to the PanelApp API using requests.get with the given parameters."""
         return requests.get(self.url,
                             params = prms)
     
     def pk_search(self,
                   disease_desc):
-        # Requests a gene list for a panel from the PanelApp API using the disease description (PK).
+        """Requests a gene list for a panel from the PanelApp API using the disease description (PK)."""
         
         # Cleans string - replaces characters not allowed in URL
         url_disease_desc = urllib.parse.quote(disease_desc) 
@@ -35,7 +34,7 @@ class PanelAppRequest():
         return self.request_data()
 
     def R_search(self, R_code):
-        # Requests a gene list for a panel from the PanelApp API using the test directory Rcode.
+        """Requests a gene list for a panel from the PanelApp API using the test directory Rcode."""
         
         # Combines base URL and user input to search API for specific panel
         self.url = f'{self.base_url}/panels/{R_code}/'
