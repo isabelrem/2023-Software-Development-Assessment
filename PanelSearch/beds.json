@@ -1,0 +1,3692 @@
+[
+    {
+        "chromosome": "12",
+        "start": "21950335",
+        "end": "22094336",
+        "gene": "ABCC9"
+    },
+    {
+        "chromosome": "15",
+        "start": "89346674",
+        "end": "89418585",
+        "gene": "ACAN"
+    },
+    {
+        "chromosome": "19",
+        "start": "11685475",
+        "end": "11689823",
+        "gene": "ACP5"
+    },
+    {
+        "chromosome": "2",
+        "start": "158592958",
+        "end": "158732374",
+        "gene": "ACVR1"
+    },
+    {
+        "chromosome": "19",
+        "start": "8645126",
+        "end": "8675620",
+        "gene": "ADAMTS10"
+    },
+    {
+        "chromosome": "15",
+        "start": "100511794",
+        "end": "100882210",
+        "gene": "ADAMTS17"
+    },
+    {
+        "chromosome": "9",
+        "start": "136397286",
+        "end": "136440641",
+        "gene": "ADAMTSL2"
+    },
+    {
+        "chromosome": "2",
+        "start": "100162323",
+        "end": "100759201",
+        "gene": "AFF3"
+    },
+    {
+        "chromosome": "4",
+        "start": "178351924",
+        "end": "178363657",
+        "gene": "AGA"
+    },
+    {
+        "chromosome": "2",
+        "start": "178257372",
+        "end": "178408564",
+        "gene": "AGPS"
+    },
+    {
+        "chromosome": "22",
+        "start": "50293877",
+        "end": "50312106",
+        "gene": "ALG12"
+    },
+    {
+        "chromosome": "3",
+        "start": "183960089",
+        "end": "183967336",
+        "gene": "ALG3"
+    },
+    {
+        "chromosome": "11",
+        "start": "111652919",
+        "end": "111742305",
+        "gene": "ALG9"
+    },
+    {
+        "chromosome": "1",
+        "start": "21835858",
+        "end": "21904905",
+        "gene": "ALPL"
+    },
+    {
+        "chromosome": "12",
+        "start": "85673885",
+        "end": "85695562",
+        "gene": "ALX1"
+    },
+    {
+        "chromosome": "1",
+        "start": "110602616",
+        "end": "110613322",
+        "gene": "ALX3"
+    },
+    {
+        "chromosome": "11",
+        "start": "44281994",
+        "end": "44331716",
+        "gene": "ALX4"
+    },
+    {
+        "chromosome": "X",
+        "start": "63404997",
+        "end": "63425624",
+        "gene": "AMER1"
+    },
+    {
+        "chromosome": "5",
+        "start": "14704910",
+        "end": "14871887",
+        "gene": "ANKH"
+    },
+    {
+        "chromosome": "16",
+        "start": "89334038",
+        "end": "89556969",
+        "gene": "ANKRD11"
+    },
+    {
+        "chromosome": "11",
+        "start": "22214722",
+        "end": "22304903",
+        "gene": "ANO5"
+    },
+    {
+        "chromosome": "4",
+        "start": "80822303",
+        "end": "81046608",
+        "gene": "ANTXR2"
+    },
+    {
+        "chromosome": "11",
+        "start": "118443105",
+        "end": "118473748",
+        "gene": "ARCN1"
+    },
+    {
+        "chromosome": "3",
+        "start": "119013220",
+        "end": "119139561",
+        "gene": "ARHGAP31"
+    },
+    {
+        "chromosome": "3",
+        "start": "97483365",
+        "end": "97519953",
+        "gene": "ARL6"
+    },
+    {
+        "chromosome": "5",
+        "start": "78073032",
+        "end": "78281910",
+        "gene": "ARSB"
+    },
+    {
+        "chromosome": "X",
+        "start": "2852699",
+        "end": "2886286",
+        "gene": "ARSE"
+    },
+    {
+        "chromosome": "20",
+        "start": "30946155",
+        "end": "31027122",
+        "gene": "ASXL1"
+    },
+    {
+        "chromosome": "2",
+        "start": "25956622",
+        "end": "26101385",
+        "gene": "ASXL2"
+    },
+    {
+        "chromosome": "12",
+        "start": "124196865",
+        "end": "124246302",
+        "gene": "ATP6V0A2"
+    },
+    {
+        "chromosome": "X",
+        "start": "77166194",
+        "end": "77305892",
+        "gene": "ATP7A"
+    },
+    {
+        "chromosome": "1",
+        "start": "1167629",
+        "end": "1170421",
+        "gene": "B3GALT6"
+    },
+    {
+        "chromosome": "11",
+        "start": "62382768",
+        "end": "62389647",
+        "gene": "B3GAT3"
+    },
+    {
+        "chromosome": "13",
+        "start": "31774073",
+        "end": "31906413",
+        "gene": "B3GLCT"
+    },
+    {
+        "chromosome": "5",
+        "start": "177027101",
+        "end": "177037348",
+        "gene": "B4GALT7"
+    },
+    {
+        "chromosome": "11",
+        "start": "66278077",
+        "end": "66301098",
+        "gene": "BBS1"
+    },
+    {
+        "chromosome": "12",
+        "start": "76738254",
+        "end": "76742222",
+        "gene": "BBS10"
+    },
+    {
+        "chromosome": "4",
+        "start": "123653857",
+        "end": "123666098",
+        "gene": "BBS12"
+    },
+    {
+        "chromosome": "16",
+        "start": "56500748",
+        "end": "56554195",
+        "gene": "BBS2"
+    },
+    {
+        "chromosome": "15",
+        "start": "72978527",
+        "end": "73030817",
+        "gene": "BBS4"
+    },
+    {
+        "chromosome": "2",
+        "start": "170335688",
+        "end": "170382432",
+        "gene": "BBS5"
+    },
+    {
+        "chromosome": "4",
+        "start": "122745595",
+        "end": "122791652",
+        "gene": "BBS7"
+    },
+    {
+        "chromosome": "7",
+        "start": "33168856",
+        "end": "33645680",
+        "gene": "BBS9"
+    },
+    {
+        "chromosome": "17",
+        "start": "1173853",
+        "end": "1174754",
+        "gene": "BHLHA9"
+    },
+    {
+        "chromosome": "8",
+        "start": "22022249",
+        "end": "22069839",
+        "gene": "BMP1"
+    },
+    {
+        "chromosome": "20",
+        "start": "6748311",
+        "end": "6760927",
+        "gene": "BMP2"
+    },
+    {
+        "chromosome": "7",
+        "start": "33944523",
+        "end": "34195484",
+        "gene": "BMPER"
+    },
+    {
+        "chromosome": "4",
+        "start": "95679119",
+        "end": "96079599",
+        "gene": "BMPR1B"
+    },
+    {
+        "chromosome": "21",
+        "start": "45748827",
+        "end": "45759285",
+        "gene": "C21orf2"
+    },
+    {
+        "chromosome": "11",
+        "start": "73723763",
+        "end": "73882255",
+        "gene": "C2CD3"
+    },
+    {
+        "chromosome": "8",
+        "start": "86376081",
+        "end": "86393722",
+        "gene": "CA2"
+    },
+    {
+        "chromosome": "17",
+        "start": "76987799",
+        "end": "77005949",
+        "gene": "CANT1"
+    },
+    {
+        "chromosome": "3",
+        "start": "121902530",
+        "end": "122005342",
+        "gene": "CASR"
+    },
+    {
+        "chromosome": "4",
+        "start": "15471489",
+        "end": "15603180",
+        "gene": "CC2D2A"
+    },
+    {
+        "chromosome": "19",
+        "start": "46913629",
+        "end": "46916841",
+        "gene": "CCDC8"
+    },
+    {
+        "chromosome": "22",
+        "start": "19466982",
+        "end": "19508135",
+        "gene": "CDC45"
+    },
+    {
+        "chromosome": "16",
+        "start": "68670092",
+        "end": "68756519",
+        "gene": "CDH3"
+    },
+    {
+        "chromosome": "11",
+        "start": "2904443",
+        "end": "2907111",
+        "gene": "CDKN1C"
+    },
+    {
+        "chromosome": "16",
+        "start": "88869621",
+        "end": "88875666",
+        "gene": "CDT1"
+    },
+    {
+        "chromosome": "5",
+        "start": "122680579",
+        "end": "122759286",
+        "gene": "CEP120"
+    },
+    {
+        "chromosome": "12",
+        "start": "88442793",
+        "end": "88535993",
+        "gene": "CEP290"
+    },
+    {
+        "chromosome": "15",
+        "start": "40763160",
+        "end": "40765353",
+        "gene": "CHST14"
+    },
+    {
+        "chromosome": "10",
+        "start": "73724123",
+        "end": "73773322",
+        "gene": "CHST3"
+    },
+    {
+        "chromosome": "15",
+        "start": "101715928",
+        "end": "101792137",
+        "gene": "CHSY1"
+    },
+    {
+        "chromosome": "X",
+        "start": "49687225",
+        "end": "49863892",
+        "gene": "CLCN5"
+    },
+    {
+        "chromosome": "16",
+        "start": "1494935",
+        "end": "1525581",
+        "gene": "CLCN7"
+    },
+    {
+        "chromosome": "17",
+        "start": "71189129",
+        "end": "71204646",
+        "gene": "COG1"
+    },
+    {
+        "chromosome": "16",
+        "start": "70514471",
+        "end": "70557468",
+        "gene": "COG4"
+    },
+    {
+        "chromosome": "6",
+        "start": "116440086",
+        "end": "116479910",
+        "gene": "COL10A1"
+    },
+    {
+        "chromosome": "1",
+        "start": "103342023",
+        "end": "103574052",
+        "gene": "COL11A1"
+    },
+    {
+        "chromosome": "6",
+        "start": "33130458",
+        "end": "33160276",
+        "gene": "COL11A2"
+    },
+    {
+        "chromosome": "17",
+        "start": "48260650",
+        "end": "48278993",
+        "gene": "COL1A1"
+    },
+    {
+        "chromosome": "7",
+        "start": "94023873",
+        "end": "94060544",
+        "gene": "COL1A2"
+    },
+    {
+        "chromosome": "12",
+        "start": "48366748",
+        "end": "48398269",
+        "gene": "COL2A1"
+    },
+    {
+        "chromosome": "6",
+        "start": "70924764",
+        "end": "71012786",
+        "gene": "COL9A1"
+    },
+    {
+        "chromosome": "1",
+        "start": "40766159",
+        "end": "40783488",
+        "gene": "COL9A2"
+    },
+    {
+        "chromosome": "20",
+        "start": "61447596",
+        "end": "61472511",
+        "gene": "COL9A3"
+    },
+    {
+        "chromosome": "2",
+        "start": "3642426",
+        "end": "3692048",
+        "gene": "COLEC11"
+    },
+    {
+        "chromosome": "19",
+        "start": "18893583",
+        "end": "18902123",
+        "gene": "COMP"
+    },
+    {
+        "chromosome": "3",
+        "start": "139074442",
+        "end": "139108574",
+        "gene": "COPB2"
+    },
+    {
+        "chromosome": "11",
+        "start": "46299212",
+        "end": "46342972",
+        "gene": "CREB3L1"
+    },
+    {
+        "chromosome": "16",
+        "start": "3775055",
+        "end": "3930727",
+        "gene": "CREBBP"
+    },
+    {
+        "chromosome": "3",
+        "start": "33155471",
+        "end": "33189265",
+        "gene": "CRTAP"
+    },
+    {
+        "chromosome": "8",
+        "start": "19261672",
+        "end": "19615540",
+        "gene": "CSGALNACT1"
+    },
+    {
+        "chromosome": "8",
+        "start": "67974661",
+        "end": "68108498",
+        "gene": "CSPP1"
+    },
+    {
+        "chromosome": "20",
+        "start": "44518783",
+        "end": "44527459",
+        "gene": "CTSA"
+    },
+    {
+        "chromosome": "11",
+        "start": "88026760",
+        "end": "88070955",
+        "gene": "CTSC"
+    },
+    {
+        "chromosome": "1",
+        "start": "150768684",
+        "end": "150780799",
+        "gene": "CTSK"
+    },
+    {
+        "chromosome": "6",
+        "start": "43005355",
+        "end": "43021683",
+        "gene": "CUL7"
+    },
+    {
+        "chromosome": "12",
+        "start": "58156117",
+        "end": "58162769",
+        "gene": "CYP27B1"
+    },
+    {
+        "chromosome": "11",
+        "start": "14899553",
+        "end": "14913798",
+        "gene": "CYP2R1"
+    },
+    {
+        "chromosome": "1",
+        "start": "162601163",
+        "end": "162757190",
+        "gene": "DDR2"
+    },
+    {
+        "chromosome": "20",
+        "start": "3170996",
+        "end": "3185331",
+        "gene": "DDRGK1"
+    },
+    {
+        "chromosome": "1",
+        "start": "55315306",
+        "end": "55352891",
+        "gene": "DHCR24"
+    },
+    {
+        "chromosome": "11",
+        "start": "71139239",
+        "end": "71163914",
+        "gene": "DHCR7"
+    },
+    {
+        "chromosome": "16",
+        "start": "72042487",
+        "end": "72058954",
+        "gene": "DHODH"
+    },
+    {
+        "chromosome": "2",
+        "start": "232825955",
+        "end": "233209060",
+        "gene": "DIS3L2"
+    },
+    {
+        "chromosome": "19",
+        "start": "39989535",
+        "end": "39999121",
+        "gene": "DLL3"
+    },
+    {
+        "chromosome": "15",
+        "start": "41221538",
+        "end": "41231237",
+        "gene": "DLL4"
+    },
+    {
+        "chromosome": "17",
+        "start": "48067369",
+        "end": "48072588",
+        "gene": "DLX3"
+    },
+    {
+        "chromosome": "7",
+        "start": "96649704",
+        "end": "96654409",
+        "gene": "DLX5"
+    },
+    {
+        "chromosome": "4",
+        "start": "88571459",
+        "end": "88585513",
+        "gene": "DMP1"
+    },
+    {
+        "chromosome": "2",
+        "start": "25455845",
+        "end": "25565459",
+        "gene": "DNMT3A"
+    },
+    {
+        "chromosome": "19",
+        "start": "11309971",
+        "end": "11373157",
+        "gene": "DOCK6"
+    },
+    {
+        "chromosome": "11",
+        "start": "118967213",
+        "end": "118979041",
+        "gene": "DPAGT1"
+    },
+    {
+        "chromosome": "20",
+        "start": "49551404",
+        "end": "49575092",
+        "gene": "DPM1"
+    },
+    {
+        "chromosome": "1",
+        "start": "1270656",
+        "end": "1284730",
+        "gene": "DVL1"
+    },
+    {
+        "chromosome": "17",
+        "start": "7128660",
+        "end": "7137864",
+        "gene": "DVL2"
+    },
+    {
+        "chromosome": "3",
+        "start": "183873176",
+        "end": "183891398",
+        "gene": "DVL3"
+    },
+    {
+        "chromosome": "18",
+        "start": "46570039",
+        "end": "46987717",
+        "gene": "DYM"
+    },
+    {
+        "chromosome": "11",
+        "start": "102980160",
+        "end": "103350591",
+        "gene": "DYNC2H1"
+    },
+    {
+        "chromosome": "2",
+        "start": "44001178",
+        "end": "44037149",
+        "gene": "DYNC2LI1"
+    },
+    {
+        "chromosome": "X",
+        "start": "48379546",
+        "end": "48387104",
+        "gene": "EBP"
+    },
+    {
+        "chromosome": "11",
+        "start": "85955586",
+        "end": "85989855",
+        "gene": "EED"
+    },
+    {
+        "chromosome": "17",
+        "start": "42927311",
+        "end": "42977030",
+        "gene": "EFTUD2"
+    },
+    {
+        "chromosome": "2",
+        "start": "88856259",
+        "end": "88927094",
+        "gene": "EIF2AK3"
+    },
+    {
+        "chromosome": "6",
+        "start": "132129156",
+        "end": "132216295",
+        "gene": "ENPP1"
+    },
+    {
+        "chromosome": "3",
+        "start": "69024365",
+        "end": "69063112",
+        "gene": "EOGT"
+    },
+    {
+        "chromosome": "19",
+        "start": "42751724",
+        "end": "42759309",
+        "gene": "ERF"
+    },
+    {
+        "chromosome": "8",
+        "start": "27629466",
+        "end": "27670157",
+        "gene": "ESCO2"
+    },
+    {
+        "chromosome": "4",
+        "start": "5712924",
+        "end": "5830772",
+        "gene": "EVC"
+    },
+    {
+        "chromosome": "4",
+        "start": "5544499",
+        "end": "5711275",
+        "gene": "EVC2"
+    },
+    {
+        "chromosome": "8",
+        "start": "118806729",
+        "end": "119124092",
+        "gene": "EXT1"
+    },
+    {
+        "chromosome": "11",
+        "start": "44117099",
+        "end": "44266979",
+        "gene": "EXT2"
+    },
+    {
+        "chromosome": "8",
+        "start": "28457986",
+        "end": "28613116",
+        "gene": "EXTL3"
+    },
+    {
+        "chromosome": "7",
+        "start": "148504475",
+        "end": "148581413",
+        "gene": "EZH2"
+    },
+    {
+        "chromosome": "11",
+        "start": "58910221",
+        "end": "58922512",
+        "gene": "FAM111A"
+    },
+    {
+        "chromosome": "7",
+        "start": "192969",
+        "end": "300711",
+        "gene": "FAM20C"
+    },
+    {
+        "chromosome": "6",
+        "start": "82201156",
+        "end": "82462491",
+        "gene": "FAM46A"
+    },
+    {
+        "chromosome": "X",
+        "start": "152853377",
+        "end": "152865500",
+        "gene": "FAM58A"
+    },
+    {
+        "chromosome": "15",
+        "start": "48700503",
+        "end": "48938046",
+        "gene": "FBN1"
+    },
+    {
+        "chromosome": "5",
+        "start": "127593601",
+        "end": "127994878",
+        "gene": "FBN2"
+    },
+    {
+        "chromosome": "11",
+        "start": "63974150",
+        "end": "63991354",
+        "gene": "FERMT3"
+    },
+    {
+        "chromosome": "5",
+        "start": "44303646",
+        "end": "44389808",
+        "gene": "FGF10"
+    },
+    {
+        "chromosome": "X",
+        "start": "76709648",
+        "end": "76712769",
+        "gene": "FGF16"
+    },
+    {
+        "chromosome": "12",
+        "start": "4477393",
+        "end": "4488894",
+        "gene": "FGF23"
+    },
+    {
+        "chromosome": "13",
+        "start": "22245522",
+        "end": "22278637",
+        "gene": "FGF9"
+    },
+    {
+        "chromosome": "8",
+        "start": "38268656",
+        "end": "38326352",
+        "gene": "FGFR1"
+    },
+    {
+        "chromosome": "10",
+        "start": "123237848",
+        "end": "123357972",
+        "gene": "FGFR2"
+    },
+    {
+        "chromosome": "4",
+        "start": "1795034",
+        "end": "1810599",
+        "gene": "FGFR3"
+    },
+    {
+        "chromosome": "6",
+        "start": "110012499",
+        "end": "110146631",
+        "gene": "FIG4"
+    },
+    {
+        "chromosome": "17",
+        "start": "39968932",
+        "end": "39979465",
+        "gene": "FKBP10"
+    },
+    {
+        "chromosome": "X",
+        "start": "153576892",
+        "end": "153603006",
+        "gene": "FLNA"
+    },
+    {
+        "chromosome": "3",
+        "start": "57994127",
+        "end": "58157982",
+        "gene": "FLNB"
+    },
+    {
+        "chromosome": "2",
+        "start": "216225163",
+        "end": "216300895",
+        "gene": "FN1"
+    },
+    {
+        "chromosome": "1",
+        "start": "24171567",
+        "end": "24194784",
+        "gene": "FUCA1"
+    },
+    {
+        "chromosome": "17",
+        "start": "42634925",
+        "end": "42636907",
+        "gene": "FZD2"
+    },
+    {
+        "chromosome": "16",
+        "start": "88880142",
+        "end": "88923378",
+        "gene": "GALNS"
+    },
+    {
+        "chromosome": "2",
+        "start": "166604101",
+        "end": "166651192",
+        "gene": "GALNT3"
+    },
+    {
+        "chromosome": "20",
+        "start": "34021145",
+        "end": "34042568",
+        "gene": "GDF5"
+    },
+    {
+        "chromosome": "8",
+        "start": "97154562",
+        "end": "97173020",
+        "gene": "GDF6"
+    },
+    {
+        "chromosome": "5",
+        "start": "42423879",
+        "end": "42721979",
+        "gene": "GHR"
+    },
+    {
+        "chromosome": "6",
+        "start": "121756838",
+        "end": "121770873",
+        "gene": "GJA1"
+    },
+    {
+        "chromosome": "3",
+        "start": "33038100",
+        "end": "33138722",
+        "gene": "GLB1"
+    },
+    {
+        "chromosome": "7",
+        "start": "42000548",
+        "end": "42277469",
+        "gene": "GLI3"
+    },
+    {
+        "chromosome": "20",
+        "start": "57414773",
+        "end": "57486247",
+        "gene": "GNAS"
+    },
+    {
+        "chromosome": "1",
+        "start": "231376953",
+        "end": "231413719",
+        "gene": "GNPAT"
+    },
+    {
+        "chromosome": "12",
+        "start": "102139275",
+        "end": "102224716",
+        "gene": "GNPTAB"
+    },
+    {
+        "chromosome": "16",
+        "start": "1401924",
+        "end": "1413352",
+        "gene": "GNPTG"
+    },
+    {
+        "chromosome": "12",
+        "start": "65107225",
+        "end": "65153227",
+        "gene": "GNS"
+    },
+    {
+        "chromosome": "1",
+        "start": "170501270",
+        "end": "170522587",
+        "gene": "GORAB"
+    },
+    {
+        "chromosome": "13",
+        "start": "93879095",
+        "end": "95059655",
+        "gene": "GPC6"
+    },
+    {
+        "chromosome": "19",
+        "start": "1103936",
+        "end": "1106787",
+        "gene": "GPX4"
+    },
+    {
+        "chromosome": "14",
+        "start": "95234553",
+        "end": "95236562",
+        "gene": "GSC"
+    },
+    {
+        "chromosome": "7",
+        "start": "65425671",
+        "end": "65447301",
+        "gene": "GUSB"
+    },
+    {
+        "chromosome": "20",
+        "start": "23342787",
+        "end": "23353700",
+        "gene": "GZF1"
+    },
+    {
+        "chromosome": "X",
+        "start": "71549366",
+        "end": "71792953",
+        "gene": "HDAC8"
+    },
+    {
+        "chromosome": "17",
+        "start": "8023908",
+        "end": "8027410",
+        "gene": "HES7"
+    },
+    {
+        "chromosome": "8",
+        "start": "42995556",
+        "end": "43057998",
+        "gene": "HGSNAT"
+    },
+    {
+        "chromosome": "1",
+        "start": "210501596",
+        "end": "210849638",
+        "gene": "HHAT"
+    },
+    {
+        "chromosome": "7",
+        "start": "27233122",
+        "end": "27239725",
+        "gene": "HOXA13"
+    },
+    {
+        "chromosome": "2",
+        "start": "176957619",
+        "end": "176960666",
+        "gene": "HOXD13"
+    },
+    {
+        "chromosome": "4",
+        "start": "175411328",
+        "end": "175444305",
+        "gene": "HPGD"
+    },
+    {
+        "chromosome": "1",
+        "start": "87380331",
+        "end": "87602334",
+        "gene": "HS2ST1"
+    },
+    {
+        "chromosome": "1",
+        "start": "22148738",
+        "end": "22263790",
+        "gene": "HSPG2"
+    },
+    {
+        "chromosome": "6",
+        "start": "52866077",
+        "end": "52926600",
+        "gene": "ICK"
+    },
+    {
+        "chromosome": "2",
+        "start": "209100951",
+        "end": "209130798",
+        "gene": "IDH1"
+    },
+    {
+        "chromosome": "X",
+        "start": "148558521",
+        "end": "148615470",
+        "gene": "IDS"
+    },
+    {
+        "chromosome": "4",
+        "start": "980785",
+        "end": "998316",
+        "gene": "IDUA"
+    },
+    {
+        "chromosome": "2",
+        "start": "163123589",
+        "end": "163175213",
+        "gene": "IFIH1"
+    },
+    {
+        "chromosome": "11",
+        "start": "298200",
+        "end": "299526",
+        "gene": "IFITM5"
+    },
+    {
+        "chromosome": "3",
+        "start": "129158968",
+        "end": "129239198",
+        "gene": "IFT122"
+    },
+    {
+        "chromosome": "16",
+        "start": "1560428",
+        "end": "1662111",
+        "gene": "IFT140"
+    },
+    {
+        "chromosome": "2",
+        "start": "27667238",
+        "end": "27712656",
+        "gene": "IFT172"
+    },
+    {
+        "chromosome": "14",
+        "start": "76368479",
+        "end": "76550928",
+        "gene": "IFT43"
+    },
+    {
+        "chromosome": "20",
+        "start": "42219571",
+        "end": "42275936",
+        "gene": "IFT52"
+    },
+    {
+        "chromosome": "3",
+        "start": "159974774",
+        "end": "160117668",
+        "gene": "IFT80"
+    },
+    {
+        "chromosome": "12",
+        "start": "110562140",
+        "end": "110656602",
+        "gene": "IFT81"
+    },
+    {
+        "chromosome": "2",
+        "start": "219919142",
+        "end": "219925189",
+        "gene": "IHH"
+    },
+    {
+        "chromosome": "X",
+        "start": "153769414",
+        "end": "153796782",
+        "gene": "IKBKG"
+    },
+    {
+        "chromosome": "9",
+        "start": "34650699",
+        "end": "34661889",
+        "gene": "IL11RA"
+    },
+    {
+        "chromosome": "2",
+        "start": "113864791",
+        "end": "113891593",
+        "gene": "IL1RN"
+    },
+    {
+        "chromosome": "8",
+        "start": "57870492",
+        "end": "57906403",
+        "gene": "IMPAD1"
+    },
+    {
+        "chromosome": "11",
+        "start": "71934745",
+        "end": "71950149",
+        "gene": "INPPL1"
+    },
+    {
+        "chromosome": "10",
+        "start": "76585340",
+        "end": "76792380",
+        "gene": "KAT6B"
+    },
+    {
+        "chromosome": "7",
+        "start": "6485584",
+        "end": "6523873",
+        "gene": "KDELR2"
+    },
+    {
+        "chromosome": "17",
+        "start": "6481468",
+        "end": "6544247",
+        "gene": "KIAA0753"
+    },
+    {
+        "chromosome": "16",
+        "start": "29802040",
+        "end": "29816706",
+        "gene": "KIF22"
+    },
+    {
+        "chromosome": "9",
+        "start": "34252379",
+        "end": "34329198",
+        "gene": "KIF24"
+    },
+    {
+        "chromosome": "15",
+        "start": "90152020",
+        "end": "90198682",
+        "gene": "KIF7"
+    },
+    {
+        "chromosome": "12",
+        "start": "49412758",
+        "end": "49453557",
+        "gene": "KMT2D"
+    },
+    {
+        "chromosome": "1",
+        "start": "225589204",
+        "end": "225616627",
+        "gene": "LBR"
+    },
+    {
+        "chromosome": "12",
+        "start": "65563351",
+        "end": "65642107",
+        "gene": "LEMD3"
+    },
+    {
+        "chromosome": "5",
+        "start": "38475065",
+        "end": "38608456",
+        "gene": "LIFR"
+    },
+    {
+        "chromosome": "7",
+        "start": "156461646",
+        "end": "156685924",
+        "gene": "LMBR1"
+    },
+    {
+        "chromosome": "1",
+        "start": "156052364",
+        "end": "156109880",
+        "gene": "LMNA"
+    },
+    {
+        "chromosome": "9",
+        "start": "129376722",
+        "end": "129463311",
+        "gene": "LMX1B"
+    },
+    {
+        "chromosome": "19",
+        "start": "5691845",
+        "end": "5720583",
+        "gene": "LONP1"
+    },
+    {
+        "chromosome": "18",
+        "start": "2916992",
+        "end": "3013313",
+        "gene": "LPIN2"
+    },
+    {
+        "chromosome": "11",
+        "start": "46878419",
+        "end": "46940193",
+        "gene": "LRP4"
+    },
+    {
+        "chromosome": "11",
+        "start": "68080077",
+        "end": "68216743",
+        "gene": "LRP5"
+    },
+    {
+        "chromosome": "15",
+        "start": "101459420",
+        "end": "101610317",
+        "gene": "LRRK1"
+    },
+    {
+        "chromosome": "2",
+        "start": "33172039",
+        "end": "33624576",
+        "gene": "LTBP1"
+    },
+    {
+        "chromosome": "11",
+        "start": "65306276",
+        "end": "65326401",
+        "gene": "LTBP3"
+    },
+    {
+        "chromosome": "20",
+        "start": "39314488",
+        "end": "39317880",
+        "gene": "MAFB"
+    },
+    {
+        "chromosome": "19",
+        "start": "12757325",
+        "end": "12777556",
+        "gene": "MAN2B1"
+    },
+    {
+        "chromosome": "6",
+        "start": "91223292",
+        "end": "91296764",
+        "gene": "MAP3K7"
+    },
+    {
+        "chromosome": "3",
+        "start": "186935942",
+        "end": "187009810",
+        "gene": "MASP1"
+    },
+    {
+        "chromosome": "2",
+        "start": "20191872",
+        "end": "20212455",
+        "gene": "MATN3"
+    },
+    {
+        "chromosome": "16",
+        "start": "84087368",
+        "end": "84150511",
+        "gene": "MBTPS1"
+    },
+    {
+        "chromosome": "19",
+        "start": "42829761",
+        "end": "42882921",
+        "gene": "MEGF8"
+    },
+    {
+        "chromosome": "17",
+        "start": "41717756",
+        "end": "41739322",
+        "gene": "MEOX1"
+    },
+    {
+        "chromosome": "15",
+        "start": "81239667",
+        "end": "81282219",
+        "gene": "MESD"
+    },
+    {
+        "chromosome": "15",
+        "start": "90303822",
+        "end": "90321982",
+        "gene": "MESP2"
+    },
+    {
+        "chromosome": "12",
+        "start": "15034115",
+        "end": "15038860",
+        "gene": "MGP"
+    },
+    {
+        "chromosome": "20",
+        "start": "10381657",
+        "end": "10414870",
+        "gene": "MKKS"
+    },
+    {
+        "chromosome": "17",
+        "start": "56282803",
+        "end": "56296966",
+        "gene": "MKS1"
+    },
+    {
+        "chromosome": "11",
+        "start": "102813724",
+        "end": "102826463",
+        "gene": "MMP13"
+    },
+    {
+        "chromosome": "16",
+        "start": "55423612",
+        "end": "55540603",
+        "gene": "MMP2"
+    },
+    {
+        "chromosome": "7",
+        "start": "156786745",
+        "end": "156803345",
+        "gene": "MNX1"
+    },
+    {
+        "chromosome": "17",
+        "start": "7486847",
+        "end": "7496107",
+        "gene": "MPDU1"
+    },
+    {
+        "chromosome": "5",
+        "start": "174151536",
+        "end": "174157896",
+        "gene": "MSX2"
+    },
+    {
+        "chromosome": "2",
+        "start": "177134123",
+        "end": "177202753",
+        "gene": "MTX2"
+    },
+    {
+        "chromosome": "2",
+        "start": "16080686",
+        "end": "16087129",
+        "gene": "MYCN"
+    },
+    {
+        "chromosome": "17",
+        "start": "10531843",
+        "end": "10560626",
+        "gene": "MYH3"
+    },
+    {
+        "chromosome": "22",
+        "start": "26138111",
+        "end": "26427007",
+        "gene": "MYO18B"
+    },
+    {
+        "chromosome": "17",
+        "start": "40688190",
+        "end": "40696467",
+        "gene": "NAGLU"
+    },
+    {
+        "chromosome": "9",
+        "start": "100819021",
+        "end": "100845357",
+        "gene": "NANS"
+    },
+    {
+        "chromosome": "2",
+        "start": "15307032",
+        "end": "15701454",
+        "gene": "NBAS"
+    },
+    {
+        "chromosome": "4",
+        "start": "170314426",
+        "end": "170533780",
+        "gene": "NEK1"
+    },
+    {
+        "chromosome": "6",
+        "start": "31825436",
+        "end": "31830683",
+        "gene": "NEU1"
+    },
+    {
+        "chromosome": "17",
+        "start": "29421945",
+        "end": "29709134",
+        "gene": "NF1"
+    },
+    {
+        "chromosome": "19",
+        "start": "13106422",
+        "end": "13209610",
+        "gene": "NFIX"
+    },
+    {
+        "chromosome": "5",
+        "start": "36876861",
+        "end": "37066515",
+        "gene": "NIPBL"
+    },
+    {
+        "chromosome": "4",
+        "start": "13542454",
+        "end": "13546674",
+        "gene": "NKX3-2"
+    },
+    {
+        "chromosome": "1",
+        "start": "247579458",
+        "end": "247612410",
+        "gene": "NLRP3"
+    },
+    {
+        "chromosome": "17",
+        "start": "54671060",
+        "end": "54672951",
+        "gene": "NOG"
+    },
+    {
+        "chromosome": "9",
+        "start": "139388896",
+        "end": "139440314",
+        "gene": "NOTCH1"
+    },
+    {
+        "chromosome": "1",
+        "start": "120454176",
+        "end": "120612240",
+        "gene": "NOTCH2"
+    },
+    {
+        "chromosome": "9",
+        "start": "35792151",
+        "end": "35809729",
+        "gene": "NPR2"
+    },
+    {
+        "chromosome": "5",
+        "start": "32689176",
+        "end": "32791819",
+        "gene": "NPR3"
+    },
+    {
+        "chromosome": "5",
+        "start": "176560026",
+        "end": "176727216",
+        "gene": "NSD1"
+    },
+    {
+        "chromosome": "X",
+        "start": "151999511",
+        "end": "152038273",
+        "gene": "NSDHL"
+    },
+    {
+        "chromosome": "17",
+        "start": "702553",
+        "end": "883010",
+        "gene": "NXN"
+    },
+    {
+        "chromosome": "2",
+        "start": "220415451",
+        "end": "220436581",
+        "gene": "OBSL1"
+    },
+    {
+        "chromosome": "X",
+        "start": "13752832",
+        "end": "13787480",
+        "gene": "OFD1"
+    },
+    {
+        "chromosome": "1",
+        "start": "52838501",
+        "end": "52870131",
+        "gene": "ORC1"
+    },
+    {
+        "chromosome": "2",
+        "start": "148687968",
+        "end": "148779147",
+        "gene": "ORC4"
+    },
+    {
+        "chromosome": "16",
+        "start": "46723555",
+        "end": "46732306",
+        "gene": "ORC6"
+    },
+    {
+        "chromosome": "6",
+        "start": "108362613",
+        "end": "108487058",
+        "gene": "OSTM1"
+    },
+    {
+        "chromosome": "1",
+        "start": "43212006",
+        "end": "43232755",
+        "gene": "P3H1"
+    },
+    {
+        "chromosome": "17",
+        "start": "79801035",
+        "end": "79818570",
+        "gene": "P4HB"
+    },
+    {
+        "chromosome": "10",
+        "start": "89419370",
+        "end": "89507462",
+        "gene": "PAPSS2"
+    },
+    {
+        "chromosome": "2",
+        "start": "223064607",
+        "end": "223163715",
+        "gene": "PAX3"
+    },
+    {
+        "chromosome": "21",
+        "start": "47744036",
+        "end": "47865682",
+        "gene": "PCNT"
+    },
+    {
+        "chromosome": "3",
+        "start": "195941093",
+        "end": "196014828",
+        "gene": "PCYT1A"
+    },
+    {
+        "chromosome": "12",
+        "start": "20522179",
+        "end": "20837315",
+        "gene": "PDE3A"
+    },
+    {
+        "chromosome": "5",
+        "start": "58264865",
+        "end": "59817947",
+        "gene": "PDE4D"
+    },
+    {
+        "chromosome": "12",
+        "start": "7341281",
+        "end": "7371170",
+        "gene": "PEX5"
+    },
+    {
+        "chromosome": "6",
+        "start": "137143717",
+        "end": "137235075",
+        "gene": "PEX7"
+    },
+    {
+        "chromosome": "6",
+        "start": "83870869",
+        "end": "83903655",
+        "gene": "PGM3"
+    },
+    {
+        "chromosome": "X",
+        "start": "22050559",
+        "end": "22269427",
+        "gene": "PHEX"
+    },
+    {
+        "chromosome": "1",
+        "start": "120202421",
+        "end": "120286838",
+        "gene": "PHGDH"
+    },
+    {
+        "chromosome": "20",
+        "start": "44044717",
+        "end": "44054884",
+        "gene": "PIGT"
+    },
+    {
+        "chromosome": "1",
+        "start": "27113963",
+        "end": "27124889",
+        "gene": "PIGV"
+    },
+    {
+        "chromosome": "11",
+        "start": "17099277",
+        "end": "17229530",
+        "gene": "PIK3C2A"
+    },
+    {
+        "chromosome": "5",
+        "start": "67511548",
+        "end": "67597649",
+        "gene": "PIK3R1"
+    },
+    {
+        "chromosome": "22",
+        "start": "32014477",
+        "end": "32058418",
+        "gene": "PISD"
+    },
+    {
+        "chromosome": "5",
+        "start": "134363425",
+        "end": "134370503",
+        "gene": "PITX1"
+    },
+    {
+        "chromosome": "2",
+        "start": "42275160",
+        "end": "42285668",
+        "gene": "PKDCC"
+    },
+    {
+        "chromosome": "3",
+        "start": "145787227",
+        "end": "145881440",
+        "gene": "PLOD2"
+    },
+    {
+        "chromosome": "X",
+        "start": "114795501",
+        "end": "114885181",
+        "gene": "PLS3"
+    },
+    {
+        "chromosome": "3",
+        "start": "52109269",
+        "end": "52188706",
+        "gene": "POC1A"
+    },
+    {
+        "chromosome": "2",
+        "start": "86247339",
+        "end": "86333278",
+        "gene": "POLR1A"
+    },
+    {
+        "chromosome": "2",
+        "start": "113299492",
+        "end": "113334635",
+        "gene": "POLR1B"
+    },
+    {
+        "chromosome": "6",
+        "start": "43477440",
+        "end": "43497323",
+        "gene": "POLR1C"
+    },
+    {
+        "chromosome": "13",
+        "start": "28194903",
+        "end": "28241548",
+        "gene": "POLR1D"
+    },
+    {
+        "chromosome": "8",
+        "start": "99129525",
+        "end": "99172062",
+        "gene": "POP1"
+    },
+    {
+        "chromosome": "7",
+        "start": "75528518",
+        "end": "75616173",
+        "gene": "POR"
+    },
+    {
+        "chromosome": "15",
+        "start": "64448011",
+        "end": "64455404",
+        "gene": "PPIB"
+    },
+    {
+        "chromosome": "17",
+        "start": "66507921",
+        "end": "66547460",
+        "gene": "PRKAR1A"
+    },
+    {
+        "chromosome": "4",
+        "start": "82009837",
+        "end": "82136218",
+        "gene": "PRKG2"
+    },
+    {
+        "chromosome": "16",
+        "start": "68344877",
+        "end": "68392466",
+        "gene": "PRMT7"
+    },
+    {
+        "chromosome": "9",
+        "start": "80912059",
+        "end": "80945009",
+        "gene": "PSAT1"
+    },
+    {
+        "chromosome": "7",
+        "start": "56078744",
+        "end": "56119297",
+        "gene": "PSPH"
+    },
+    {
+        "chromosome": "8",
+        "start": "97273943",
+        "end": "97349223",
+        "gene": "PTDSS1"
+    },
+    {
+        "chromosome": "3",
+        "start": "46919236",
+        "end": "46945287",
+        "gene": "PTH1R"
+    },
+    {
+        "chromosome": "12",
+        "start": "28111017",
+        "end": "28125638",
+        "gene": "PTHLH"
+    },
+    {
+        "chromosome": "12",
+        "start": "112856155",
+        "end": "112947717",
+        "gene": "PTPN11"
+    },
+    {
+        "chromosome": "8",
+        "start": "144898514",
+        "end": "144912029",
+        "gene": "PUF60"
+    },
+    {
+        "chromosome": "17",
+        "start": "79890260",
+        "end": "79900288",
+        "gene": "PYCR1"
+    },
+    {
+        "chromosome": "6",
+        "start": "57053607",
+        "end": "57087078",
+        "gene": "RAB23"
+    },
+    {
+        "chromosome": "4",
+        "start": "140374386",
+        "end": "140397763",
+        "gene": "RAB33B"
+    },
+    {
+        "chromosome": "11",
+        "start": "64494383",
+        "end": "64512928",
+        "gene": "RASGRP2"
+    },
+    {
+        "chromosome": "1",
+        "start": "145507598",
+        "end": "145513536",
+        "gene": "RBM8A"
+    },
+    {
+        "chromosome": "4",
+        "start": "26165077",
+        "end": "26436541",
+        "gene": "RBPJ"
+    },
+    {
+        "chromosome": "8",
+        "start": "145736667",
+        "end": "145743229",
+        "gene": "RECQL4"
+    },
+    {
+        "chromosome": "3",
+        "start": "53122499",
+        "end": "53164478",
+        "gene": "RFT1"
+    },
+    {
+        "chromosome": "7",
+        "start": "105172532",
+        "end": "105208124",
+        "gene": "RINT1"
+    },
+    {
+        "chromosome": "9",
+        "start": "35657748",
+        "end": "35658015",
+        "gene": "RMRP"
+    },
+    {
+        "chromosome": "2",
+        "start": "122288457",
+        "end": "122288583",
+        "gene": "RNU4ATAC"
+    },
+    {
+        "chromosome": "9",
+        "start": "94325373",
+        "end": "94712444",
+        "gene": "ROR2"
+    },
+    {
+        "chromosome": "16",
+        "start": "53631595",
+        "end": "53737850",
+        "gene": "RPGRIP1L"
+    },
+    {
+        "chromosome": "16",
+        "start": "89627065",
+        "end": "89630950",
+        "gene": "RPL13"
+    },
+    {
+        "chromosome": "6",
+        "start": "45295894",
+        "end": "45632086",
+        "gene": "RUNX2"
+    },
+    {
+        "chromosome": "16",
+        "start": "51169886",
+        "end": "51185278",
+        "gene": "SALL1"
+    },
+    {
+        "chromosome": "20",
+        "start": "50400581",
+        "end": "50419059",
+        "gene": "SALL4"
+    },
+    {
+        "chromosome": "7",
+        "start": "66452664",
+        "end": "66460588",
+        "gene": "SBDS"
+    },
+    {
+        "chromosome": "22",
+        "start": "20778874",
+        "end": "20792146",
+        "gene": "SCARF2"
+    },
+    {
+        "chromosome": "6",
+        "start": "35182190",
+        "end": "35220856",
+        "gene": "SCUBE3"
+    },
+    {
+        "chromosome": "4",
+        "start": "119643978",
+        "end": "119759838",
+        "gene": "SEC24D"
+    },
+    {
+        "chromosome": "17",
+        "start": "1665253",
+        "end": "1680868",
+        "gene": "SERPINF1"
+    },
+    {
+        "chromosome": "11",
+        "start": "75273101",
+        "end": "75283828",
+        "gene": "SERPINH1"
+    },
+    {
+        "chromosome": "3",
+        "start": "47057919",
+        "end": "47205457",
+        "gene": "SETD2"
+    },
+    {
+        "chromosome": "1",
+        "start": "149895209",
+        "end": "149900236",
+        "gene": "SF3B4"
+    },
+    {
+        "chromosome": "7",
+        "start": "37945543",
+        "end": "38065297",
+        "gene": "SFRP4"
+    },
+    {
+        "chromosome": "4",
+        "start": "108745719",
+        "end": "108836203",
+        "gene": "SGMS2"
+    },
+    {
+        "chromosome": "17",
+        "start": "78180515",
+        "end": "78194722",
+        "gene": "SGSH"
+    },
+    {
+        "chromosome": "4",
+        "start": "2794750",
+        "end": "2842825",
+        "gene": "SH3BP2"
+    },
+    {
+        "chromosome": "5",
+        "start": "171752185",
+        "end": "171881527",
+        "gene": "SH3PXD2B"
+    },
+    {
+        "chromosome": "X",
+        "start": "585079",
+        "end": "620146",
+        "gene": "SHOX"
+    },
+    {
+        "chromosome": "1",
+        "start": "2160134",
+        "end": "2241558",
+        "gene": "SKI"
+    },
+    {
+        "chromosome": "4",
+        "start": "147175127",
+        "end": "147443123",
+        "gene": "SLC10A7"
+    },
+    {
+        "chromosome": "6",
+        "start": "74303102",
+        "end": "74363878",
+        "gene": "SLC17A5"
+    },
+    {
+        "chromosome": "5",
+        "start": "149340300",
+        "end": "149373018",
+        "gene": "SLC26A2"
+    },
+    {
+        "chromosome": "10",
+        "start": "73079015",
+        "end": "73123142",
+        "gene": "SLC29A3"
+    },
+    {
+        "chromosome": "5",
+        "start": "176806236",
+        "end": "176825849",
+        "gene": "SLC34A1"
+    },
+    {
+        "chromosome": "9",
+        "start": "140125209",
+        "end": "140131006",
+        "gene": "SLC34A3"
+    },
+    {
+        "chromosome": "11",
+        "start": "45825623",
+        "end": "45834566",
+        "gene": "SLC35C1"
+    },
+    {
+        "chromosome": "1",
+        "start": "67465015",
+        "end": "67519782",
+        "gene": "SLC35D1"
+    },
+    {
+        "chromosome": "11",
+        "start": "47428683",
+        "end": "47438047",
+        "gene": "SLC39A13"
+    },
+    {
+        "chromosome": "3",
+        "start": "133651540",
+        "end": "133771028",
+        "gene": "SLCO2A1"
+    },
+    {
+        "chromosome": "15",
+        "start": "67356101",
+        "end": "67487533",
+        "gene": "SMAD3"
+    },
+    {
+        "chromosome": "18",
+        "start": "48494410",
+        "end": "48611415",
+        "gene": "SMAD4"
+    },
+    {
+        "chromosome": "15",
+        "start": "66994566",
+        "end": "67074338",
+        "gene": "SMAD6"
+    },
+    {
+        "chromosome": "2",
+        "start": "217277137",
+        "end": "217347776",
+        "gene": "SMARCAL1"
+    },
+    {
+        "chromosome": "X",
+        "start": "53401070",
+        "end": "53449677",
+        "gene": "SMC1A"
+    },
+    {
+        "chromosome": "10",
+        "start": "112327449",
+        "end": "112364394",
+        "gene": "SMC3"
+    },
+    {
+        "chromosome": "14",
+        "start": "70320848",
+        "end": "70499083",
+        "gene": "SMOC1"
+    },
+    {
+        "chromosome": "20",
+        "start": "2442280",
+        "end": "2451499",
+        "gene": "SNRPB"
+    },
+    {
+        "chromosome": "7",
+        "start": "26331541",
+        "end": "26413949",
+        "gene": "SNX10"
+    },
+    {
+        "chromosome": "17",
+        "start": "41831099",
+        "end": "41836156",
+        "gene": "SOST"
+    },
+    {
+        "chromosome": "17",
+        "start": "70117161",
+        "end": "70122561",
+        "gene": "SOX9"
+    },
+    {
+        "chromosome": "12",
+        "start": "53720362",
+        "end": "53739099",
+        "gene": "SP7"
+    },
+    {
+        "chromosome": "5",
+        "start": "151040657",
+        "end": "151066726",
+        "gene": "SPARC"
+    },
+    {
+        "chromosome": "11",
+        "start": "125461607",
+        "end": "125495110",
+        "gene": "STT3A"
+    },
+    {
+        "chromosome": "3",
+        "start": "3742498",
+        "end": "4508965",
+        "gene": "SUMF1"
+    },
+    {
+        "chromosome": "11",
+        "start": "747329",
+        "end": "765024",
+        "gene": "TALDO1"
+    },
+    {
+        "chromosome": "4",
+        "start": "16162128",
+        "end": "16229033",
+        "gene": "TAPT1"
+    },
+    {
+        "chromosome": "1",
+        "start": "235530675",
+        "end": "235612283",
+        "gene": "TBCE"
+    },
+    {
+        "chromosome": "1",
+        "start": "119425669",
+        "end": "119532179",
+        "gene": "TBX15"
+    },
+    {
+        "chromosome": "12",
+        "start": "115108059",
+        "end": "115121969",
+        "gene": "TBX3"
+    },
+    {
+        "chromosome": "17",
+        "start": "59529765",
+        "end": "59562471",
+        "gene": "TBX4"
+    },
+    {
+        "chromosome": "12",
+        "start": "114791736",
+        "end": "114846247",
+        "gene": "TBX5"
+    },
+    {
+        "chromosome": "16",
+        "start": "30097114",
+        "end": "30103208",
+        "gene": "TBX6"
+    },
+    {
+        "chromosome": "7",
+        "start": "139476850",
+        "end": "139720125",
+        "gene": "TBXAS1"
+    },
+    {
+        "chromosome": "11",
+        "start": "67806483",
+        "end": "67818362",
+        "gene": "TCIRG1"
+    },
+    {
+        "chromosome": "5",
+        "start": "149737202",
+        "end": "149779871",
+        "gene": "TCOF1"
+    },
+    {
+        "chromosome": "3",
+        "start": "196018090",
+        "end": "196045170",
+        "gene": "TCTEX1D2"
+    },
+    {
+        "chromosome": "12",
+        "start": "124155660",
+        "end": "124192948",
+        "gene": "TCTN2"
+    },
+    {
+        "chromosome": "10",
+        "start": "97423158",
+        "end": "97453900",
+        "gene": "TCTN3"
+    },
+    {
+        "chromosome": "5",
+        "start": "1253262",
+        "end": "1295184",
+        "gene": "TERT"
+    },
+    {
+        "chromosome": "19",
+        "start": "41807492",
+        "end": "41859816",
+        "gene": "TGFB1"
+    },
+    {
+        "chromosome": "1",
+        "start": "218519577",
+        "end": "218617961",
+        "gene": "TGFB2"
+    },
+    {
+        "chromosome": "3",
+        "start": "30647994",
+        "end": "30735634",
+        "gene": "TGFBR2"
+    },
+    {
+        "chromosome": "1",
+        "start": "165696032",
+        "end": "165796992",
+        "gene": "TMCO1"
+    },
+    {
+        "chromosome": "4",
+        "start": "56262124",
+        "end": "56319564",
+        "gene": "TMEM165"
+    },
+    {
+        "chromosome": "11",
+        "start": "61159159",
+        "end": "61166335",
+        "gene": "TMEM216"
+    },
+    {
+        "chromosome": "16",
+        "start": "75572015",
+        "end": "75590184",
+        "gene": "TMEM231"
+    },
+    {
+        "chromosome": "9",
+        "start": "108456825",
+        "end": "108538893",
+        "gene": "TMEM38B"
+    },
+    {
+        "chromosome": "18",
+        "start": "59992520",
+        "end": "60058516",
+        "gene": "TNFRSF11A"
+    },
+    {
+        "chromosome": "8",
+        "start": "119935796",
+        "end": "119964439",
+        "gene": "TNFRSF11B"
+    },
+    {
+        "chromosome": "13",
+        "start": "43136872",
+        "end": "43182149",
+        "gene": "TNFSF11"
+    },
+    {
+        "chromosome": "8",
+        "start": "145654165",
+        "end": "145669827",
+        "gene": "TONSL"
+    },
+    {
+        "chromosome": "3",
+        "start": "189349205",
+        "end": "189615068",
+        "gene": "TP63"
+    },
+    {
+        "chromosome": "X",
+        "start": "13730363",
+        "end": "13752754",
+        "gene": "TRAPPC2"
+    },
+    {
+        "chromosome": "6",
+        "start": "41126244",
+        "end": "41130924",
+        "gene": "TREM2"
+    },
+    {
+        "chromosome": "14",
+        "start": "92432335",
+        "end": "92507240",
+        "gene": "TRIP11"
+    },
+    {
+        "chromosome": "8",
+        "start": "116420724",
+        "end": "116821899",
+        "gene": "TRPS1"
+    },
+    {
+        "chromosome": "12",
+        "start": "110220890",
+        "end": "110271212",
+        "gene": "TRPV4"
+    },
+    {
+        "chromosome": "7",
+        "start": "142568956",
+        "end": "142583507",
+        "gene": "TRPV6"
+    },
+    {
+        "chromosome": "2",
+        "start": "166713985",
+        "end": "166810353",
+        "gene": "TTC21B"
+    },
+    {
+        "chromosome": "14",
+        "start": "89290497",
+        "end": "89344335",
+        "gene": "TTC8"
+    },
+    {
+        "chromosome": "7",
+        "start": "19060614",
+        "end": "19157295",
+        "gene": "TWIST1"
+    },
+    {
+        "chromosome": "19",
+        "start": "36395303",
+        "end": "36399197",
+        "gene": "TYROBP"
+    },
+    {
+        "chromosome": "4",
+        "start": "186320694",
+        "end": "186347139",
+        "gene": "UFSP2"
+    },
+    {
+        "chromosome": "15",
+        "start": "91473410",
+        "end": "91497323",
+        "gene": "UNC45A"
+    },
+    {
+        "chromosome": "12",
+        "start": "48235320",
+        "end": "48336831",
+        "gene": "VDR"
+    },
+    {
+        "chromosome": "12",
+        "start": "14939410",
+        "end": "14956474",
+        "gene": "WBP11"
+    },
+    {
+        "chromosome": "2",
+        "start": "63348518",
+        "end": "64054977",
+        "gene": "WDPCP"
+    },
+    {
+        "chromosome": "4",
+        "start": "39184024",
+        "end": "39287430",
+        "gene": "WDR19"
+    },
+    {
+        "chromosome": "9",
+        "start": "131395940",
+        "end": "131419066",
+        "gene": "WDR34"
+    },
+    {
+        "chromosome": "2",
+        "start": "20110021",
+        "end": "20189892",
+        "gene": "WDR35"
+    },
+    {
+        "chromosome": "7",
+        "start": "158649269",
+        "end": "158749438",
+        "gene": "WDR60"
+    },
+    {
+        "chromosome": "6",
+        "start": "112375275",
+        "end": "112392171",
+        "gene": "WISP3"
+    },
+    {
+        "chromosome": "12",
+        "start": "49372398",
+        "end": "49375459",
+        "gene": "WNT1"
+    },
+    {
+        "chromosome": "12",
+        "start": "49359123",
+        "end": "49365546",
+        "gene": "WNT10B"
+    },
+    {
+        "chromosome": "3",
+        "start": "55499743",
+        "end": "55523973",
+        "gene": "WNT5A"
+    },
+    {
+        "chromosome": "3",
+        "start": "13857755",
+        "end": "13921618",
+        "gene": "WNT7A"
+    },
+    {
+        "chromosome": "5",
+        "start": "82373317",
+        "end": "82649606",
+        "gene": "XRCC4"
+    },
+    {
+        "chromosome": "16",
+        "start": "17195626",
+        "end": "17564738",
+        "gene": "XYLT1"
+    },
+    {
+        "chromosome": "17",
+        "start": "48423453",
+        "end": "48440499",
+        "gene": "XYLT2"
+    },
+    {
+        "chromosome": "14",
+        "start": "100704635",
+        "end": "100749129",
+        "gene": "YY1"
+    },
+    {
+        "chromosome": "1",
+        "start": "40723779",
+        "end": "40759856",
+        "gene": "ZMPSTE24"
+    },
+    {
+        "chromosome": "1",
+        "start": "151254094",
+        "end": "151264656",
+        "gene": "ZNF687"
+    },
+    {
+        "chromosome": "5",
+        "start": "60628100",
+        "end": "60841997",
+        "gene": "ZSWIM6"
+    },
+    {
+        "chromosome": "9",
+        "start": "133589333",
+        "end": "133763062",
+        "gene": "ABL1"
+    },
+    {
+        "chromosome": "2",
+        "start": "112523848",
+        "end": "112642267",
+        "gene": "ANAPC1"
+    },
+    {
+        "chromosome": "5",
+        "start": "94890778",
+        "end": "94940768",
+        "gene": "ARSK"
+    },
+    {
+        "chromosome": "16",
+        "start": "337440",
+        "end": "402673",
+        "gene": "AXIN1"
+    },
+    {
+        "chromosome": "17",
+        "start": "19240867",
+        "end": "19281495",
+        "gene": "B9D1"
+    },
+    {
+        "chromosome": "16",
+        "start": "19566562",
+        "end": "19718115",
+        "gene": "C16orf62"
+    },
+    {
+        "chromosome": "15",
+        "start": "64457716",
+        "end": "64648442",
+        "gene": "CSNK1G1"
+    },
+    {
+        "chromosome": "18",
+        "start": "49866542",
+        "end": "51057784",
+        "gene": "DCC"
+    },
+    {
+        "chromosome": "5",
+        "start": "31400604",
+        "end": "31532303",
+        "gene": "DROSHA"
+    },
+    {
+        "chromosome": "2",
+        "start": "119599747",
+        "end": "119605254",
+        "gene": "EN1"
+    },
+    {
+        "chromosome": "8",
+        "start": "8859657",
+        "end": "8974256",
+        "gene": "ERI1"
+    },
+    {
+        "chromosome": "22",
+        "start": "45898118",
+        "end": "45997015",
+        "gene": "FBLN1"
+    },
+    {
+        "chromosome": "14",
+        "start": "53241912",
+        "end": "53258386",
+        "gene": "GNPNAT1"
+    },
+    {
+        "chromosome": "2",
+        "start": "239969864",
+        "end": "240323348",
+        "gene": "HDAC4"
+    },
+    {
+        "chromosome": "16",
+        "start": "50099852",
+        "end": "50140298",
+        "gene": "HEATR3"
+    },
+    {
+        "chromosome": "9",
+        "start": "86582998",
+        "end": "86595569",
+        "gene": "HNRNPK"
+    },
+    {
+        "chromosome": "10",
+        "start": "32297938",
+        "end": "32345359",
+        "gene": "KIF5B"
+    },
+    {
+        "chromosome": "4",
+        "start": "103552660",
+        "end": "103682151",
+        "gene": "MANBA"
+    },
+    {
+        "chromosome": "X",
+        "start": "21857754",
+        "end": "21903542",
+        "gene": "MBTPS2"
+    },
+    {
+        "chromosome": "13",
+        "start": "92000074",
+        "end": "92006833",
+        "gene": "MIR17HG"
+    },
+    {
+        "chromosome": "20",
+        "start": "44637547",
+        "end": "44645200",
+        "gene": "MMP9"
+    },
+    {
+        "chromosome": "1",
+        "start": "10003486",
+        "end": "10045559",
+        "gene": "NMNAT1"
+    },
+    {
+        "chromosome": "7",
+        "start": "107788068",
+        "end": "108097161",
+        "gene": "NRCAM"
+    },
+    {
+        "chromosome": "16",
+        "start": "4381550",
+        "end": "4405608",
+        "gene": "PAM16"
+    },
+    {
+        "chromosome": "2",
+        "start": "10923517",
+        "end": "10978103",
+        "gene": "PDIA6"
+    },
+    {
+        "chromosome": "17",
+        "start": "4848947",
+        "end": "4852356",
+        "gene": "PFN1"
+    },
+    {
+        "chromosome": "17",
+        "start": "43513266",
+        "end": "43568115",
+        "gene": "PLEKHM1"
+    },
+    {
+        "chromosome": "8",
+        "start": "117858174",
+        "end": "117887105",
+        "gene": "RAD21"
+    },
+    {
+        "chromosome": "3",
+        "start": "9439299",
+        "end": "9520924",
+        "gene": "SETD5"
+    },
+    {
+        "chromosome": "6",
+        "start": "44221833",
+        "end": "44225291",
+        "gene": "SLC35B2"
+    },
+    {
+        "chromosome": "1",
+        "start": "172501489",
+        "end": "172580971",
+        "gene": "SUCO"
+    },
+    {
+        "chromosome": "14",
+        "start": "93651296",
+        "end": "93653434",
+        "gene": "TMEM251"
+    },
+    {
+        "chromosome": "19",
+        "start": "34919257",
+        "end": "34960853",
+        "gene": "UBA2"
+    },
+    {
+        "chromosome": "3",
+        "start": "38495342",
+        "end": "38534633",
+        "gene": "ACVR2B"
+    },
+    {
+        "chromosome": "5",
+        "start": "89825161",
+        "end": "90460038",
+        "gene": "ADGRV1"
+    },
+    {
+        "chromosome": "2",
+        "start": "3501132",
+        "end": "3523507",
+        "gene": "ADI1"
+    },
+    {
+        "chromosome": "6",
+        "start": "135604670",
+        "end": "135818914",
+        "gene": "AHI1"
+    },
+    {
+        "chromosome": "17",
+        "start": "6297013",
+        "end": "6338519",
+        "gene": "AIPL1"
+    },
+    {
+        "chromosome": "14",
+        "start": "105235686",
+        "end": "105262088",
+        "gene": "AKT1"
+    },
+    {
+        "chromosome": "1",
+        "start": "27022524",
+        "end": "27108595",
+        "gene": "ARID1A"
+    },
+    {
+        "chromosome": "6",
+        "start": "157099063",
+        "end": "157531913",
+        "gene": "ARID1B"
+    },
+    {
+        "chromosome": "3",
+        "start": "93698983",
+        "end": "93774512",
+        "gene": "ARL13B"
+    },
+    {
+        "chromosome": "22",
+        "start": "46067678",
+        "end": "46241187",
+        "gene": "ATXN10"
+    },
+    {
+        "chromosome": "19",
+        "start": "41860326",
+        "end": "41870078",
+        "gene": "B9D2"
+    },
+    {
+        "chromosome": "11",
+        "start": "65769550",
+        "end": "65771620",
+        "gene": "BANF1"
+    },
+    {
+        "chromosome": "2",
+        "start": "29283842",
+        "end": "29297127",
+        "gene": "C2orf71"
+    },
+    {
+        "chromosome": "5",
+        "start": "37106330",
+        "end": "37249530",
+        "gene": "C5orf42"
+    },
+    {
+        "chromosome": "1",
+        "start": "32665987",
+        "end": "32670988",
+        "gene": "CCDC28B"
+    },
+    {
+        "chromosome": "3",
+        "start": "180320646",
+        "end": "180588793",
+        "gene": "CCDC39"
+    },
+    {
+        "chromosome": "17",
+        "start": "78010435",
+        "end": "78074412",
+        "gene": "CCDC40"
+    },
+    {
+        "chromosome": "3",
+        "start": "111011566",
+        "end": "111384597",
+        "gene": "CD96"
+    },
+    {
+        "chromosome": "17",
+        "start": "38443885",
+        "end": "38459171",
+        "gene": "CDC6"
+    },
+    {
+        "chromosome": "10",
+        "start": "73156691",
+        "end": "73575702",
+        "gene": "CDH23"
+    },
+    {
+        "chromosome": "11",
+        "start": "117185273",
+        "end": "117283984",
+        "gene": "CEP164"
+    },
+    {
+        "chromosome": "7",
+        "start": "130033612",
+        "end": "130082274",
+        "gene": "CEP41"
+    },
+    {
+        "chromosome": "7",
+        "start": "117105838",
+        "end": "117356025",
+        "gene": "CFTR"
+    },
+    {
+        "chromosome": "2",
+        "start": "113493930",
+        "end": "113522254",
+        "gene": "CKAP2L"
+    },
+    {
+        "chromosome": "3",
+        "start": "150643950",
+        "end": "150690786",
+        "gene": "CLRN1"
+    },
+    {
+        "chromosome": "6",
+        "start": "75794042",
+        "end": "75915767",
+        "gene": "COL12A1"
+    },
+    {
+        "chromosome": "9",
+        "start": "137533620",
+        "end": "137736686",
+        "gene": "COL5A1"
+    },
+    {
+        "chromosome": "8",
+        "start": "120007691",
+        "end": "120118821",
+        "gene": "COLEC10"
+    },
+    {
+        "chromosome": "1",
+        "start": "197170592",
+        "end": "197447585",
+        "gene": "CRB1"
+    },
+    {
+        "chromosome": "3",
+        "start": "9975506",
+        "end": "9987097",
+        "gene": "CRELD1"
+    },
+    {
+        "chromosome": "19",
+        "start": "48322703",
+        "end": "48346587",
+        "gene": "CRX"
+    },
+    {
+        "chromosome": "2",
+        "start": "72356367",
+        "end": "72375167",
+        "gene": "CYP26B1"
+    },
+    {
+        "chromosome": "14",
+        "start": "59100685",
+        "end": "59115039",
+        "gene": "DACT1"
+    },
+    {
+        "chromosome": "7",
+        "start": "96634860",
+        "end": "96640351",
+        "gene": "DLX6"
+    },
+    {
+        "chromosome": "16",
+        "start": "84178865",
+        "end": "84212373",
+        "gene": "DNAAF1"
+    },
+    {
+        "chromosome": "14",
+        "start": "50091892",
+        "end": "50101948",
+        "gene": "DNAAF2"
+    },
+    {
+        "chromosome": "19",
+        "start": "55670031",
+        "end": "55678090",
+        "gene": "DNAAF3"
+    },
+    {
+        "chromosome": "7",
+        "start": "21582833",
+        "end": "21941457",
+        "gene": "DNAH11"
+    },
+    {
+        "chromosome": "5",
+        "start": "13690440",
+        "end": "13944652",
+        "gene": "DNAH5"
+    },
+    {
+        "chromosome": "9",
+        "start": "34457412",
+        "end": "34520982",
+        "gene": "DNAI1"
+    },
+    {
+        "chromosome": "17",
+        "start": "72270386",
+        "end": "72311023",
+        "gene": "DNAI2"
+    },
+    {
+        "chromosome": "14",
+        "start": "74111578",
+        "end": "74170435",
+        "gene": "DNAL1"
+    },
+    {
+        "chromosome": "9",
+        "start": "131843379",
+        "end": "131852717",
+        "gene": "DOLPP1"
+    },
+    {
+        "chromosome": "9",
+        "start": "130697378",
+        "end": "130700763",
+        "gene": "DPM2"
+    },
+    {
+        "chromosome": "1",
+        "start": "155112367",
+        "end": "155113071",
+        "gene": "DPM3"
+    },
+    {
+        "chromosome": "4",
+        "start": "88529681",
+        "end": "88538062",
+        "gene": "DSPP"
+    },
+    {
+        "chromosome": "22",
+        "start": "41487790",
+        "end": "41576081",
+        "gene": "EP300"
+    },
+    {
+        "chromosome": "6",
+        "start": "151977826",
+        "end": "152450754",
+        "gene": "ESR1"
+    },
+    {
+        "chromosome": "5",
+        "start": "137841784",
+        "end": "137878989",
+        "gene": "ETF1"
+    },
+    {
+        "chromosome": "1",
+        "start": "16083102",
+        "end": "16113089",
+        "gene": "FBLIM1"
+    },
+    {
+        "chromosome": "10",
+        "start": "103370423",
+        "end": "103455052",
+        "gene": "FBXW4"
+    },
+    {
+        "chromosome": "10",
+        "start": "103529899",
+        "end": "103535854",
+        "gene": "FGF8"
+    },
+    {
+        "chromosome": "15",
+        "start": "33057747",
+        "end": "33486897",
+        "gene": "FMN1"
+    },
+    {
+        "chromosome": "6",
+        "start": "1610681",
+        "end": "1614127",
+        "gene": "FOXC1"
+    },
+    {
+        "chromosome": "8",
+        "start": "145698795",
+        "end": "145701718",
+        "gene": "FOXH1"
+    },
+    {
+        "chromosome": "19",
+        "start": "18979361",
+        "end": "19006905",
+        "gene": "GDF1"
+    },
+    {
+        "chromosome": "12",
+        "start": "7842378",
+        "end": "7848372",
+        "gene": "GDF3"
+    },
+    {
+        "chromosome": "16",
+        "start": "4364762",
+        "end": "4389598",
+        "gene": "GLIS2"
+    },
+    {
+        "chromosome": "15",
+        "start": "33010175",
+        "end": "33026870",
+        "gene": "GREM1"
+    },
+    {
+        "chromosome": "17",
+        "start": "7905912",
+        "end": "7923657",
+        "gene": "GUCY2D"
+    },
+    {
+        "chromosome": "17",
+        "start": "42154114",
+        "end": "42201070",
+        "gene": "HDAC5"
+    },
+    {
+        "chromosome": "7",
+        "start": "27221129",
+        "end": "27224842",
+        "gene": "HOXA11"
+    },
+    {
+        "chromosome": "2",
+        "start": "176968944",
+        "end": "176974722",
+        "gene": "HOXD11"
+    },
+    {
+        "chromosome": "11",
+        "start": "125753509",
+        "end": "125770543",
+        "gene": "HYLS1"
+    },
+    {
+        "chromosome": "15",
+        "start": "90626277",
+        "end": "90645736",
+        "gene": "IDH2"
+    },
+    {
+        "chromosome": "13",
+        "start": "21140585",
+        "end": "21265503",
+        "gene": "IFT88"
+    },
+    {
+        "chromosome": "7",
+        "start": "128032331",
+        "end": "128050306",
+        "gene": "IMPDH1"
+    },
+    {
+        "chromosome": "9",
+        "start": "102861538",
+        "end": "103063282",
+        "gene": "INVS"
+    },
+    {
+        "chromosome": "3",
+        "start": "121488610",
+        "end": "121553926",
+        "gene": "IQCB1"
+    },
+    {
+        "chromosome": "2",
+        "start": "233631174",
+        "end": "233641278",
+        "gene": "KCNJ13"
+    },
+    {
+        "chromosome": "10",
+        "start": "23983675",
+        "end": "24836772",
+        "gene": "KIAA1217"
+    },
+    {
+        "chromosome": "6",
+        "start": "80194708",
+        "end": "80247175",
+        "gene": "LCA5"
+    },
+    {
+        "chromosome": "1",
+        "start": "226124298",
+        "end": "226129189",
+        "gene": "LEFTY2"
+    },
+    {
+        "chromosome": "7",
+        "start": "2552163",
+        "end": "2568811",
+        "gene": "LFNG"
+    },
+    {
+        "chromosome": "2",
+        "start": "74759541",
+        "end": "74782817",
+        "gene": "LOXL3"
+    },
+    {
+        "chromosome": "4",
+        "start": "155548097",
+        "end": "155674270",
+        "gene": "LRAT"
+    },
+    {
+        "chromosome": "12",
+        "start": "12268959",
+        "end": "12419946",
+        "gene": "LRP6"
+    },
+    {
+        "chromosome": "14",
+        "start": "74964873",
+        "end": "75079306",
+        "gene": "LTBP2"
+    },
+    {
+        "chromosome": "15",
+        "start": "75648133",
+        "end": "75660971",
+        "gene": "MAN2C1"
+    },
+    {
+        "chromosome": "22",
+        "start": "35796056",
+        "end": "35821423",
+        "gene": "MCM5"
+    },
+    {
+        "chromosome": "1",
+        "start": "222791428",
+        "end": "222841354",
+        "gene": "MIA3"
+    },
+    {
+        "chromosome": "14",
+        "start": "23305766",
+        "end": "23318236",
+        "gene": "MMP14"
+    },
+    {
+        "chromosome": "9",
+        "start": "21802542",
+        "end": "21931646",
+        "gene": "MTAP"
+    },
+    {
+        "chromosome": "12",
+        "start": "109785708",
+        "end": "109893328",
+        "gene": "MYO1H"
+    },
+    {
+        "chromosome": "11",
+        "start": "76839310",
+        "end": "76926284",
+        "gene": "MYO7A"
+    },
+    {
+        "chromosome": "17",
+        "start": "27052915",
+        "end": "27070473",
+        "gene": "NEK8"
+    },
+    {
+        "chromosome": "14",
+        "start": "51186481",
+        "end": "51297839",
+        "gene": "NIN"
+    },
+    {
+        "chromosome": "5",
+        "start": "172659112",
+        "end": "172662360",
+        "gene": "NKX2-5"
+    },
+    {
+        "chromosome": "7",
+        "start": "37888199",
+        "end": "37940003",
+        "gene": "NME8"
+    },
+    {
+        "chromosome": "10",
+        "start": "72192071",
+        "end": "72207707",
+        "gene": "NODAL"
+    },
+    {
+        "chromosome": "2",
+        "start": "110879888",
+        "end": "110962643",
+        "gene": "NPHP1"
+    },
+    {
+        "chromosome": "3",
+        "start": "132276986",
+        "end": "132441303",
+        "gene": "NPHP3"
+    },
+    {
+        "chromosome": "1",
+        "start": "5922871",
+        "end": "6052533",
+        "gene": "NPHP4"
+    },
+    {
+        "chromosome": "2",
+        "start": "232786530",
+        "end": "232791113",
+        "gene": "NPPC"
+    },
+    {
+        "chromosome": "10",
+        "start": "126085872",
+        "end": "126107545",
+        "gene": "OAT"
+    },
+    {
+        "chromosome": "10",
+        "start": "55562531",
+        "end": "57387702",
+        "gene": "PCDH15"
+    },
+    {
+        "chromosome": "X",
+        "start": "133507283",
+        "end": "133562820",
+        "gene": "PHF6"
+    },
+    {
+        "chromosome": "3",
+        "start": "178865902",
+        "end": "178957881",
+        "gene": "PIK3CA"
+    },
+    {
+        "chromosome": "19",
+        "start": "9945933",
+        "end": "9960358",
+        "gene": "PIN1"
+    },
+    {
+        "chromosome": "X",
+        "start": "15402921",
+        "end": "15511687",
+        "gene": "PIR"
+    },
+    {
+        "chromosome": "4",
+        "start": "88928820",
+        "end": "88998929",
+        "gene": "PKD2"
+    },
+    {
+        "chromosome": "6",
+        "start": "51480098",
+        "end": "51952423",
+        "gene": "PKHD1"
+    },
+    {
+        "chromosome": "11",
+        "start": "64018995",
+        "end": "64036622",
+        "gene": "PLCB3"
+    },
+    {
+        "chromosome": "4",
+        "start": "128802016",
+        "end": "128820350",
+        "gene": "PLK4"
+    },
+    {
+        "chromosome": "1",
+        "start": "11994262",
+        "end": "12035595",
+        "gene": "PLOD1"
+    },
+    {
+        "chromosome": "12",
+        "start": "80799774",
+        "end": "81072802",
+        "gene": "PTPRQ"
+    },
+    {
+        "chromosome": "1",
+        "start": "220321635",
+        "end": "220445796",
+        "gene": "RAB3GAP2"
+    },
+    {
+        "chromosome": "1",
+        "start": "211649864",
+        "end": "211666259",
+        "gene": "RD3"
+    },
+    {
+        "chromosome": "14",
+        "start": "68168603",
+        "end": "68201169",
+        "gene": "RDH12"
+    },
+    {
+        "chromosome": "6",
+        "start": "84562985",
+        "end": "84567234",
+        "gene": "RIPPLY2"
+    },
+    {
+        "chromosome": "1",
+        "start": "68894505",
+        "end": "68915642",
+        "gene": "RPE65"
+    },
+    {
+        "chromosome": "X",
+        "start": "38128416",
+        "end": "38186817",
+        "gene": "RPGR"
+    },
+    {
+        "chromosome": "14",
+        "start": "21756098",
+        "end": "21819460",
+        "gene": "RPGRIP1"
+    },
+    {
+        "chromosome": "6",
+        "start": "116937642",
+        "end": "116954148",
+        "gene": "RSPH4A"
+    },
+    {
+        "chromosome": "6",
+        "start": "43612783",
+        "end": "43640336",
+        "gene": "RSPH9"
+    },
+    {
+        "chromosome": "12",
+        "start": "6456009",
+        "end": "6486896",
+        "gene": "SCNN1A"
+    },
+    {
+        "chromosome": "16",
+        "start": "23289552",
+        "end": "23392620",
+        "gene": "SCNN1B"
+    },
+    {
+        "chromosome": "16",
+        "start": "23194036",
+        "end": "23228204",
+        "gene": "SCNN1G"
+    },
+    {
+        "chromosome": "1",
+        "start": "243419320",
+        "end": "243663394",
+        "gene": "SDCCAG8"
+    },
+    {
+        "chromosome": "7",
+        "start": "96110938",
+        "end": "96339203",
+        "gene": "SEM1"
+    },
+    {
+        "chromosome": "7",
+        "start": "155592680",
+        "end": "155604967",
+        "gene": "SHH"
+    },
+    {
+        "chromosome": "8",
+        "start": "70579282",
+        "end": "70747299",
+        "gene": "SLCO5A1"
+    },
+    {
+        "chromosome": "9",
+        "start": "2015342",
+        "end": "2193624",
+        "gene": "SMARCA2"
+    },
+    {
+        "chromosome": "19",
+        "start": "11071598",
+        "end": "11176071",
+        "gene": "SMARCA4"
+    },
+    {
+        "chromosome": "22",
+        "start": "24129150",
+        "end": "24176703",
+        "gene": "SMARCB1"
+    },
+    {
+        "chromosome": "17",
+        "start": "38781214",
+        "end": "38804760",
+        "gene": "SMARCE1"
+    },
+    {
+        "chromosome": "2",
+        "start": "5832799",
+        "end": "5841516",
+        "gene": "SOX11"
+    },
+    {
+        "chromosome": "14",
+        "start": "88851268",
+        "end": "88936694",
+        "gene": "SPATA7"
+    },
+    {
+        "chromosome": "22",
+        "start": "24666786",
+        "end": "24813708",
+        "gene": "SPECC1L"
+    },
+    {
+        "chromosome": "8",
+        "start": "70378859",
+        "end": "70573150",
+        "gene": "SULF1"
+    },
+    {
+        "chromosome": "12",
+        "start": "111051832",
+        "end": "111087235",
+        "gene": "TCTN1"
+    },
+    {
+        "chromosome": "6",
+        "start": "24650205",
+        "end": "24667261",
+        "gene": "TDP2"
+    },
+    {
+        "chromosome": "13",
+        "start": "95226308",
+        "end": "95248511",
+        "gene": "TGDS"
+    },
+    {
+        "chromosome": "3",
+        "start": "184089723",
+        "end": "184095932",
+        "gene": "THPO"
+    },
+    {
+        "chromosome": "11",
+        "start": "61129473",
+        "end": "61136981",
+        "gene": "TMEM138"
+    },
+    {
+        "chromosome": "2",
+        "start": "202484907",
+        "end": "202508293",
+        "gene": "TMEM237"
+    },
+    {
+        "chromosome": "8",
+        "start": "94767072",
+        "end": "94831462",
+        "gene": "TMEM67"
+    },
+    {
+        "chromosome": "6",
+        "start": "32008931",
+        "end": "32083111",
+        "gene": "TNXB"
+    },
+    {
+        "chromosome": "9",
+        "start": "32540542",
+        "end": "32552551",
+        "gene": "TOPORS"
+    },
+    {
+        "chromosome": "9",
+        "start": "119449581",
+        "end": "119463579",
+        "gene": "TRIM32"
+    },
+    {
+        "chromosome": "4",
+        "start": "100467866",
+        "end": "100485189",
+        "gene": "TRMT10A"
+    },
+    {
+        "chromosome": "9",
+        "start": "135766735",
+        "end": "135820020",
+        "gene": "TSC1"
+    },
+    {
+        "chromosome": "16",
+        "start": "2097466",
+        "end": "2138716",
+        "gene": "TSC2"
+    },
+    {
+        "chromosome": "6",
+        "start": "35465651",
+        "end": "35480715",
+        "gene": "TULP1"
+    },
+    {
+        "chromosome": "16",
+        "start": "20344374",
+        "end": "20367623",
+        "gene": "UMOD"
+    },
+    {
+        "chromosome": "11",
+        "start": "17515442",
+        "end": "17565963",
+        "gene": "USH1C"
+    },
+    {
+        "chromosome": "17",
+        "start": "72912176",
+        "end": "72919351",
+        "gene": "USH1G"
+    },
+    {
+        "chromosome": "1",
+        "start": "215796236",
+        "end": "216596738",
+        "gene": "USH2A"
+    },
+    {
+        "chromosome": "X",
+        "start": "40944888",
+        "end": "41095832",
+        "gene": "USP9X"
+    },
+    {
+        "chromosome": "16",
+        "start": "70721342",
+        "end": "70835064",
+        "gene": "VAC14"
+    },
+    {
+        "chromosome": "3",
+        "start": "10182692",
+        "end": "10193904",
+        "gene": "VHL"
+    },
+    {
+        "chromosome": "9",
+        "start": "117164360",
+        "end": "117267730",
+        "gene": "WHRN"
+    },
+    {
+        "chromosome": "17",
+        "start": "44839872",
+        "end": "44910520",
+        "gene": "WNT3"
+    },
+    {
+        "chromosome": "8",
+        "start": "30891317",
+        "end": "31031285",
+        "gene": "WRN"
+    },
+    {
+        "chromosome": "22",
+        "start": "41253081",
+        "end": "41363838",
+        "gene": "XPNPEP3"
+    },
+    {
+        "chromosome": "11",
+        "start": "113930315",
+        "end": "114121398",
+        "gene": "ZBTB16"
+    },
+    {
+        "chromosome": "X",
+        "start": "136648301",
+        "end": "136659850",
+        "gene": "ZIC3"
+    },
+    {
+        "chromosome": "16",
+        "start": "49521435",
+        "end": "49891830",
+        "gene": "ZNF423"
+    },
+    {
+        "chromosome": "X",
+        "start": "68048840",
+        "end": "68061990",
+        "gene": "EFNB1"
+    },
+    {
+        "chromosome": "15",
+        "start": "99192200",
+        "end": "99507759",
+        "gene": "IGF1R"
+    },
+    {
+        "chromosome": "8",
+        "start": "41786997",
+        "end": "41909508",
+        "gene": "KAT6A"
+    },
+    {
+        "chromosome": "3",
+        "start": "112721287",
+        "end": "112738708",
+        "gene": "NEPRO"
+    },
+    {
+        "chromosome": "15",
+        "start": "57210821",
+        "end": "57591479",
+        "gene": "TCF12"
+    },
+    {
+        "chromosome": "9",
+        "start": "101866320",
+        "end": "101916474",
+        "gene": "TGFBR1"
+    },
+    {
+        "chromosome": "2",
+        "start": "239756673",
+        "end": "239795893",
+        "gene": "TWIST2"
+    },
+    {
+        "chromosome": "3",
+        "start": "147111209",
+        "end": "147228080",
+        "gene": "ZIC1"
+    }
+]
