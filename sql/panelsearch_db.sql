@@ -2,14 +2,14 @@
 CREATE DATABASE IF NOT EXISTS panelsearch;
 
 -- Create table for patients IDs
-CREATE TABLE patients(
+CREATE TABLE IF NOT EXISTS patients(
 	id int PRIMARY KEY,
     patient_id varchar(50),
     search_id int
 );
 
 -- Create table for search results
-CREATE TABLE searches(
+CREATE TABLE IF NOT EXISTS searches(
 	id int, # patients.search_id
     panel_id int,
     panel_name varchar(50),
