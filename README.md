@@ -1,6 +1,9 @@
-# PanelSearch
+PanelSearch
+===========
 
-## Description
+Description
+-----------
+
 A tool to manage gene panels for NHS National Genomic Testing Directory tests in the laboratory.
 Allows user to search for gene panels and outputs BED file.
 Search history can be saved to a database and retrieved at a later date.
@@ -17,6 +20,11 @@ Installation
 ------------
 
 Please see [installation instructions](https://github.com/isabelrem/2023-Software-Development-Assessment/installation.md)
+
+Usage
+-----
+
+Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/UserGuide.md) and [readthedocs manual](https://manchester.readthedocs.io/en/latest/)
 
 Contribute
 ----------
