@@ -9,6 +9,9 @@ Welcome to PanelSearch's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   installation
+   usage
+   api
 
 Description
 -----------
@@ -25,19 +28,6 @@ Features
 - Returns BED file
 - Saves gene panel information
 
-Installation
-------------
-
-Install PanelSearch by running::
-
-    # Clone GitHub repository
-    git clone https://github.com/isabelrem/2023-Software-Development-Assessment
-
-    # Create conda environment
-    conda env create -f environment.yaml
-
-    # Run PanelSearch
-    python main.py
 
 
 Contribute
@@ -59,9 +49,3 @@ The project is not currently licensed.
 
 
 
-Indices and tables
--------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
