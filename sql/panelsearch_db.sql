@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS panelsearch;
 -- Create table for patients IDs
 CREATE TABLE patients(
 	id int PRIMARY KEY,
-    patient_id int,
+    patient_id varchar(50),
     search_id int
 );
 
