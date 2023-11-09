@@ -20,9 +20,6 @@ dataFrame = pd.DataFrame(data)
 clinical_indications = set(dataFrame["Clinical Indication"])  # set so no duplicates
 clinical_indications = list(clinical_indications)  # convert set to list
 
-# Ask user for disease
-disease = input("Please enter disease name: ")
-
 
 # Search for disease in list
 def find_match(element, lst):
@@ -56,5 +53,8 @@ def find_match(element, lst):
         return False
 
 
-# Run function to search for disease in clinical indications list
-find_match(disease, clinical_indications)
+if __name__ == '__main__':
+    # Ask user for disease
+    disease = input("Please enter disease name: ")
+    # Run function to search for disease in clinical indications list
+    find_match(disease, clinical_indications)
