@@ -69,5 +69,7 @@ def search_parse(input, genome_build):
     for gene in OUTPUT['Genes']:
         for k, v in gene.items():
             print(f"{k} - {v[0]}:{v[1]}")
+
+    print(OUTPUT)
     
     return OUTPUT

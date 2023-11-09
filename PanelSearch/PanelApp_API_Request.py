@@ -30,7 +30,7 @@ class PanelAppRequest():
         url_disease_desc = urllib.parse.quote(disease_desc) 
         
         # Combines base URL and user input to search API for specific panel
-        self.url = f'{self.base_url}/panels/{url_disease_desc}/genes'
+        self.url = f'{self.base_url}/panels/{url_disease_desc}/'
         
         return self.request_data()
 
