@@ -35,7 +35,7 @@ class Database_Add:
   
 
 
-  def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,genes,transcript,genome_build,bed_file):
+  def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
     
     # exclude bedfile from check
 
@@ -60,7 +60,6 @@ class Database_Add:
          Column('GMS',String),
          Column('gene_number',Integer),
          Column('r_code',String),
-         Column('genes',String),
          Column('transcript',String),
          Column('genome_build',String),
          Column('bed_file',String),
@@ -75,7 +74,6 @@ class Database_Add:
       stmt4 = select(searches_table).where(searches_table.c.GMS == GMS)
       stmt5 = select(searches_table).where(searches_table.c.gene_number == gene_number)
       stmt6 = select(searches_table).where(searches_table.c.r_code == r_code)
-      stmt7 = select(searches_table).where(searches_table.c.genes == genes)
       stmt8 = select(searches_table).where(searches_table.c.transcript == transcript)
       stmt9 = select(searches_table).where(searches_table.c.genome_build == genome_build)
       stmt10 = select(searches_table).where(searches_table.c.bed_file == bed_file)
@@ -91,8 +89,8 @@ class Database_Add:
      
 
       if result == None:
-        result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,genes,transcript,genome_build,bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :genes, :transcript, :genome_build, :bed_file)"),
-                  [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "genes":genes,"transcript":transcript,"genome_build":genome_build,"bed_file":bed_file}],
+        result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_file)"),
+                  [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "transcript":transcript,"genome_build":genome_build,"bed_file":bed_file}],
                   )
         searches_id = result.lastrowid 
         print(searches_id)
@@ -114,9 +112,9 @@ class Database_Add:
 
 
 Database_Add.connect_db()
-Database_Add.add_new_record(pid = "gdsdfasdfsdfsfg",panel_id = 3,panel_name = "eatshit",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",genes= "asdfasdf",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
+Database_Add.add_new_record(pid = "gdsdfasdfsdfsfg",panel_id = 3,panel_name = "eatshit",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
 
-Database_Add.add_new_record(pid = "FUCK",panel_id = 3,panel_name = "3253",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",genes= "asdfasdf",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
+Database_Add.add_new_record(pid = "FUCK",panel_id = 3,panel_name = "3253",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
 
 
 import pandas as pd
