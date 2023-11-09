@@ -9,6 +9,7 @@ Welcome to PanelSearch's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
    installation
    usage
    api
