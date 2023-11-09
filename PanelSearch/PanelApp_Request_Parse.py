@@ -8,7 +8,7 @@ these within a new dictionary which is return.
 This information is also printed to the screen.
 """
 
-def pk_search_parse(input, genome_build):
+def search_parse(input, genome_build):
     # Takes the OUTPUT of the pk_search method for the PanelAppRequest class in PanelApp_API_Request.py and parses it to extract the desired information.
     
     OUTPUT = {} # Create an empty dictionary - we will store the information from the API output dictionary we wish to use in here.
@@ -69,5 +69,7 @@ def pk_search_parse(input, genome_build):
     for gene in OUTPUT['Genes']:
         for k, v in gene.items():
             print(f"{k} - {v[0]}:{v[1]}")
+
+    print(OUTPUT)
     
     return OUTPUT
