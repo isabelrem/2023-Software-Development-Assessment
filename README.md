@@ -24,7 +24,8 @@ Please see [installation instructions](https://github.com/isabelrem/2023-Softwar
 Usage
 -----
 
-Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/UserGuide.md) and [readthedocs manual](https://manchester.readthedocs.io/en/latest/)
+Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/UserGuide.md) 
+and [readthedocs manual](https://manchester.readthedocs.io/en/latest/)
 
 Contribute
 ----------

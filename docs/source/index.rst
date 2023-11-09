@@ -7,12 +7,12 @@ Welcome to PanelSearch's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+  :maxdepth: 2
+  :caption: Contents:
 
-   installation
-   usage
-   api
+  installation
+  usage
+  api
 
 Description
 -----------
