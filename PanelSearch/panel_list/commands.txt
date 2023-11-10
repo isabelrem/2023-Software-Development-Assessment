@@ -1,0 +1,6 @@
+For panel list:
+
+python3 gene_panel_tool.py [This downloads all signed-off panels from PanelApp]
+python3 gene_panel_tool.py -c [This compares your json file with the signed off panels from PanelApp to ensure you are up-to-date]
+python3 lookup.py -p R208 [This searches your json for a specific panel ID and returns all the information for it]
+python3 lookup.py -c "cardiac" [Searches for all panels containing "cardiac" and displays the results]
