@@ -1,18 +1,14 @@
 import sqlalchemy
 import pymysql
-print(sqlalchemy.__version__) # 2.0.23
+#print(pymysql.__version__) #1.4.6
+#print(sqlalchemy.__version__) # 2.0.23
 
 ## establishing connectivity - the engine 
 
 from sqlalchemy import create_engine
 
+# this is my login to my local SQL server - works for local testing purposes but won't sync.
 engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
-
-import pandas as pd
-
-table = pd.read_sql_table(table_name = "patients", con = engine)
-
-print(table)
 
 from sqlalchemy import text
 
@@ -26,6 +22,7 @@ class Database_Add:
         from sqlalchemy import create_engine
 
         engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
+        # this is my login to my local SQL server - works for local testing purposes but won't sync.
         # root = username
         # birbtime = password
         # local host = host name
@@ -37,20 +34,12 @@ class Database_Add:
 
   def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
     
-    # exclude bedfile from check
-
-    # check if searches row already exists in searches table
-    # if yes, assign patient the same search id
-    # if no, create new row in searches, grab the searches id and 
-    # assign to patient
-  
-
-  # THIS IS IF ROW DOES NOT YET EXIST IN SEARCHES TABLE
-
+ 
     with engine.connect() as conn:
       from sqlalchemy import select, Table, Column, Integer, String, MetaData
       meta = MetaData()
           
+      # initiate table object to allow use of certain functions in sqlalchemy    
       searches_table = Table(
         "searches",meta,
          Column('id',Integer,primary_key = True),
@@ -68,41 +57,74 @@ class Database_Add:
       meta.create_all(engine)
 
       from sqlalchemy import intersect_all
+
       stmt1 = select(searches_table).where(searches_table.c.panel_id == panel_id)
       stmt2 = select(searches_table).where(searches_table.c.panel_name == panel_name)
       stmt3 = select(searches_table).where(searches_table.c.panel_version == panel_version)
       stmt4 = select(searches_table).where(searches_table.c.GMS == GMS)
       stmt5 = select(searches_table).where(searches_table.c.gene_number == gene_number)
       stmt6 = select(searches_table).where(searches_table.c.r_code == r_code)
-      stmt8 = select(searches_table).where(searches_table.c.transcript == transcript)
-      stmt9 = select(searches_table).where(searches_table.c.genome_build == genome_build)
-      stmt10 = select(searches_table).where(searches_table.c.bed_file == bed_file)
+      stmt7 = select(searches_table).where(searches_table.c.transcript == transcript)
+      stmt8 = select(searches_table).where(searches_table.c.genome_build == genome_build)
+      stmt9 = select(searches_table).where(searches_table.c.bed_file == bed_file)
       
-      int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9,stmt10)
+      # looking for rows where all column values match the column values of the input - this defines the intersection we're looking for
+      int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
+      # = subselection where the intersection exists
       result = conn.execute(int)
-        
+
+      # pulls out first row of intersection - should only be one if code has worked previously  
       result = result.first()
-      print(result)
+      print(result) 
 
-      
-     
-
-      if result == None:
+    
+      if result == None: # i.e. if there is no row which matches the input given
+        
+        # insert input as new row into table
         result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_file)"),
                   [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "transcript":transcript,"genome_build":genome_build,"bed_file":bed_file}],
                   )
+        # grab the auto-generated id from the newly inserted entry
+        # so we can add the search id to the patients table
         searches_id = result.lastrowid 
         print(searches_id)
+
         conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
                        [{"patient_id":pid, "search_id":searches_id}])
         conn.commit()
 
       else:
+        # grab the search id from the intersection result
         searches_id = result[0]
-        conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
-                       [{"patient_id":pid, "search_id":searches_id}])
-        conn.commit()
+
+        # search for duplicate entries for patients table here too
+        
+        # initiate table object to allow use of certain functions in sqlalchemy    
+        patients_table = Table(
+          "patients",meta,
+          Column('id',Integer,primary_key = True),
+          Column('patient_id',String),
+          Column('search_id',String),
+        )
+        
+        meta.create_all(engine)
+
+        stmt1 = select(patients_table).where(patients_table.c.patient_id == pid)
+        stmt2 = select(patients_table).where(patients_table.c.search_id == searches_id)
+
+        int2 = intersect_all(stmt1,stmt2)
+
+        result = conn.execute(int2)
+
+        result = result.first()
+
+        if result == None:
+          conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
+                        [{"patient_id":pid, "search_id":searches_id}])
+          conn.commit()
+        else:
+           print("this record already exists")
 
         
 
@@ -112,9 +134,13 @@ class Database_Add:
 
 
 Database_Add.connect_db()
-Database_Add.add_new_record(pid = "gdsdfasdfsdfsfg",panel_id = 3,panel_name = "eatshit",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
 
-Database_Add.add_new_record(pid = "FUCK",panel_id = 3,panel_name = "3253",panel_version = 1,GMS= "yes",gene_number= 4,r_code= "R35",transcript = "safdf",genome_build = 37.5,bed_file= "sgs")
+# one entry
+Database_Add.add_new_record(pid = "O107",panel_id = 3,panel_name = "A condition",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R35", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
+# another entry with a unique combination of column values
+Database_Add.add_new_record(pid = "O206",panel_id = 3,panel_name = "Another condition",panel_version = 1,GMS= "yes",gene_number= 3,r_code= "R140",  transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
+# an entry where only the patient id is unique, the combination of the rest of the column values is not
+Database_Add.add_new_record(pid = "O333",panel_id = 3,panel_name = "Another condition",panel_version = 1,GMS= "yes",gene_number= 3,r_code= "R140", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
 
 
 import pandas as pd
