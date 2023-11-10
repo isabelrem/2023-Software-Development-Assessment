@@ -1,6 +1,3 @@
--- DROP TABLE patients
--- DROP TABLE searches
-
 -- Create panelsearch database if it does not already exist
 CREATE DATABASE IF NOT EXISTS panelsearch;
 

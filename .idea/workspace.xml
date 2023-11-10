@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c444a15-3010-4c50-bd91-df8b569ac486" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/sql/APItoSQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql/APItoSQL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/panelsearch_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/panelsearch_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/sql_schema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
