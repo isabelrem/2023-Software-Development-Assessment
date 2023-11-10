@@ -1,3 +1,6 @@
+# This file is identical to Description_Select. Why do we have both?
+
+
 """
 This script allows the user to search for
 genetic diseases in the National Test Directory
