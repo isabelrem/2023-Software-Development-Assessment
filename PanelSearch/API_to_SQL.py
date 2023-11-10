@@ -2,6 +2,7 @@ from PanelApp_API_Request import *
 from PanelApp_Request_Parse import *
 from SQL_functions import *
 
+# opens API connection
 RQ = PanelAppRequest()
 
 def PK_Parse_Data_to_SQL(pid, genome_build, PK):
@@ -38,8 +39,11 @@ def RC_Parse_Data_to_SQL(pid, genome_build, R_code):
     add_new_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file= "placeholder")
 
 
-PK_Parse_Data_to_SQL("Patient A", "GRch37", "Long QT syndrome")
-RC_Parse_Data_to_SQL("Patient B", "GRch37", "R140")
+PK_Parse_Data_to_SQL("Patient 6", "GRch37", "Cystic renal disease")
+RC_Parse_Data_to_SQL("Patient 10", "GRch37", "R195")
+
+
+# this breaks if the data in the column is too long - what to do about panels with loads of genes? specific error exception?
 
 
 
