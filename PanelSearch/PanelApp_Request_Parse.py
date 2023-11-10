@@ -76,16 +76,17 @@ def panelapp_search_parse(input, genome_build):
     if len(gene_list) > 1:
         for gene_id in gene_list[1:]:
             vv_genes_query += f'|{gene_id}'
+    
+    vv_genes_query = vv_genes_query.strip()
         
-    print(vv_genes_query)
+    print(f'HGNC list: {vv_genes_query}')
 
     # Perform a query to the VV API for that list:
     VV_REQ = VVRequest(genome_build)
     VV_RESP = VV_REQ.gene_to_transcripts(vv_genes_query, 'refseq')
 
-    print(VV_RESP.status_code)
     if VV_RESP.status_code == 200:
-        OUTPUT = vv_request_parse(VV_RESP.json, OUTPUT)
+        OUTPUT = vv_request_parse(VV_RESP.json(), OUTPUT)
 
 
     ### Print the summary of the panel ###
@@ -96,9 +97,9 @@ def panelapp_search_parse(input, genome_build):
     print(f"Gene Number: {OUTPUT['Gene Number']}")
 
     print('Gene List:')
-    print('HGNC_id  Symbol  Coords  Ensembl ID Mane_Select_Transcript')
+    print('HGNC_ID  Symbol  Coords  Ensembl_ID Mane_Select_Transcript')
     for gene in OUTPUT['Genes']:
         for k, v in gene.items():
-            print(f"{k} {v[0]}  {v[1][0]}:{v[1][1]} {v[2]}")
+            print(f"{k} {v[0]}  {v[1][0]}:{v[1][1]} {v[2]} {v[3]}")
 
     return OUTPUT

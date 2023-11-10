@@ -3,11 +3,11 @@ def vv_request_parse(vv_output, panel_dict):
     for vv_gene_record in vv_output:
         ID = vv_gene_record['hgnc']
         print(ID)
-        transcript = vv_gene_record['reference']
+        transcript = vv_gene_record['transcripts'][0]['reference']
 
         for gene_record in panel_dict['Genes']:
-            if list(gene_record.keys()[0]) == ID:
-                gene_record[id].append(transcript)
+            if list(gene_record.keys())[0] == ID:
+                gene_record[ID].append(transcript)
     
     return panel_dict
 

@@ -1,6 +1,6 @@
 # Imports:
-import requests
 import urllib.parse
+import requests
 
 class VVRequest():
     """ A class for requesting information from the VV API"""
@@ -37,7 +37,7 @@ class VVRequest():
     
 if __name__ == '__main__':
     RQ = VVRequest('GRch37')
-    RESPONSE = RQ.gene_to_transcripts('DLG1|CAV3', 'refseq')
+    RESPONSE = RQ.gene_to_transcripts('HGNC:4982', 'refseq')
 
     print(RESPONSE.status_code)
     print(RESPONSE.json())
