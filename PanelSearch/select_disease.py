@@ -10,7 +10,7 @@ panel_url = "https://panelapp.genomicsengland.co.uk/api/v1/panels/"
 
 
 # Function to get all signed off panels
-def get_signed_off_panels(url):
+def get_clinical_indications(url):
     """
     Gets GMS approved panels as a JSON file from the API link
     :return: list of panels and associated metadata
@@ -34,23 +34,19 @@ def get_signed_off_panels(url):
         if len(panels) == 0:
             raise KeyError
         else:
-            return panels
+            # Create empty list of disease names
+            clinical_indications = []
+
+            # Get list of disease names
+            for j in range(len(panels)):
+                add_disease = panels[j]['name']  # Get disease name from JSON of panel data
+                clinical_indications.append(add_disease.lower())  # Add disease name to list in lowercase
+
+            return clinical_indications
 
     except (KeyError, requests.exceptions.MissingSchema, ConnectionError):
         print("Sorry list of diseases could not be generated from the API. Please contact the authors.")
         return False
-
-
-# Get JSON of GMS approved panels
-signed_off_panels = get_signed_off_panels(panel_url)
-
-# Create empty list of disease names
-clinical_indications = []
-
-# Get list of disease names
-for j in range(len(signed_off_panels)):
-    add_disease = signed_off_panels[j]['name']  # Get disease name from JSON of panel data
-    clinical_indications.append(add_disease.lower())  # Add disease name to list in lowercase
 
 
 # Search for disease in list
@@ -88,4 +84,5 @@ def find_match(element, lst):
 
 if __name__ == '__main__':
     disease = input("Please enter keyword(s) for your genetic disease: ")  # Ask user for disease
-    find_match(disease, clinical_indications)  # Run function to search for disease in clinical indications list
+    list_clinical_indications = get_clinical_indications(panel_url)
+    find_match(disease, list_clinical_indications)  # Run function to search for disease in clinical indications list

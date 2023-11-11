@@ -7,7 +7,7 @@ this panel.
 """
 import json
 import subprocess
-from Description_Select import get_clinical_indications, find_match
+from select_disease import get_clinical_indications, find_match
 
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import search_parse
@@ -73,4 +73,5 @@ if __name__ == '__main__':
             # Convert panel data to string format for command line argument
             panel_data_str = json.dumps(panel_data)
             # Call script
-subprocess.call(["python", "generate_bed.py", panel_data_str])
+            subprocess.call(["python", "generate_bed.py", panel_data_str])
+
