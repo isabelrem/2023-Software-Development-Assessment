@@ -11,6 +11,7 @@ from Description_Select import get_clinical_indications, find_match
 
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import search_parse
+from utils.get_gene_names import gene_names
 
 
 class PanelSearch:
@@ -67,10 +68,14 @@ if __name__ == '__main__':
         print(panel_data)
         
         # Ask to generate BED
-        generate_bed = input("Generate BED file? (y/n)")
+        generate_bed = input("Generate BED file? (y/n): ")
         
         if generate_bed.lower() == 'y':
             # Convert panel data to string format for command line argument
             panel_data_str = json.dumps(panel_data)
             # Call script
-subprocess.call(["python", "generate_bed.py", panel_data_str])
+            subprocess.call(["python", "generate_bed.py", panel_data_str])
+
+        # Get gene names for SQL database storage
+        genes = gene_names(panel_data)
+        print(genes)
