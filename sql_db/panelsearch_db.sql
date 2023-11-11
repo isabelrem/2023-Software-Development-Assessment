@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS searches(
     GMS varchar(50),
     gene_number int,
     r_code varchar(5),
+    genes varchar(250)
     transcript varchar(50),
     genome_build varchar(50),
     bed_file varchar(50), #change to JSON when there is a JSON

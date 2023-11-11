@@ -7,11 +7,11 @@ this panel.
 """
 import json
 import subprocess
-from Description_Select import get_clinical_indications, find_match
+from select_disease import get_clinical_indications, find_match
 
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import search_parse
-from utils.get_gene_names import gene_names
+from PanelSearch.get_gene_names import gene_names
 
 
 class PanelSearch:

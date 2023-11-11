@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c444a15-3010-4c50-bd91-df8b569ac486" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/get_gene_names.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql_db/sql_schema.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PanelSearch/API_to_SQL.py" beforeDir="false" afterPath="$PROJECT_DIR$/PanelSearch/API_to_SQL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PanelSearch/SQL_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/PanelSearch/SQL_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PanelSearch/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/PanelSearch/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_fun/panelsearch_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql_db/panelsearch_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_fun/sql_schema.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/get_gene_names.py" beforeDir="false" afterPath="$PROJECT_DIR$/PanelSearch/get_gene_names.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/select - duplicate.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +44,28 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.SQL_functions">
+    <configuration name="SQL_functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2023-Software-Development-Assessment" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PanelSearch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PanelSearch/SQL_functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="get_gene_names" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="2023-Software-Development-Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -51,7 +78,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/get_gene_names.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jessica\PycharmProjects\2023-Software-Development-Assessment\PanelSearch\get_gene_names.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -83,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SQL_functions" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.get_gene_names" />
       </list>
