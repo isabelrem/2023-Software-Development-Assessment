@@ -1,3 +1,9 @@
+"""
+A function which parses the json format object returned by the
+VV API and extracts the mane_select transcript from it. Adds this
+to the input dictionary.
+"""
+
 def vv_request_parse(vv_output, panel_dict):
     """ Parses the response of a gene2transcripts request to VV API, adds transcript info to panel_dict"""
     for vv_gene_record in vv_output:

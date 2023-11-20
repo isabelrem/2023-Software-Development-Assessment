@@ -1,6 +1,14 @@
+"""
+A class which contains functions to request data from the Variant
+Validator API, using a gene symbol or HGNC ID, of which the
+transcript information is the desired aspect. Functions also included
+for converting genome build strings to the necessary format.
+"""
+
 # Imports:
 import urllib.parse
 import requests
+
 
 class VVRequest():
     """ A class for requesting information from the VV API"""
@@ -34,6 +42,7 @@ class VVRequest():
         url_query = urllib.parse.quote(query)
         self.url = f"{self.base_url}VariantValidator/tools/gene2transcripts_v2/{url_query}/mane_select/{ref_type}/{self.genome_build_converted}?content-type=application%2Fjson"
         return self.request_data()
+    
     
 if __name__ == '__main__':
     RQ = VVRequest('GRch37')

@@ -1,6 +1,6 @@
 """
 A script which takes the output of a request for a gene panel from
-the PanelApp API has a large, complex dictionary and parses this
+the PanelApp API as a large, complex dictionary and parses this
 to extract the panel ID, name, GMS sign-off status, gene number,
 associated R-codes, gene names, and genomic coordinates and stores
 these within a new dictionary which is return.
@@ -12,9 +12,13 @@ from VV_API_Request import VVRequest
 from VV_Request_Parse import vv_request_parse
 
 def panelapp_search_parse(input, genome_build):
-    """Takes the OUTPUT of the pk_search method for the PanelAppRequest class in PanelApp_API_Request.py and parses it to extract the desired information."""
+    """Takes the OUTPUT of the pk_search method for the
+    PanelAppRequest class in PanelApp_API_Request.py and parses it
+    to extract the desired information."""
     
-    OUTPUT = {} # Create an empty dictionary - we will store the information from the API output dictionary we wish to use in here.
+    OUTPUT = {} 
+    # Create an empty dictionary - we will store the information
+    # from the API output dictionary we wish to use in here.
 
     # Check genome build is valid:
     if genome_build == 'GRch37':
@@ -45,19 +49,25 @@ def panelapp_search_parse(input, genome_build):
     OUTPUT['Gene Number'] = input['stats']['number_of_genes']
 
     # Extract the associated NGTD R Codes:
-    OUTPUT['R Codes'] = [x for x in input['relevant_disorders'] if # Add all items in the input['relevant disorders] list which start with R and are otherwise numbers to the dict in a list.
+    OUTPUT['R Codes'] = [x for x in input['relevant_disorders'] if
                          x.startswith('R') \
                          and x[1:].isdigit()]
-    
+    # Add all items in the input['relevant disorders] list which
+    # start with R and are otherwise numbers to the dict in a list.
+
+
     # Extract the gene symbols, HGNC IDs, Ensembl IDs, and genomic coordinates:
     OUTPUT['Genes'] = []
     
     for gene_record in input['genes']:
         SYMBOL = gene_record['gene_data']['gene_symbol']
         HGNC_ID = gene_record['gene_data']['hgnc_id']
-        LOC_INFO = list(gene_record['gene_data']['ensembl_genes'][genome_build].values()) # Must extract like this as build version number is a dict key
-                                                                                          # and I want to get the information without having to specify
-        CHROM = LOC_INFO[0]['location'].split(':')[0]                                     # this.
+        LOC_INFO = list(gene_record['gene_data']['ensembl_genes'][genome_build].values())
+        # Must extract like this as build version number is a dict key
+        # and I want to get the information without having to specify
+        # this.
+                                                                   
+        CHROM = LOC_INFO[0]['location'].split(':')[0]                                   
         COORDS = LOC_INFO[0]['location'].split(':')[-1]
 
         ENSEMBL_ID = LOC_INFO[0]['ensembl_id']
