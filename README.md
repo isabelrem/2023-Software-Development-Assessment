@@ -42,5 +42,8 @@ If you are having issues, please let us know.
 License
 -------
 
-The project is not currently licensed.
+The project is not currently licensed. MIT licence would be the most appropriate.
 
+Authors
+-------
+Isabel, Tom, Egle, and Jess
