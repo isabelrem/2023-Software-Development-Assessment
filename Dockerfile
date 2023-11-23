@@ -1,32 +1,49 @@
-# State the base image
-FROM python:3.1.2
+# syntax=docker/dockerfile:1
 
-# Set the working directory to /app
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Dockerfile reference guide at
+# https://docs.docker.com/engine/reference/builder/
+
+ARG PYTHON_VERSION=3.2
+FROM python:${PYTHON_VERSION}-slim as base
+
+# Prevents Python from writing pyc files.
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Keeps Python from buffering stdout and stderr to avoid situations where
+# the application crashes without emitting any logs due to buffering.
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# Mount the current host directory to the container's /app directory
-VOLUME /app
+# Create a non-privileged user that the app will run under.
+# See https://docs.docker.com/go/dockerfile-user-best-practices/
+ARG UID=10001
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid "${UID}" \
+    appuser
 
-# Create logging directory
-RUN mkdir /logs
+# Download dependencies as a separate step to take advantage of Docker's caching.
+# Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
+# Leverage a bind mount to requirements.txt to avoid having to copy them into
+# into this layer.
+RUN --mount=type=cache,target=/root/.cache/pip \
+    --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    python -m pip install -r requirements.txt
 
-# Update apt-get
-RUN apt-get update
+# Switch to the non-privileged user to run the application.
+USER appuser
 
-# Install git
-RUN apt-get -y install git
+# Copy the source code into the container.
+COPY . .
 
-# Upgrade pip
-RUN pip install --upgrade pip
+# Expose the port that the application listens on.
+EXPOSE 8000
 
-# Install dependencies from requirements.txt
-RUN pip install -r requirements.txt
-
-# Define the entrypoint as an empty command
-# This allows for flexibility in specifying the command when running the container.
-# You can override this by providing a command when running the container with 'docker run'.
-ENTRYPOINT []
-
-# Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container
-# to keep running in detached mode untill it it killed manually
-CMD ["python", "~/panelsearch/main.py", "tail", "-f", "/dev/null"]
+# Run the application.
+CMD python ~/panelsearch/main.py
