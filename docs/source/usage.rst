@@ -1,5 +1,5 @@
-Usage
------
+General Usage
+=============
 
 To run please type this code into the command line::
 
