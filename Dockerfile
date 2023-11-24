@@ -49,4 +49,4 @@ COPY . .
 EXPOSE 8000
 
 # Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container to keep running in detached mode untill it it killed manually
-# CMD ["python", "main.py", "tail", "-f", "/dev/null"]
+CMD ["python", "./PanelSearch/main.py", "tail", "-f", "/dev/null"]
