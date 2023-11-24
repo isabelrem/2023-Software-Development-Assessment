@@ -13,6 +13,9 @@ Welcome to PanelSearch's documentation!
   installation
   usage
   api
+  docker
+  
+
 
 Description
 -----------
@@ -21,6 +24,12 @@ A tool to manage gene panels for NHS National Genomic Testing Directory tests in
 Allows user to search for gene panels and outputs BED file.
 Search history can be saved to a database and retrieved at a later date.
 Release 1.0 of PanelSearch currently uses v5.1 of the National Genomic Testing Directory.
+
+
+Dependencies
+------------
+Python 3.1.2 or greater is required to run this app. This app connects to the PanelApp API so requires an internet connection. Also, a MySQL database is created through this app so we recommend installing MySQLWorkBench.
+
 
 Features
 --------
@@ -46,7 +55,7 @@ If you are having issues, please let us know.
 License
 -------
 
-The project is not currently licensed.
+The project is not currently licensed. An MIT licence would be most appropriate.
 
 
 
