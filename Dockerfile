@@ -4,17 +4,20 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG PYTHON_VERSION=3.2
+ARG PYTHON_VERSION=3.10
 FROM python:${PYTHON_VERSION}-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
 
-# Keeps Python from buffering stdout and stderr to avoid situations where
-# the application crashes without emitting any logs due to buffering.
+# Keeps Python from buffering stdout and stderr to avoid situations where the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
 
+# Set the working directory to /app
 WORKDIR /app
+
+# Mount the current host directory to the container's /app directory
+VOLUME /app
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
@@ -45,5 +48,5 @@ COPY . .
 # Expose the port that the application listens on.
 EXPOSE 8000
 
-# Run the application.
-CMD python ~/panelsearch/main.py
+# Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container to keep running in detached mode untill it it killed manually
+# CMD ["python", "main.py", "tail", "-f", "/dev/null"]
