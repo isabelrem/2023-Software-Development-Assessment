@@ -11,7 +11,7 @@ import datetime
 import os
 from Description_Select import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
-from PanelApp_Request_Parse import search_parse
+from PanelApp_Request_Parse import panelapp_search_parse
 
 class PanelSearch:
     """ A class for gathering the search information from the user on the commandline. """
@@ -22,7 +22,7 @@ class PanelSearch:
 
     def get_genome_build(self):
         """ Asks the user which genome build they would like genomic coordinates returned for. """
-        genome_build_choice = input('Which genome build would you like to use? Enter 1 for GRch37. Enter 2 for GRch38.\n')
+        genome_build_choice = input('Which genome build would you like to use? Enter 1 for GRCh37. Enter 2 for GRCh38.\n')
         if genome_build_choice == '1':
             return 'GRch37'
         elif genome_build_choice == '2':
@@ -44,7 +44,7 @@ class PanelSearch:
     
     def get_input_string(self):
         """ Asks the user for their search term and returns as a string. """
-        input_string = input('Enter your search term:\n')
+        input_string = input('Enter your search term: (e.g., R128 or pneumothorax)\n')
         return input_string
 
 # Define the create_bed_filename function here
@@ -71,9 +71,22 @@ if __name__ == '__main__':
         DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
         RESPONSE = REQUEST.pk_search(DISEASE_DESC)
 
+    # Error Handling for response:
+    if str(RESPONSE.status_code).startswith('50'):
+        print('A server-side issue occurred.\nPlease try again later.')
+        exit()
+    
+    elif RESPONSE.status_code == 404:
+        print('The requested panel could not be found.\nPlease review your search term and try again')
+        exit()
+    
+    if RESPONSE.status_code == 200:
+        panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+
+    ### Bed File Creation ###
     if RESPONSE:
         # Parse the response
-        panel_data = search_parse(RESPONSE.json(), SEARCH.genome_build)
+        panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
         
         # Print panel data
         print(panel_data)
