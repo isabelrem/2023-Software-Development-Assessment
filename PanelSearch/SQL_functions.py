@@ -8,7 +8,7 @@ import pymysql
 from sqlalchemy import create_engine
 
 # this is my login to my local SQL server - works for local testing purposes but won't sync.
-engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
+engine = create_engine("mysql+pymysql://root:birbtime@localhost/PanelSearch")
 
 from sqlalchemy import text
 
@@ -21,12 +21,12 @@ def connect_db():
   import pymysql
   from sqlalchemy import create_engine
 
-  engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
+  engine = create_engine("mysql+pymysql://root:birbtime@localhost/PanelSearch")
         # this is my login to my local SQL server - works for local testing purposes but won't sync.
         # root = username
         # birbtime = password
         # local host = host name
-        # panelsearch = database name
+        # PanelSearch = database name
 
   return engine # is this line necessary?
   
