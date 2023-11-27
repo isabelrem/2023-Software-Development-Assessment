@@ -7,9 +7,9 @@ this panel.
 """
 import json
 import subprocess
+from select_disease import get_clinical_indications, find_match
 import datetime
 import os
-from Description_Select import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
 
