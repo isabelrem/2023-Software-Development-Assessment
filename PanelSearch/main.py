@@ -59,8 +59,6 @@ if __name__ == '__main__':
         DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
         RESPONSE = REQUEST.pk_search(DISEASE_DESC)
 
-    
-    
     # Error Handling for response:
     if str(RESPONSE.status_code).startswith('50'):
         print('A server-side issue occurred.\nPlease try again later.')
@@ -76,7 +74,7 @@ if __name__ == '__main__':
     ### Bed File Creation ###
     if RESPONSE:
         # Parse the response
-        panel_data = search_parse(RESPONSE.json(), SEARCH.genome_build)
+        panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
         
         # Print panel data
         print(panel_data)
