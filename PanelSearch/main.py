@@ -58,8 +58,13 @@ def create_bed_filename(panel_name, genome_build):
     formatted_panel_name = panel_name.replace(" ", "_").replace("/", "_").replace("\\", "_")
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
-    
-if __name__ == '__main__':
+
+# Run the app
+def main():
+    """
+    Use functions create above and in the other files to run PanelSearch
+    :return: PanelApp API information and BED file and allow user to store data
+    """
     SEARCH = PanelSearch()
     REQUEST = PanelAppRequest()
     RESPONSE = None
@@ -75,11 +80,11 @@ if __name__ == '__main__':
     if str(RESPONSE.status_code).startswith('50'):
         print('A server-side issue occurred.\nPlease try again later.')
         exit()
-    
+
     elif RESPONSE.status_code == 404:
         print('The requested panel could not be found.\nPlease review your search term and try again')
         exit()
-    
+
     if RESPONSE.status_code == 200:
         panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
 
@@ -87,18 +92,22 @@ if __name__ == '__main__':
     if RESPONSE:
         # Parse the response
         panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
-        
+
         # Print panel data
         print(panel_data)
-        
+
         # Ask to generate BED
         generate_bed = input("Generate BED file? (y/n)")
 
         if generate_bed.lower() == 'y':
-           panel_data_str = json.dumps(panel_data)
-           panel_name = panel_data.get("Panel Name", "UnknownPanel")
-           # Generate the filename for the BED file (also used for the corresponding JSON file)
-           filename = create_bed_filename(panel_name, SEARCH.genome_build)
-           # Call generate_bed.py to create BED and JSON files
-           subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
-           print(f"BED and JSON files will be generated as {filename} and its JSON equivalent.")
+            panel_data_str = json.dumps(panel_data)
+            panel_name = panel_data.get("Panel Name", "UnknownPanel")
+            # Generate the filename for the BED file (also used for the corresponding JSON file)
+            filename = create_bed_filename(panel_name, SEARCH.genome_build)
+            # Call generate_bed.py to create BED and JSON files
+            subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+            print(f"BED and JSON files will be generated as {filename} and its JSON equivalent.")
+
+
+if __name__ == '__main__':
+    main()
