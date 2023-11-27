@@ -25,7 +25,7 @@ Usage
 -----
 
 Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/tree/dev/UserGuide.md) 
-and [readthedocs manual](https://manchester.readthedocs.io/en/20-readme-update/)
+and [readthedocs manual](https://manchester.readthedocs.io/en/dev/)
 
 Contribute
 ----------
