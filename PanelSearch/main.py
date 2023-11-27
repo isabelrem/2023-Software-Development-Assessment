@@ -82,9 +82,10 @@ if __name__ == '__main__':
         generate_bed = input("Generate BED file? (y/n)")
 
         if generate_bed.lower() == 'y':
-            panel_data_str = json.dumps(panel_data)
-            panel_name = panel_data.get("Panel Name", "UnknownPanel")
-            # Call the create_bed_filename function to get the filename
-            filename = create_bed_filename(panel_name, SEARCH.genome_build)
-            # Use the generated filename when calling generate_bed.py
-            subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+           panel_data_str = json.dumps(panel_data)
+           panel_name = panel_data.get("Panel Name", "UnknownPanel")
+           # Generate the filename for the BED file (also used for the corresponding JSON file)
+           filename = create_bed_filename(panel_name, SEARCH.genome_build)
+           # Call generate_bed.py to create BED and JSON files
+           subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+           print(f"BED and JSON files will be generated as {filename} and its JSON equivalent.")
