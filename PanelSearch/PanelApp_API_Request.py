@@ -10,7 +10,7 @@ import urllib.parse
 import requests
 
 # Import local modules:
-import PanelApp_Request_Parse
+from PanelSearch.PanelApp_Request_Parse import *
 
 
 class PanelAppRequest():
@@ -48,7 +48,7 @@ class PanelAppRequest():
         self.url = f'{self.base_url}/panels/{r_code}/'
 
         if self.request_data().status_code == 404:
-            print("A Panel could not be found under this R-code. Please check your R-code and try again.")
+            raise ValueError("A Panel could not be found under this R-code. Please check your R-code and try again.")
 
         return self.request_data()
 

@@ -3,7 +3,7 @@ This is a test script for select_disease.py to ensure that find_match() function
 """
 
 # Import modules
-from panelsearch.select_disease import find_match, get_clinical_indications, panel_url
+from PanelSearch.select_disease import find_match, get_clinical_indications, panel_url
 
 # Test the get_clinical_indications function from select_disease.py returns user-inputted disease
 def test_get_clinical_indications_works():
