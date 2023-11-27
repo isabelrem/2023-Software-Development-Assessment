@@ -13,7 +13,7 @@ def test_request_data():
     :return: requests.exceptions.MissingSchema
     """
     data = PanelAppRequest()
-    mock_request = data.pk_search('Fetal anomalies with a likely genetic cause')  # need this for request_data to work
+    data.pk_search('Fetal anomalies with a likely genetic cause')  # need this for request_data to work
     assert type(data.request_data()) == requests.models.Response
 
 
@@ -43,7 +43,7 @@ def test_r_search_works():
 def test_r_search_fails():
     """
     This function should return panelApp API data from entering an R-code
-    :return: requests.models.Response
+    :return: ValueError
     """
     with pytest.raises(ValueError):
         data = PanelAppRequest()
