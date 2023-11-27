@@ -8,7 +8,6 @@ def vv_request_parse(vv_output, panel_dict):
     """ Parses the response of a gene2transcripts request to VV API, adds transcript info to panel_dict"""
     for vv_gene_record in vv_output:
         ID = vv_gene_record['hgnc']
-        print(ID)
         transcript = vv_gene_record['transcripts'][0]['reference']
 
         for gene_record in panel_dict['Genes']:
