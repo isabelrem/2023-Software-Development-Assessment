@@ -30,20 +30,20 @@ class VVRequest():
         if gnc:
             return gnc
         else:
-            print('Invalid genome build passed to VV Request - exiting...')
-            exit()
+            raise ValueError('Invalid genome build passed to VV Request - exiting...')
  
     def request_data(self, prms = None):
         """ Make a request to the Ensembl API and return the response"""
         return requests.get(self.url, params = prms)
     
     def gene_to_transcripts(self, query, ref_type):
-        """ Make a request to the VV API gene2transcript v2 endpoint to get back mane select transcripts"""
+        """ Make a request to the VV API gene2transcript v2 endpoint to get back MANE select transcripts"""
         url_query = urllib.parse.quote(query)
         self.url = f"{self.base_url}VariantValidator/tools/gene2transcripts_v2/{url_query}/mane_select/{ref_type}/{self.genome_build_converted}?content-type=application%2Fjson"
         return self.request_data()
     
-    
+
+# Testing purposes
 if __name__ == '__main__':
     RQ = VVRequest('GRch37')
     RESPONSE = RQ.gene_to_transcripts('HGNC:4982', 'refseq')
