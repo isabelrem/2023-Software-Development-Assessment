@@ -1,31 +1,52 @@
 """
 This script allows the user to search for
-genetic diseases in the National Test Directory
-and returns the disease in a format that is suitable
-for the /panels/{panel_pk}/genes API endpoint.
+genetic diseases in the GMS approved group of PanelApp panels
+and returns the disease for the /panels/{panel_pk}/genes API endpoint.
 """
+# Import python libraries
+import requests
 
-# Import python modules
-import pandas as pd
+panel_url = "https://panelapp.genomicsengland.co.uk/api/v1/panels/"
 
-# URL for National Genomic Test Directory
 
-def get_clinical_indications():
+# Function to get all signed off panels
+def get_clinical_indications(url):
+    """
+    Gets GMS approved panels as a JSON file from the API link
+    :return: list of panels and associated metadata
+    """
+    panels = []  # Create empty list for panel details
+    next_url = url  # PanelApp base API URL for getting all panels
+    print("Please wait. Fetching data.")  # Takes a while to get panel data so notify user
 
-    url = "https://www.england.nhs.uk/wp-content/uploads/2018/08/Rare-and-inherited-disease-national-genomic-test-directory-version-5.1.xlsx"
+    try:
+        while next_url:
+            response = requests.get(next_url)
+            response.raise_for_status()  # This will raise an error if the request fails
+            data = response.json()
+            next_url = data['next']  # URL for the next page of results
 
-    # Read National Test Directory as dataframe
-    data = pd.read_excel(url, sheet_name="R&ID indications", header=1)
-    dataFrame = pd.DataFrame(data)
+            for panel in data['results']:
+                # Check if the panel has "GMS signed-off" type
+                if any(t['slug'] == 'gms-signed-off' for t in panel['types']):
+                    panels.append(panel)
 
-    # Create dictionary of diseases from National Test Directory v5.1
-    clinical_indications = set(dataFrame["Clinical Indication"])  # set so no duplicates
-    clinical_indications = list(clinical_indications)  # convert set to list
+        if len(panels) == 0:
+            raise KeyError
+        else:
+            # Create empty list of disease names
+            clinical_indications = []
 
-    return clinical_indications
+            # Get list of disease names
+            for j in range(len(panels)):
+                add_disease = panels[j]['name']  # Get disease name from JSON of panel data
+                clinical_indications.append(add_disease.lower())  # Add disease name to list in lowercase
 
-# Ask user for disease
-#disease = input("Please enter disease name: ")
+            return clinical_indications
+
+    except (KeyError, requests.exceptions.MissingSchema, ConnectionError):
+        print("Sorry list of diseases could not be generated from the API. Please contact the authors.")
+        return False
 
 
 # Search for disease in list
@@ -39,9 +60,10 @@ def find_match(element, lst):
     """
     try:
         tracker = []  # List of matching clinical indications
+        element_search = element.lower()
 
         for i in range(len(lst)):
-            if element in lst[i]:
+            if element_search in lst[i]:
                 print(lst[i])
                 tracker.append(lst[i])
 
@@ -60,5 +82,7 @@ def find_match(element, lst):
         return False
 
 
-# Run function to search for disease in clinical indications list
-#find_match(disease, clinical_indications)
+if __name__ == '__main__':
+    disease = input("Please enter keyword(s) for your genetic disease: ")  # Ask user for disease
+    list_clinical_indications = get_clinical_indications(panel_url)
+    find_match(disease, list_clinical_indications)  # Run function to search for disease in clinical indications list
