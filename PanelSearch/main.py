@@ -7,11 +7,11 @@ this panel.
 """
 import json
 import subprocess
+import datetime
+import os
 from Description_Select import get_clinical_indications, find_match
-
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
-
 
 class PanelSearch:
     """ A class for gathering the search information from the user on the commandline. """
@@ -32,7 +32,7 @@ class PanelSearch:
             exit()
 
     def get_input_string_type(self):
-        """ Asks the user whether the would like to input a R-code or disease description. """
+        """ Asks the user whether they would like to input a R-code or disease description. """
         input_type = input('If you would like to search by R-code, enter 1. If you would like to enter a disease description, enter 2.\n')
         if input_type == '1':
             return 'R-code'
@@ -46,12 +46,24 @@ class PanelSearch:
         """ Asks the user for their search term and returns as a string. """
         input_string = input('Enter your search term: (e.g., R128 or pneumothorax)\n')
         return input_string
+
+# Define the create_bed_filename function here
+def create_bed_filename(panel_name, genome_build):
+    """ Creates a filename for the BED file based on the panel name, genome build, and current date. """
+    bed_files_dir = 'bed_files'
+    if not os.path.exists(bed_files_dir):
+        os.makedirs(bed_files_dir)  # Create the folder if it doesn't exist
+
+    date_str = datetime.datetime.now().strftime("%Y%m%d")
+    formatted_panel_name = panel_name.replace(" ", "_").replace("/", "_").replace("\\", "_")
+    filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
+    return os.path.join(bed_files_dir, filename)
     
 if __name__ == '__main__':
     SEARCH = PanelSearch()
     REQUEST = PanelAppRequest()
     RESPONSE = None
- 
+
     if SEARCH.input_type == 'R-code':
         RESPONSE = REQUEST.R_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
@@ -81,9 +93,11 @@ if __name__ == '__main__':
         
         # Ask to generate BED
         generate_bed = input("Generate BED file? (y/n)")
-        
+
         if generate_bed.lower() == 'y':
-            # Convert panel data to string format for command line argument
             panel_data_str = json.dumps(panel_data)
-            # Call script
-subprocess.call(["python", "generate_bed.py", panel_data_str])
+            panel_name = panel_data.get("Panel Name", "UnknownPanel")
+            # Call the create_bed_filename function to get the filename
+            filename = create_bed_filename(panel_name, SEARCH.genome_build)
+            # Use the generated filename when calling generate_bed.py
+            subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
