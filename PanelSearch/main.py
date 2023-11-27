@@ -108,6 +108,16 @@ def main():
             subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
             print(f"BED and JSON files will be generated as {filename} and its JSON equivalent.")
 
+    # Ask to save search into SQL DB
+    save_search = input("Would you like to save your search? (Y/N) ")
+    if save_search == "Y":
+        print("Your search was saved")
+    else:
+        print("Your search was not saved")
+
+    # Thank user and say goodbye
+    print("Thank you for using PanelSearch. Goodbye.")
+
 
 if __name__ == '__main__':
     main()
