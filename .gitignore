@@ -1,2 +1,3 @@
 bed_files/
 generate_bed.log
+*.json
