@@ -65,7 +65,7 @@ if __name__ == '__main__':
     RESPONSE = None
 
     if SEARCH.input_type == 'R-code':
-        RESPONSE = REQUEST.R_search(SEARCH.input)
+        RESPONSE = REQUEST.r_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
         CLIN_INDS = get_clinical_indications()
         DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
