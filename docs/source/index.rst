@@ -13,6 +13,7 @@ Welcome to PanelSearch's documentation!
   installation
   usage
   api
+  sql
   docker
   
 
