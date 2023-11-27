@@ -5,6 +5,8 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+import json
+import subprocess
 from Description_Select import get_clinical_indications, find_match
 
 from PanelApp_API_Request import PanelAppRequest
@@ -47,16 +49,16 @@ class PanelSearch:
     
 if __name__ == '__main__':
     SEARCH = PanelSearch()
-
     REQUEST = PanelAppRequest()
-
+    RESPONSE = None
+ 
     if SEARCH.input_type == 'R-code':
         RESPONSE = REQUEST.R_search(SEARCH.input)
-
-    if SEARCH.input_type == 'disease_desc':
+    elif SEARCH.input_type == 'disease_desc':
         CLIN_INDS = get_clinical_indications()
         DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
         RESPONSE = REQUEST.pk_search(DISEASE_DESC)
+
     
     
     # Error Handling for response:
@@ -70,3 +72,20 @@ if __name__ == '__main__':
     
     if RESPONSE.status_code == 200:
         panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+
+    ### Bed File Creation ###
+    if RESPONSE:
+        # Parse the response
+        panel_data = search_parse(RESPONSE.json(), SEARCH.genome_build)
+        
+        # Print panel data
+        print(panel_data)
+        
+        # Ask to generate BED
+        generate_bed = input("Generate BED file? (y/n)")
+        
+        if generate_bed.lower() == 'y':
+            # Convert panel data to string format for command line argument
+            panel_data_str = json.dumps(panel_data)
+            # Call script
+subprocess.call(["python", "generate_bed.py", panel_data_str])
