@@ -1,5 +1,21 @@
-PanelSearch
-===========
+.. PanelSearch documentation master file, created by
+   sphinx-quickstart on Thu Nov  9 14:21:39 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to PanelSearch's documentation!
+=======================================
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Contents:
+
+  installation
+  usage
+  api
+  docker
+  
+
 
 Description
 -----------
@@ -9,6 +25,12 @@ Allows user to search for gene panels and outputs BED file.
 Search history can be saved to a database and retrieved at a later date.
 Release 1.0 of PanelSearch currently uses v5.1 of the National Genomic Testing Directory.
 
+
+Dependencies
+------------
+Python 3.1.2 or greater is required to run this app. This app connects to the PanelApp API so requires an internet connection. Also, a MySQL database is created through this app so we recommend installing MySQLWorkBench https://www.mysql.com/products/workbench/ .
+
+
 Features
 --------
 
@@ -16,16 +38,7 @@ Features
 - Returns BED file
 - Saves gene panel information
 
-Installation
-------------
 
-Please see [installation instructions](https://github.com/isabelrem/2023-Software-Development-Assessment/installation.md)
-
-Usage
------
-
-Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/UserGuide.md) 
-and [readthedocs manual](https://manchester.readthedocs.io/en/latest/)
 
 Contribute
 ----------
@@ -42,8 +55,7 @@ If you are having issues, please let us know.
 License
 -------
 
-The project is not currently licensed. MIT licence would be the most appropriate.
+The project is not currently licensed. An MIT licence would be most appropriate.
 
-Authors
--------
-Isabel, Tom, Egle, and Jess
+
+
