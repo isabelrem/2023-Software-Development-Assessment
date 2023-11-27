@@ -65,11 +65,11 @@ if __name__ == '__main__':
     RESPONSE = None
 
     if SEARCH.input_type == 'R-code':
-        RESPONSE = REQUEST.R_search(SEARCH.input)
+        RESPONSE = REQUEST.r_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
-        CLIN_INDS = get_clinical_indications()
-        DISEASE_DESC = find_match(SEARCH.input, CLIN_INDS)
-        RESPONSE = REQUEST.pk_search(DISEASE_DESC)
+        clinical_indications = get_clinical_indications()
+        disease_desc = find_match(SEARCH.input, clinical_indications)
+        RESPONSE = REQUEST.pk_search(disease_desc)
 
     # Error Handling for response:
     if str(RESPONSE.status_code).startswith('50'):
@@ -100,4 +100,4 @@ if __name__ == '__main__':
             # Call the create_bed_filename function to get the filename
             filename = create_bed_filename(panel_name, SEARCH.genome_build)
             # Use the generated filename when calling generate_bed.py
-            subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+            subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename])

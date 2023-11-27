@@ -34,14 +34,16 @@ def parse_panel_data(json_data):
     beds = []
 
     for gene_dict in genes:
-        for gene, coords in gene_dict.items():
-            chromosome, positions = coords[0], coords[1]
-            start, end = positions.split('-')
+        for hgnc_id, info in gene_dict.items():
+            symbol = info[0]
+            chr = info[1][0]
+            coords = info[1][1]
+            start, end = coords.split('-')
             bed = {
-                'chromosome': chromosome,
+                'chromosome': chr,
                 'start': str(int(start) - 1),  # Adjust start position for zero-based indexing
                 'end': end,
-                'gene': gene
+                'gene': symbol
             }
             beds.append(bed)
     
