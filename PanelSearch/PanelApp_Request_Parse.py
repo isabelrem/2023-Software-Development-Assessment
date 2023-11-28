@@ -8,8 +8,8 @@ these within a new dictionary which is return.
 This information is also printed to the screen.
 """
 
-from PanelSearch.VV_API_Request import VVRequest
-from PanelSearch.VV_Request_Parse import vv_request_parse
+from VV_API_Request import VVRequest
+from VV_Request_Parse import vv_request_parse
 
 def panelapp_search_parse(input, genome_build):
     """Takes the OUTPUT of the pk_search method for the

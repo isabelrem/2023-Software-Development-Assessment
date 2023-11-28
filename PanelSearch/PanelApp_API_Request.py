@@ -10,7 +10,7 @@ import urllib.parse
 import requests
 
 # Import local modules:
-from PanelSearch.PanelApp_Request_Parse import *
+from PanelApp_Request_Parse import *
 
 
 class PanelAppRequest():

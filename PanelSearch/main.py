@@ -8,11 +8,11 @@ this panel.
 # Import packages
 import json
 import subprocess
-from PanelSearch.select_disease import get_clinical_indications, find_match
+from select_disease import get_clinical_indications, find_match
 import datetime
 import os
-from PanelSearch.PanelApp_API_Request import PanelAppRequest
-from PanelSearch.PanelApp_Request_Parse import panelapp_search_parse
+from PanelApp_API_Request import PanelAppRequest
+from PanelApp_Request_Parse import panelapp_search_parse
 
 # Run App
 class PanelSearch:
