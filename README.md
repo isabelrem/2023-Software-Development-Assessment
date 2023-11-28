@@ -27,6 +27,12 @@ Usage
 Please see [user guide](https://github.com/isabelrem/2023-Software-Development-Assessment/tree/dev/UserGuide.md) 
 and [readthedocs manual](https://manchester.readthedocs.io/en/dev/)
 
+Testing
+-------
+To run tests make sure you are in the root directory before typing the following into the terminal
+
+    pytest
+
 Contribute
 ----------
 
