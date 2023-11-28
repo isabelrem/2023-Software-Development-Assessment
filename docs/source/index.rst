@@ -40,6 +40,12 @@ Features
 - Saves gene panel information
 
 
+Testing
+-------
+To run tests make sure you are in the root directory before typing the following into the terminal::
+    
+    pytest
+    
 
 Contribute
 ----------
