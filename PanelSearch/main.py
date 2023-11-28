@@ -5,14 +5,16 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+# Import packages
 import json
 import subprocess
-from select_disease import get_clinical_indications, find_match
+from PanelSearch.select_disease import get_clinical_indications, find_match
 import datetime
 import os
-from PanelApp_API_Request import PanelAppRequest
-from PanelApp_Request_Parse import panelapp_search_parse
+from PanelSearch.PanelApp_API_Request import PanelAppRequest
+from PanelSearch.PanelApp_Request_Parse import panelapp_search_parse
 
+# Run App
 class PanelSearch:
     """ A class for gathering the search information from the user on the commandline. """
     def __init__(self):
@@ -28,8 +30,8 @@ class PanelSearch:
         elif genome_build_choice == '2':
             return 'GRch38'
         else:
-            print('Invalid option selected - exiting... Please try again.')
-            exit()
+            raise ValueError('Invalid option selected - exiting... Please try again.')
+
 
     def get_input_string_type(self):
         """ Asks the user whether they would like to input a R-code or disease description. """
@@ -39,8 +41,8 @@ class PanelSearch:
         elif input_type == '2':
             return 'disease_desc'
         else:
-            print('Invalid input type - exiting... Please try again.')
-            exit()
+            raise ValueError('Invalid input type - exiting... Please try again.')
+
     
     def get_input_string(self):
         """ Asks the user for their search term and returns as a string. """
