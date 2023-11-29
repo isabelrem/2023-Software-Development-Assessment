@@ -10,6 +10,7 @@ Welcome to PanelSearch's documentation!
   :maxdepth: 2
   :caption: Contents:
 
+  index  
   installation
   usage
   api
