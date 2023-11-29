@@ -45,6 +45,7 @@ Install recommended plugins.
 
 Head to Dashboard --> Manage Jenkins --> Plugins 
 You will need to install these extra plugins:
+
 * Git server plugin
 * GitHub Integration
 * Docker
