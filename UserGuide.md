@@ -42,7 +42,9 @@ Finally, it will ask whether you would like to save your results.
 Docker
 ------
 Build the docker image
+    
     docker build -t panelsearch .
 
 Then, run the container with an interactive option and pseudo-terminal:
+    
     docker run -i -t panelsearch
