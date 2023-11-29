@@ -15,6 +15,7 @@ Welcome to PanelSearch's documentation!
   api
   sql
   docker
+  jenkins
   
 
 
