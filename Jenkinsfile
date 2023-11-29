@@ -6,6 +6,7 @@ pipeline {
             steps {
                 // Build the project
                 echo 'Building..'
+                
                 sh '''#!/usr/bin/env bash
                     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -nv -O miniconda.sh
                     bash miniconda.sh -b -p $WORKSPACE/miniconda
@@ -13,8 +14,9 @@ pipeline {
                     conda update -q conda
                     
                     conda env create -f environment.yaml
+                    
+                    pip install -r requirements.txt
                 '''
-                sh 'pip install -r requirements.txt'
             }
         }
         stage('Test') {
