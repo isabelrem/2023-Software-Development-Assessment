@@ -6,7 +6,8 @@ Here is a useful Jenkins tutorial series: https://www.youtube.com/watch?v=pMO26j
 
 Command-line set-up
 ------------------
-
+Instructions::
+  
   # Install Jenkins
   docker pull jenkins/jenkins
   
@@ -44,13 +45,13 @@ Install recommended plugins.
 
 Head to Dashboard --> Manage Jenkins --> Plugins 
 You will need to install these extra plugins:
-- Git server plugin
-- GitHub Integration
-- Docker
-- Docker pipeline
-- Docker API
-- Pyenv Pipeline Plugin
-- docker-build-step
+* Git server plugin
+* GitHub Integration
+* Docker
+* Docker pipeline
+* Docker API
+* Pyenv Pipeline Plugin
+* docker-build-step
 
 Go to the *Dashboard* and create a new item.
 
