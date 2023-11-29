@@ -19,7 +19,7 @@ pipeline {
  //               '''
                  
                  sh 'docker build -t panelsearch .'
-                 sh 'docker run -i -t panelsearch'
+                 sh 'docker run panelsearch'
             }
         }
         stage('Test') {
