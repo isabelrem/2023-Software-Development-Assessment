@@ -35,4 +35,5 @@ pipeline {
             // This block is executed if the pipeline fails.
             echo 'Pipeline failed. Please check the logs for details.'
         }
+    }
 }
