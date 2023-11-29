@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.10-slim'
-        }
-    }
+    agent any
+          // Tried to create docker env but got docker command not recognised error
+//        docker {
+//            image 'python:3.10-slim'
+//        }
+//    }
 
     stages {
         stage('Build') {
@@ -11,6 +12,7 @@ pipeline {
                 // Build the project
                 echo 'Building..'
                 
+                // Tried to create conda env but got wget command not recognised error 
  //               sh '''#!/usr/bin/env bash
  //                   wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -nv -O miniconda.sh
  //                   bash miniconda.sh -b -p $WORKSPACE/miniconda
@@ -26,13 +28,18 @@ pipeline {
 //                 sh 'docker run -i -t panelsearch'
             }
         }
+        
         stage('Test') {
             steps {
                 // Run tests
                 echo 'Testing..'
-                sh 'pytest'
+                
+                with PythonEnv('python3') {
+                    sh 'pytest'
+                }
             }
         }
+        
         stage('Deploy') {
             steps {
                 // Deploy build
