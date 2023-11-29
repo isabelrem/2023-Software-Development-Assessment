@@ -38,3 +38,11 @@ This will output a temporary HTML page where you can copy and paste the BED file
 This BED file will be deleted after downloaded.
 
 Finally, it will ask whether you would like to save your results.
+
+Docker
+------
+Build the docker image
+    docker build -t panelsearch .
+
+Then, run the container with an interactive option and pseudo-terminal:
+    docker run -i -t panelsearch
