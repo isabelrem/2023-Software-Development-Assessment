@@ -35,6 +35,7 @@ pipeline {
                 echo 'Testing..'
                 
                 withPythonEnv('python3') {
+                    sh 'pip install pytest'
                     sh 'pytest'
                 }
             }
