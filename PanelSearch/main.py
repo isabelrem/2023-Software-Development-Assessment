@@ -87,11 +87,11 @@ def main():
         print('The requested panel could not be found.\nPlease review your search term and try again')
         exit()
 
-    if RESPONSE.status_code == 200:
-        panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+    # if RESPONSE.status_code == 200:
+    #     panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
 
     ### Bed File Creation ###
-    if RESPONSE:
+    if RESPONSE.status_code == 200:
         # Parse the response
         panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
 
