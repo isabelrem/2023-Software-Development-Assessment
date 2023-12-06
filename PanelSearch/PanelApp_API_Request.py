@@ -53,15 +53,13 @@ class PanelAppRequest():
         return self.request_data()
 
     
-if __name__ == '__main__':
-    RQ = PanelAppRequest()
+#### TESTING ###
+# RQ = PanelAppRequest()
 
+### For testing purposes ###
+# PK = 'Fetal anomalies with a likely genetic cause'
+# response = RQ.pk_search(PK)
 
+# print(f"Status Code: {response.status_code}")
 
-    ### For testing purposes ###
-    PK = 'Fetal anomalies with a likely genetic cause'
-    response = RQ.pk_search(PK)
-
-    print(f"Status Code: {response.status_code}")
-
-    #PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')
+# PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')

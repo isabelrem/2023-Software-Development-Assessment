@@ -88,7 +88,7 @@ def panelapp_search_parse(input, genome_build):
     
     vv_genes_query = vv_genes_query.strip()
         
-    print(f'HGNC list: {vv_genes_query}')
+    # print(f'HGNC list: {vv_genes_query}')
 
     # Perform a query to the VV API for that list:
     VV_REQ = VVRequest(genome_build)

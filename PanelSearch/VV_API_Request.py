@@ -44,12 +44,11 @@ class VVRequest():
     
 
 # Testing purposes
-if __name__ == '__main__':
-    RQ = VVRequest('GRch37')
-    RESPONSE = RQ.gene_to_transcripts('HGNC:4982', 'refseq')
+# RQ = VVRequest('GRch37')
+# RESPONSE = RQ.gene_to_transcripts('HGNC:4982', 'refseq')
 
-    print(RESPONSE.status_code)
-    print(RESPONSE.json())
+# print(RESPONSE.status_code)
+# print(RESPONSE.json())
 
 
     

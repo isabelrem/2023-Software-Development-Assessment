@@ -96,12 +96,12 @@ def main():
         panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
 
         # Print panel data
-        print(panel_data)
+        # print(panel_data)
 
         # Ask to generate BED
-        generate_bed = input("Generate BED file? (y/n) \n")
+        generate_bed = input("Generate BED file? (Y/N) \n")
 
-        if generate_bed.lower() == 'y':
+        if generate_bed.lower() == 'Y':
             panel_data_str = json.dumps(panel_data)
             panel_name = panel_data.get("Panel Name", "UnknownPanel")
             # Generate the filename for the BED file (also used for the corresponding JSON file)
