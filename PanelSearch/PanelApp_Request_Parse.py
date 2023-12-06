@@ -110,5 +110,5 @@ def panelapp_search_parse(input, genome_build):
     for gene in OUTPUT['Genes']:
         for k, v in gene.items():
             print(f"{k} {v[0]}  {v[1][0]}:{v[1][1]} {v[2]} {v[3]}")
-
+    
     return OUTPUT
