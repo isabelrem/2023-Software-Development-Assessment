@@ -21,10 +21,30 @@ def test_vv_request_parse():
     mock_request = data.pk_search('Brugada syndrome and cardiac sodium channel disease')
     parsed = panelapp_search_parse(mock_request.json(), 'GRch37')
 
-    # Get VV API transcripts
-    mock = VVRequest('GRch37')
-    mock_request = mock.gene_to_transcripts('HGNC:4982', 'refseq')
+    # Get Mane_Select Transcripts for each gene:
+    # Get the gene id's in a list:
+    gene_list = []
+    for gene_dict in parsed['Genes']:
+        gene_list += list(gene_dict.keys())
+
+    # Put id's in query from for VV API:
+    vv_genes_query = ''
+    vv_genes_query += gene_list[0]
+    if len(gene_list) > 1:
+        for gene_id in gene_list[1:]:
+            vv_genes_query += f'|{gene_id}'
+
+    vv_genes_query = vv_genes_query.strip()
+
+    print(f'HGNC list: {vv_genes_query}')
+
+    # Perform a query to the VV API for that list:
+    VV_REQ = VVRequest('GRch37')
+    VV_RESP = VV_REQ.gene_to_transcripts(vv_genes_query, 'refseq')
 
     # Add VV data to PanelApp dictionary
-    result = vv_request_parse(mock_request.json(), parsed)
-    assert type(result) == dict
+    if VV_RESP.status_code == 200:
+        parsed = vv_request_parse(VV_RESP.json(), parsed)
+
+    # Check output
+    assert type(parsed) == dict
