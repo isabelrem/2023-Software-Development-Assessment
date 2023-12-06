@@ -99,7 +99,7 @@ def main():
         print(panel_data)
 
         # Ask to generate BED
-        generate_bed = input("Generate BED file? (y/n)")
+        generate_bed = input("Generate BED file? (y/n) \n")
 
         if generate_bed.lower() == 'y':
             panel_data_str = json.dumps(panel_data)
@@ -111,7 +111,7 @@ def main():
             print(f"BED and JSON files will be generated as {filename} and its JSON equivalent.")
 
     # Ask to save search into SQL DB
-    save_search = input("Would you like to save your search? (Y/N) ")
+    save_search = input("Would you like to save your search? (Y/N) \n")
     if save_search == "Y":
         print("Your search was saved")
     else:
