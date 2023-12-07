@@ -8,7 +8,7 @@ import pymysql
 from sqlalchemy import create_engine
 
 # this is my login to my local SQL server - works for local testing purposes but won't sync.
-engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
+#engine = create_engine("mysql+pymysql://sql8665490:sn7HJyzVgH@sql8.freesqldatabase.com/sql8665490")
 
 from sqlalchemy import text
 
@@ -21,12 +21,13 @@ def connect_db():
   import pymysql
   from sqlalchemy import create_engine
 
-  engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
+  engine = create_engine("mysql+pymysql://user:password@35.246.44.89/panelsearch")
+
         # this is my login to my local SQL server - works for local testing purposes but won't sync.
-        # root = username
-        # birbtime = password
-        # local host = host name
-        # panelsearch = database name
+        # = username
+        #  = password
+        # = host name
+        #  = database name
 
   return engine # is this line necessary?
   
@@ -36,7 +37,7 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
   
  
   with engine.connect() as conn:
-    from sqlalchemy import select, Table, Column, Integer, String, MetaData
+    from sqlalchemy import text, select, Table, Column, Integer, String, MetaData
     meta = MetaData()
           
     # initiate table object to allow use of certain functions in sqlalchemy    
@@ -69,7 +70,7 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
     stmt9 = select(searches_table).where(searches_table.c.bed_file == bed_file)
       
     # looking for rows where all column values match the column values of the input - this defines the intersection we're looking for
-    int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
+    #int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
     # = subselection where the intersection exists
     result = conn.execute(int)
@@ -128,6 +129,9 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
       else:
         print("this record already exists")
 
+      conn.close()
+      engine.dispose()  
+
 
 
 
@@ -157,3 +161,6 @@ print(table)
 table = pd.read_sql_table(table_name = "patients", con = engine)
 
 print(table)
+
+conn.close()
+engine.dispose()  
