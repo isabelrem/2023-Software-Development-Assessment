@@ -21,6 +21,7 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
 
     add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file= "placeholder")
 
+    return "Function run"
 
 def RC_Parse_Data_to_SQL_cloud(pid, genome_build, R_code):
     response_R = RQ.r_search(R_code)
@@ -38,6 +39,7 @@ def RC_Parse_Data_to_SQL_cloud(pid, genome_build, R_code):
 
     add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file= "placeholder")
 
+    return "Function run"
 
 PK_Parse_Data_to_SQL_cloud("Uno", "GRch37", "Cystic renal disease")
 RC_Parse_Data_to_SQL_cloud("Dos", "GRch37", "R195")

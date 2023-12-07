@@ -16,7 +16,7 @@ def vv_request_parse(vv_output, panel_dict):
                 if list(gene_record.keys())[0] == ID:
                     gene_record[ID].append(transcript)
         except:
-            transcript = ""
+            transcript = "No MANE SELECT transcript found"
             for gene_record in panel_dict['Genes']:
                 if list(gene_record.keys())[0] == ID:
                     gene_record[ID].append(transcript)

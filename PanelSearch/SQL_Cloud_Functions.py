@@ -140,7 +140,8 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
                 print("this record already exists")
 
             conn.close()
-            engine.dispose()  
+            engine.dispose()
+    return "Function run"        
 
         
         
