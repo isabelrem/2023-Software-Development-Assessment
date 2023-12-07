@@ -23,7 +23,7 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
 
 
 def RC_Parse_Data_to_SQL_cloud(pid, genome_build, R_code):
-    response_R = RQ.R_search(R_code)
+    response_R = RQ.r_search(R_code)
     result = PanelApp_Request_Parse.panelapp_search_parse(response_R.json(), genome_build)
 
     #print(result)
