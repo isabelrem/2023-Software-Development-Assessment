@@ -1,26 +1,17 @@
-# progressively smaller databases as filter by each thing?
+"""
+Connect to Google Cloud-based MySQL server and save API searches to database
+"""
+# Install packages
+from sqlalchemy import *
+from pymysql import *
+import pandas as pd
 
-import sqlalchemy
-import pymysql
-#print(pymysql.__version__) #1.4.6
-#print(sqlalchemy.__version__) # 2.0.23
-
-## establishing connectivity - the engine 
-
-from sqlalchemy import create_engine
-
-from sqlalchemy import text
-
-from sqlalchemy import exists
-from sqlalchemy import select
-
-
+## Establishing connectivity - the engine
 def connect_cloud_db():
-  import sqlalchemy
-  import pymysql
-  from sqlalchemy import create_engine
-
-  engine = create_engine("mysql+pymysql://panelsearch_user:password@35.246.44.89/panelsearch")
+    """
+    Connect to the MySQL database on the cloud-hosted SQL server
+    """
+    engine = create_engine("mysql+pymysql://panelsearch_user:password@35.246.44.89/panelsearch")
 
         # this is the login to the cloud hosted SQL server
         # panelsearch_user = username
@@ -28,16 +19,17 @@ def connect_cloud_db():
         # 35.246.44.89 = host name
         # panelsearch = database name
 
-  return engine 
+    return engine
   
 
-
+# Add record to the database
 def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
-    
+    """
+    Add a new record to the searches and patients tables in the database
+    """
     engine = connect_cloud_db()
     
     with engine.connect() as conn:
-        from sqlalchemy import text, select, Table, Column, Integer, String, MetaData, intersect_all
         meta = MetaData()
 
        
@@ -141,20 +133,17 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
             conn.close()
             engine.dispose()
-    return "Function run"        
+
+    return result
 
         
-        
-add_new_cloud_record(pid = "Tres",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
-
-engine = connect_cloud_db()
-
-import pandas as pd
-
-table = pd.read_sql_table(table_name = "searches", con = engine)
-
-print(table)
-
-table = pd.read_sql_table(table_name = "patients", con = engine)
-
-print(table)
+### TESTING ###
+# add_new_cloud_record(pid = "Tres",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
+#
+# engine = connect_cloud_db()
+#
+# searches_table = pd.read_sql_table(table_name = "searches", con = engine)
+# print(table)
+#
+# patients_table = pd.read_sql_table(table_name = "patients", con = engine)
+# print(table)

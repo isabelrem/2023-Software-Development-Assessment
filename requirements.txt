@@ -8,3 +8,6 @@ myst-parser==2.0.0
 sqlalchemy==2.0.23
 google==3.0.0
 cloud-sql-python-connector==1.4.3
+pymysql==1.1.0
+sqlalchemy==2.0.23
+cryptography==41.0.7
