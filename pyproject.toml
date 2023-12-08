@@ -4,7 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "PanelSearch"
-version = "1.0"
 authors = [
     {name = "Tom"},
     {name = "Isabel"},
@@ -44,3 +43,6 @@ Homepage = "https://github.com/isabelrem/2023-Software-Development-Assessment/"
 Documentation = "https://manchester.readthedocs.io/en/dev/"
 Repository = "https://github.com/isabelrem/2023-Software-Development-Assessment"
 Issues = "https://github.com/isabelrem/2023-Software-Development-Assessment/issues"
+
+[tool.setuptools]
+packages = ["PanelSearch"]
