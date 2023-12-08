@@ -14,6 +14,7 @@ import os
 from select_disease import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
+from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
 
 # Set up logging to include both file and console logging
 log_file = 'panel_search.log'
@@ -70,6 +71,12 @@ def create_bed_filename(panel_name, genome_build):
     formatted_panel_name = panel_name.replace(" ", "_").replace("/", "_").replace("\\", "_")
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
+
+def create_sql_record(panel_name,genome_build,pid):
+    """ Description """
+    print(panel_name)
+    print(genome_build)
+    PK_Parse_Data_to_SQL_cloud(pid,genome_build,PK = panel_name)
     
 if __name__ == '__main__':
     SEARCH = PanelSearch()
@@ -108,3 +115,14 @@ if __name__ == '__main__':
                 filename = create_bed_filename(panel_name, SEARCH.genome_build)
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
                 logging.info("BED file generation initiated")
+            
+            sql_record = input("Would you like to save this search against a patient ID? (y/n)")
+            if sql_record.lower() == 'y':
+                #json_filename = filename.replace("bed","json") # implement with json later
+                
+                panel_data_str = json.dumps(panel_data)
+                panel_name = panel_data.get("Panel Name", "UnknownPanel")
+                pid = input("What patient ID would you like to save this search against?")
+                create_sql_record(panel_name,SEARCH.genome_build, pid)
+
+                # also, logging??
