@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS patients(
 CREATE TABLE IF NOT EXISTS searches(
 	id int KEY AUTO_INCREMENT, # patients.search_id
     panel_id int,
-    panel_name varchar(50),
+    panel_name varchar(500),
     panel_version varchar(50),
     GMS varchar(50),
     gene_number int,
