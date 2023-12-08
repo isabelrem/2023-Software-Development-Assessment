@@ -9,3 +9,4 @@ panel_search.log
 venv
 .idea
 /Tests/__pycache__/
+__pycache__
