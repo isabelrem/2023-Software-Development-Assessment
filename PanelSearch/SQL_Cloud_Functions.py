@@ -20,10 +20,10 @@ def connect_cloud_db():
   import pymysql
   from sqlalchemy import create_engine
 
-  engine = create_engine("mysql+pymysql://user:password@35.246.44.89/panelsearch")
+  engine = create_engine("mysql+pymysql://panelsearch_user:password@35.246.44.89/panelsearch")
 
         # this is the login to the cloud hosted SQL server
-        # user = username
+        # panelsearch_user = username
         #  password = password
         # 35.246.44.89 = host name
         # panelsearch = database name
