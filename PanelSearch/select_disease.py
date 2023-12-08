@@ -10,13 +10,15 @@ panel_url = "https://panelapp.genomicsengland.co.uk/api/v1/panels/"
 
 
 # Function to get all signed off panels
-def get_clinical_indications(url):
+def get_clinical_indications():
     """
     Gets GMS approved panels as a JSON file from the API link
     :return: list of panels and associated metadata
     """
+    panel_url = "https://panelapp.genomicsengland.co.uk/api/v1/panels/"
+    
     panels = []  # Create empty list for panel details
-    next_url = url  # PanelApp base API URL for getting all panels
+    next_url = panel_url  # PanelApp base API URL for getting all panels
     print("Please wait. Fetching data.")  # Takes a while to get panel data so notify user
 
     try:
@@ -50,7 +52,7 @@ def get_clinical_indications(url):
 
 
 # Search for disease in list
-def find_match(element, lst):
+def find_match(disease, clinical_indications_list):
     """
     Searches for disease in clinical indications list and returns
     matches. User is asked to pick genetic disease for API.
@@ -60,12 +62,12 @@ def find_match(element, lst):
     """
     try:
         tracker = []  # List of matching clinical indications
-        element_search = element.lower()
+        disease_search = disease.lower()
 
-        for i in range(len(lst)):
-            if element_search in lst[i]:
-                print(lst[i])
-                tracker.append(lst[i])
+        for i in range(len(clinical_indications_list)):
+            if disease_search in clinical_indications_list[i]:
+                print(clinical_indications_list[i])
+                tracker.append(clinical_indications_list[i])
 
         if len(tracker) == 0:
             raise ValueError
@@ -79,10 +81,9 @@ def find_match(element, lst):
 
     except ValueError:
         print("Sorry no matches found. Please try again.")
-        return False
-
+        return False   
 
 if __name__ == '__main__':
     disease = input("Please enter keyword(s) for your genetic disease: ")  # Ask user for disease
-    list_clinical_indications = get_clinical_indications(panel_url)
+    list_clinical_indications = get_clinical_indications()
     find_match(disease, list_clinical_indications)  # Run function to search for disease in clinical indications list

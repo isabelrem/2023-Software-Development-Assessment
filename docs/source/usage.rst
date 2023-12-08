@@ -27,7 +27,7 @@ Genetic disease keyword example::
     If you would like to search by R-code, enter 1. If you would like to enter a disease description, enter 2.
     > 2
     Enter your search term:
-    > Krabbe
+    > Brugada
 
 When prompted choose whether to generate a BED file::
 

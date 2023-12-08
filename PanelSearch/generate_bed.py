@@ -40,14 +40,16 @@ def parse_panel_data(json_data):
     genes = printed_panel.get('Genes', [])
     beds = []
     for gene_dict in genes:
-        for gene, coords in gene_dict.items():
-            chromosome, positions = coords[0], coords[1]
-            start, end = positions.split('-')
+        for hgnc_id, info in gene_dict.items():
+            symbol = info[0]
+            chr = info[1][0]
+            coords = info[1][1]
+            start, end = coords.split('-')
             bed = {
-                'chromosome': chromosome,
-                'start': str(int(start) - 1),  # Adjust for zero-based indexing
+                'chromosome': chr,
+                'start': str(int(start) - 1),  # Adjust start position for zero-based indexing
                 'end': end,
-                'gene': gene
+                'gene': symbol
             }
             beds.append(bed)
 
@@ -60,6 +62,9 @@ def write_bed_file(beds, filename):
     Args:
         beds (list): List of BED data.
         filename (str): Filename for the output BED file.
+
+    Returns:
+        tuple: (bool, str) Indicates success status and message.
     """
     try:
         # Write to BED file
@@ -67,16 +72,19 @@ def write_bed_file(beds, filename):
             for bed in beds:
                 line = f"{bed['chromosome']}\t{bed['start']}\t{bed['end']}\t{bed['gene']}\n"
                 file.write(line)
-        logging.info(f"BED file written successfully to {filename}")
 
         # Write to JSON file
         json_filename = filename.replace('.bed', '.json')
         with open(json_filename, 'w') as json_file:
             json.dump({'bed_regions': beds}, json_file, indent=4)
-        logging.info(f"JSON BED data written successfully to {json_filename}")
+
+        logging.info(f"BED and JSON files written successfully.")
+        return True, "Success"
 
     except Exception as e:
-        logging.error(f"Error writing files: {e}")
+        error_message = f"Error writing files: {e}"
+        logging.error(error_message)
+        return False, error_message
 
 def main():
     """
