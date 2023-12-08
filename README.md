@@ -48,7 +48,7 @@ If you are having issues, please let us know.
 License
 -------
 
-The project is not currently licensed. MIT licence would be the most appropriate.
+This project is [currently licensed](https://github.com/isabelrem/2023-Software-Development-Assessment/tree/dev/LICENCE) under the MIT licence.
 
 Authors
 -------
