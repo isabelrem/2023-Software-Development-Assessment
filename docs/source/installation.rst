@@ -25,6 +25,6 @@ Alternatively use the pyproject.toml file::
 
 
 
-*Then create SQL database by running panelsearch_db.sql file in MySQL Workbench.*
+**Then create SQL database by running panelsearch_db.sql file in MySQL Workbench**
 
 
