@@ -6,4 +6,6 @@ generate_bed.log
 /PanelSearch/__pycache__/
 /.idea/inspectionProfiles/profiles_settings.xml
 panel_search.log
-
+venv
+.idea
+/Tests/__pycache__/
