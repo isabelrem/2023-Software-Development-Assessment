@@ -29,3 +29,4 @@ Alternatively, use the pyproject.toml:
     # Run PanelSearch
     python main.py
     
+**Then create SQL database by running panelsearch_db.sql file in MySQL Workbench**
