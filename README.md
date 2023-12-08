@@ -20,28 +20,28 @@ Directory Tree
 -------------
     .
     ├── PanelSearch
-        ├── __init__.py
-        ├── API_to_SQL.py
-        ├── generate_bed.py
-        ├── main.py
-        ├── PanelApp_API_Request
-        ├── PanelApp_Request_Parse.py
-        ├── select_disease.py
-        ├── SQL_functions.py
-        ├── VV_API_Request.py
-        └── VV_Request_Parse.py
+    │   ├── __init__.py
+    │   ├── API_to_SQL.py
+    │   ├── generate_bed.py
+    │   ├── main.py
+    │   ├── PanelApp_API_Request
+    │   ├── PanelApp_Request_Parse.py
+    │   ├── select_disease.py
+    │   ├── SQL_functions.py
+    │   ├── VV_API_Request.py
+    │   └── VV_Request_Parse.py
     ├── sql_fun
-        ├── panelsearch_db.sql
-        └── sql_schema.png
+    │   ├── panelsearch_db.sql
+    │   └── sql_schema.png
     ├── Tests
-        ├── __init__.py
-        ├── test_generate_bed.py
-        ├── test_main.py
-        ├── test_PanelApp_API_Request.py
-        ├── test_PanelApp_Request_Parse.py
-        ├── test_select_disease.py
-        ├── test_VV_API_Request.py
-        └── test_VV_Request_Parse.py
+    │   ├── __init__.py
+    │   ├── test_generate_bed.py
+    │   ├── test_main.py
+    │   ├── test_PanelApp_API_Request.py
+    │   ├── test_PanelApp_Request_Parse.py
+    │   ├── test_select_disease.py
+    │   ├── test_VV_API_Request.py
+    │   └── test_VV_Request_Parse.py
     ├── .dockerignore
     ├── .gitignore
     ├── .readthedocs.yaml
