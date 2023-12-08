@@ -41,18 +41,33 @@ def parse_panel_data(json_data):
     beds = []
     for gene_dict in genes:
         for hgnc_id, info in gene_dict.items():
+            
+            # Basic information:
+            
+            bed = {}
+
             symbol = info[0]
             chr = info[1][0]
-            coords = info[1][1]
-            start, end = coords.split('-')
-            bed = {
-                'chromosome': chr,
-                'start': str(int(start) - 1),  # Adjust start position for zero-based indexing
-                'end': end,
-                'gene': symbol
-            }
-            beds.append(bed)
+            transcript = info[3]
 
+            bed['chromosome'] = chr
+            bed['gene'] = symbol
+            bed['transcript'] = transcript
+            bed['exons'] = []
+
+            for exon in info[4]:
+
+                exon_bed = {}
+
+                for k, v in exon.items():
+                    exon_bed['exon_no'] = k
+                    exon_bed['start'] = v[0] # Do we need to adjust for zero-based indexing
+                    exon_bed['end'] = v[1]
+                
+                bed['exons'].append(exon_bed)
+            
+            beds.append(bed)
+                
     return beds
 
 def write_bed_file(beds, filename):
@@ -69,9 +84,13 @@ def write_bed_file(beds, filename):
     try:
         # Write to BED file
         with open(filename, 'w') as file:
+            headline = 'chromosome\tstart\tend\ttranscript\tgene\texon'
+            file.write(headline)
+            
             for bed in beds:
-                line = f"{bed['chromosome']}\t{bed['start']}\t{bed['end']}\t{bed['gene']}\n"
-                file.write(line)
+                for exon in bed['exons']:
+                    line = f"\n{bed['chromosome']}\t{exon['start']}\t{exon['end']}\t{bed['transcript']}\t{bed['gene']}\t{exon['exon_no']}"
+                    file.write(line)
 
         # Write to JSON file
         json_filename = filename.replace('.bed', '.json')
