@@ -86,7 +86,6 @@ def main():
 
     if SEARCH.input_type == 'R-code':
         RESPONSE = REQUEST.r_search(SEARCH.input)
-        RESPONSE = REQUEST.r_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
         clinical_indications = get_clinical_indications()
         disease_desc = find_match(SEARCH.input, clinical_indications)
