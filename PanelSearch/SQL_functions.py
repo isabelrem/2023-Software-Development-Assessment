@@ -1,19 +1,16 @@
-import sqlalchemy
-import pymysql
+"""
+Connect to MySQL database and add new records
+"""
+# Import functions and packages
+from sqlalchemy import *
+from pymysql import *
+import pandas as pd
 #print(pymysql.__version__) #1.4.6
 #print(sqlalchemy.__version__) # 2.0.23
 
 ## establishing connectivity - the engine 
-
-from sqlalchemy import create_engine
-
 # this is my login to my local SQL server - works for local testing purposes but won't sync.
 engine = create_engine("mysql+pymysql://root:birbtime@localhost/panelsearch")
-
-from sqlalchemy import text
-
-from sqlalchemy import exists
-from sqlalchemy import select
 
 
 def connect_db():
@@ -129,15 +126,9 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
         print("this record already exists")
 
 
-
-
-        
-
-    
-
-
-
-
+####################
+# Testing and checks
+####################
 connect_db()
 
 # one entry
@@ -147,13 +138,10 @@ add_new_record(pid = "O206",panel_id = 3,panel_name = "Another condition",panel_
 # an entry where only the patient id is unique, the combination of the rest of the column values is not
 add_new_record(pid = "O333",panel_id = 3,panel_name = "Another condition",panel_version = 1,GMS= "yes",gene_number= 3,r_code= "R140", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
 
-
-import pandas as pd
-
+# Print searches table
 table = pd.read_sql_table(table_name = "searches", con = engine)
-
 print(table)
 
+# Print patients table
 table = pd.read_sql_table(table_name = "patients", con = engine)
-
 print(table)

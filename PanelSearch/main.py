@@ -5,6 +5,7 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+# Import packages
 import json
 import subprocess
 import logging
@@ -41,8 +42,8 @@ class PanelSearch:
         elif genome_build_choice == '2':
             return 'GRch38'
         else:
-            print('Invalid option selected - exiting... Please try again.')
-            exit()
+            raise ValueError('Invalid option selected - exiting... Please try again.')
+
 
     def get_input_string_type(self):
         """ Asks the user whether they would like to input a R-code or disease description. """
@@ -52,8 +53,8 @@ class PanelSearch:
         elif input_type == '2':
             return 'disease_desc'
         else:
-            print('Invalid input type - exiting... Please try again.')
-            exit()
+            raise ValueError('Invalid input type - exiting... Please try again.')
+
     
     def get_input_string(self):
         """ Asks the user for their search term and returns as a string. """
@@ -70,8 +71,13 @@ def create_bed_filename(panel_name, genome_build):
     formatted_panel_name = panel_name.replace(" ", "_").replace("/", "_").replace("\\", "_")
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
-    
-if __name__ == '__main__':
+
+# Run the app
+def main():
+    """
+    Use functions create above and in the other files to run PanelSearch
+    :return: PanelApp API information and BED file and allow user to store data
+    """
     SEARCH = PanelSearch()
     REQUEST = PanelAppRequest()
     RESPONSE = None
@@ -79,6 +85,7 @@ if __name__ == '__main__':
     logging.info("Starting PanelSearch with input type: %s", SEARCH.input_type)
 
     if SEARCH.input_type == 'R-code':
+        RESPONSE = REQUEST.r_search(SEARCH.input)
         RESPONSE = REQUEST.r_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
         clinical_indications = get_clinical_indications()
@@ -108,3 +115,17 @@ if __name__ == '__main__':
                 filename = create_bed_filename(panel_name, SEARCH.genome_build)
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
                 logging.info("BED file generation initiated")
+
+    # Ask to save search into SQL DB
+    save_search = input("Would you like to save your search? (Y/N) \n")
+    if save_search == "Y":
+        print("Your search was saved")
+    else:
+        print("Your search was not saved")
+
+    # Thank user and say goodbye
+    print("Thank you for using PanelSearch. Goodbye.")
+
+
+if __name__ == '__main__':
+    main()

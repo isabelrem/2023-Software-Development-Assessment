@@ -1,13 +1,18 @@
+"""
+Parses PanelApp API output and stores new record in MySQL Database
+"""
+# Import modules
 from PanelApp_API_Request import *
 from PanelApp_Request_Parse import *
 from SQL_functions import *
+import pandas as pd
 
 # opens API connection
 RQ = PanelAppRequest()
 
 def PK_Parse_Data_to_SQL(pid, genome_build, PK):
     response = RQ.pk_search(PK)
-    result = PanelApp_Request_Parse.search_parse(response.json(), genome_build)
+    result = panelapp_search_parse(response.json(), genome_build)
 
     #print(result)
     panel_id = result["Panel ID"]
@@ -23,8 +28,8 @@ def PK_Parse_Data_to_SQL(pid, genome_build, PK):
 
 
 def RC_Parse_Data_to_SQL(pid, genome_build, R_code):
-    response_R = RQ.R_search(R_code)
-    result = PanelApp_Request_Parse.search_parse(response_R.json(), genome_build)
+    response_R = RQ.r_search(R_code)
+    result = panelapp_search_parse(response_R.json(), genome_build)
 
     #print(result)
     panel_id = result["Panel ID"]
@@ -39,20 +44,18 @@ def RC_Parse_Data_to_SQL(pid, genome_build, R_code):
     add_new_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file= "placeholder")
 
 
+#####################
+# Testing and checks
+#####################
 PK_Parse_Data_to_SQL("Patient 6", "GRch37", "Cystic renal disease")
 RC_Parse_Data_to_SQL("Patient 10", "GRch37", "R195")
 
-
 # this breaks if the data in the column is too long - what to do about panels with loads of genes? specific error exception?
 
-
-
-import pandas as pd
-
+# View searches table
 table = pd.read_sql_table(table_name = "searches", con = engine)
-
 print(table)
 
+# View patients table
 table = pd.read_sql_table(table_name = "patients", con = engine)
-
 print(table)

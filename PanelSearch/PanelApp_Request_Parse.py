@@ -26,8 +26,7 @@ def panelapp_search_parse(input, genome_build):
     elif genome_build == 'GRch38':
         print('GRch38 build selected.')
     else:
-        print('Invalid genome build')
-        exit()
+        raise ValueError('Invalid genome build')
 
     OUTPUT['Panel ID'] = input['id']
     OUTPUT['Panel Name'] = input['name']
