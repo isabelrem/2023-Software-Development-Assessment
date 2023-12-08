@@ -10,10 +10,13 @@ Welcome to PanelSearch's documentation!
   :maxdepth: 2
   :caption: Contents:
 
+  index  
   installation
   usage
   api
+  sql
   docker
+  jenkins
   
 
 
@@ -39,6 +42,12 @@ Features
 - Saves gene panel information
 
 
+Testing
+-------
+To run tests make sure you are in the root directory before typing the following into the terminal::
+    
+    pytest
+    
 
 Contribute
 ----------

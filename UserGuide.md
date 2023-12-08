@@ -1,5 +1,5 @@
-Usage
------
+General Usage
+-------------
 
 To run please type this code into the command line::
 
@@ -27,7 +27,7 @@ Genetic disease keyword example::
     If you would like to search by R-code, enter 1. If you would like to enter a disease description, enter 2.
     > 2
     Enter your search term:
-    > Krabbe
+    > Brugada
 
 When prompted choose whether to generate a BED file::
 
@@ -38,3 +38,13 @@ This will output a temporary HTML page where you can copy and paste the BED file
 This BED file will be deleted after downloaded.
 
 Finally, it will ask whether you would like to save your results.
+
+Docker
+------
+Build the docker image
+    
+    docker build -t panelsearch .
+
+Then, run the container with an interactive option and pseudo-terminal:
+    
+    docker run -i -t panelsearch
