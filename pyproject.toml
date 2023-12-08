@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -14,7 +14,7 @@ authors = [
 description = "A tool to manage gene panels for NHS National Genomic Testing Directory tests in the laboratory."
 readme = "README.md"
 requires-python = ">=3.1.2"
-keywords = ["one", "two"]
+keywords = ["PanelApp", "VariantValidator", "Search", "Genomics", "Test", "Panel"]
 license = {text = "BSD-3-Clause"}
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -34,7 +34,6 @@ dependencies = [
     "cryptography==41.0.7",
 ]
 dynamic = ["version"]
-keywords = ["PanelApp", "VariantValidator", "Search", "Genomics", "Test", "Panel"]
 
 [project.optional-dependencies]
 pdf = ["ReportLab>=1.2", "RXP"]
