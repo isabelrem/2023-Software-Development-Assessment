@@ -7,11 +7,24 @@ this panel.
 """
 import json
 import subprocess
-from select_disease import get_clinical_indications, find_match
+import logging
+from logging.handlers import RotatingFileHandler
 import datetime
 import os
+from select_disease import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
+
+# Set up logging to include both file and console logging
+log_file = 'panel_search.log'
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s: %(message)s',
+    handlers=[
+        RotatingFileHandler(log_file, maxBytes=10000, backupCount=1),
+        logging.StreamHandler()
+    ]
+)
 
 class PanelSearch:
     """ A class for gathering the search information from the user on the commandline. """
@@ -47,7 +60,6 @@ class PanelSearch:
         input_string = input('Enter your search term: (e.g., R128 or pneumothorax)\n')
         return input_string
 
-# Define the create_bed_filename function here
 def create_bed_filename(panel_name, genome_build):
     """ Creates a filename for the BED file based on the panel name, genome build, and current date. """
     bed_files_dir = 'bed_files'
@@ -64,6 +76,8 @@ if __name__ == '__main__':
     REQUEST = PanelAppRequest()
     RESPONSE = None
 
+    logging.info("Starting PanelSearch with input type: %s", SEARCH.input_type)
+
     if SEARCH.input_type == 'R-code':
         RESPONSE = REQUEST.r_search(SEARCH.input)
     elif SEARCH.input_type == 'disease_desc':
@@ -71,33 +85,26 @@ if __name__ == '__main__':
         disease_desc = find_match(SEARCH.input, clinical_indications)
         RESPONSE = REQUEST.pk_search(disease_desc)
 
-    # Error Handling for response:
-    if str(RESPONSE.status_code).startswith('50'):
-        print('A server-side issue occurred.\nPlease try again later.')
-        exit()
-    
-    elif RESPONSE.status_code == 404:
-        print('The requested panel could not be found.\nPlease review your search term and try again')
-        exit()
-    
-    if RESPONSE.status_code == 200:
-        panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
-
-    ### Bed File Creation ###
     if RESPONSE:
-        # Parse the response
-        panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+        if str(RESPONSE.status_code).startswith('50'):
+            logging.error('Server-side issue occurred with status code: %s', RESPONSE.status_code)
+            print('A server-side issue occurred.\nPlease try again later.')
+            exit()
         
-        # Print panel data
-        print(panel_data)
+        elif RESPONSE.status_code == 404:
+            logging.warning('Requested panel not found with status code: %s', RESPONSE.status_code)
+            print('The requested panel could not be found.\nPlease review your search term and try again')
+            exit()
         
-        # Ask to generate BED
-        generate_bed = input("Generate BED file? (y/n)")
+        if RESPONSE.status_code == 200:
+            panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+            print(panel_data)
+            logging.info("Panel data processed successfully")
 
-        if generate_bed.lower() == 'y':
-            panel_data_str = json.dumps(panel_data)
-            panel_name = panel_data.get("Panel Name", "UnknownPanel")
-            # Call the create_bed_filename function to get the filename
-            filename = create_bed_filename(panel_name, SEARCH.genome_build)
-            # Use the generated filename when calling generate_bed.py
-            subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename])
+            generate_bed = input("Generate BED file? (y/n)")
+            if generate_bed.lower() == 'y':
+                panel_data_str = json.dumps(panel_data)
+                panel_name = panel_data.get("Panel Name", "UnknownPanel")
+                filename = create_bed_filename(panel_name, SEARCH.genome_build)
+                subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+                logging.info("BED file generation initiated")

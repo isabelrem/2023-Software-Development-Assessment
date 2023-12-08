@@ -62,6 +62,9 @@ def write_bed_file(beds, filename):
     Args:
         beds (list): List of BED data.
         filename (str): Filename for the output BED file.
+
+    Returns:
+        tuple: (bool, str) Indicates success status and message.
     """
     try:
         # Write to BED file
@@ -69,16 +72,19 @@ def write_bed_file(beds, filename):
             for bed in beds:
                 line = f"{bed['chromosome']}\t{bed['start']}\t{bed['end']}\t{bed['gene']}\n"
                 file.write(line)
-        logging.info(f"BED file written successfully to {filename}")
 
         # Write to JSON file
         json_filename = filename.replace('.bed', '.json')
         with open(json_filename, 'w') as json_file:
             json.dump({'bed_regions': beds}, json_file, indent=4)
-        logging.info(f"JSON BED data written successfully to {json_filename}")
+
+        logging.info(f"BED and JSON files written successfully.")
+        return True, "Success"
 
     except Exception as e:
-        logging.error(f"Error writing files: {e}")
+        error_message = f"Error writing files: {e}"
+        logging.error(error_message)
+        return False, error_message
 
 def main():
     """
