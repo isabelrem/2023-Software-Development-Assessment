@@ -24,7 +24,7 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
 
     return "Function run"
 
-####### TESTING PURPOSES
+### TESTING ###
 
 #PK_Parse_Data_to_SQL_cloud("Uno", "GRch37", "Cystic renal disease")
 #RC_Parse_Data_to_SQL_cloud("Dos", "GRch37", "R195")
