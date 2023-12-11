@@ -31,13 +31,22 @@ Genetic disease keyword example::
 
 When prompted choose whether to generate a BED file::
 
-    Generate BED file? (y/n)
-    > y
+    Generate BED file? (Y/N)
+    > Y
 
-This will output a temporary HTML page where you can copy and paste the BED file.
-This BED file will be deleted after downloaded.
+A bed_files folder will be created and your BED file can be found here.
 
-Finally, it will ask whether you would like to save your results.
+Finally, it will ask whether you would like to save your results::
+
+    Would you like to save this search against a patient ID? (Y/N)
+    > Y
+
+    What patient ID would you like to save this search against?
+    > Example123
+
+    Your search was saved
+
+    Thank you for using PanelSearch. Goodbye.
 
 Once you have finished remember to deactivate the conda environment::
 
