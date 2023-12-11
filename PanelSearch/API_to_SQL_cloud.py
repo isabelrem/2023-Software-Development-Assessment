@@ -1,6 +1,7 @@
 from PanelApp_API_Request import *
 from PanelApp_Request_Parse import *
 from SQL_Cloud_Functions import connect_cloud_db, add_new_cloud_record
+import pandas as pd
 
 # opens API connection
 RQ = PanelAppRequest()
@@ -51,17 +52,8 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
 #PK_Parse_Data_to_SQL_cloud("Uno", "GRch37", "Cystic renal disease")
 #RC_Parse_Data_to_SQL_cloud("Dos", "GRch37", "R195")
 
-
-# this breaks if the data in the column is too long - what to do about panels with loads of genes? specific error exception?
-
 #engine = connect_cloud_db()
-
-#import pandas as pd
-
 #table = pd.read_sql_table(table_name = "searches", con = engine)
-
 #print(table)
-
 #table = pd.read_sql_table(table_name = "patients", con = engine)
-
 #print(table)
