@@ -79,7 +79,7 @@ def panelapp_search_parse(input, genome_build):
     for gene_dict in OUTPUT['Genes']:
         gene_list += list(gene_dict.keys())
         
-    # Put id's in query from for VV API:
+    # Put id's in query form for VV API:
     vv_genes_query = ''
     vv_genes_query += gene_list[0]
     if len(gene_list) > 1:
@@ -91,9 +91,14 @@ def panelapp_search_parse(input, genome_build):
     # Perform a query to the VV API for that list:
     VV_REQ = VVRequest(genome_build)
     VV_RESP = VV_REQ.gene_to_transcripts(vv_genes_query, 'refseq')
-
+    
+    if VV_RESP.status_code != 200:
+        print(f'Could not get transcript and exon information from VV API.\nThe status code was: {VV_RESP.status_code}')
+        exit()
+    
     if VV_RESP.status_code == 200:
         OUTPUT = vv_request_parse(VV_RESP.json(), OUTPUT)
+    
 
 
     ### Print the summary of the panel ###

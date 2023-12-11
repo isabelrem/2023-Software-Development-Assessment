@@ -5,7 +5,9 @@ to the input dictionary.
 """
 
 def vv_request_parse(vv_output, panel_dict):
-    """ Parses the response of a gene2transcripts request to VV API, adds transcript info to panel_dict"""
+    """ Parses the response of a gene2transcripts request to VV, 
+        API adds transcript info to panel_dict"""
+    
     for vv_gene_record in vv_output:
         ID = vv_gene_record['hgnc']
         transcript = vv_gene_record['transcripts'][0]['reference']
@@ -20,8 +22,6 @@ def vv_request_parse(vv_output, panel_dict):
             trans_end = exon_record['transcript_end']
 
             exon_coords.append({exon_no : [trans_start, trans_end, gen_start, gen_end]})
-        
-        #print(f'{exon_coords}\n\n')
 
         for gene_record in panel_dict['Genes']:
             if list(gene_record.keys())[0] == ID:
