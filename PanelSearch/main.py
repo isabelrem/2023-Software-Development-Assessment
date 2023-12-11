@@ -116,13 +116,13 @@ if __name__ == '__main__':
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
                 logging.info("BED file generation initiated")
             
-            sql_record = input("Would you like to save this search against a patient ID? (y/n)")
+            sql_record = input("Would you like to save this search against a patient ID? (y/n) \n")
             if sql_record.lower() == 'y':
                 #json_filename = filename.replace("bed","json") # implement with json later
                 
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
-                pid = input("What patient ID would you like to save this search against?")
+                pid = input("What patient ID would you like to save this search against? \n")
                 create_sql_record(panel_name,SEARCH.genome_build, pid)
 
                 # also, logging??
