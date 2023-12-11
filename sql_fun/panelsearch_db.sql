@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS patients(
 CREATE TABLE IF NOT EXISTS searches(
 	id int KEY AUTO_INCREMENT, # patients.search_id
     panel_id int,
-    panel_name varchar(50),
+    panel_name varchar(500),
     panel_version varchar(50),
     GMS varchar(50),
     gene_number int,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS searches(
     transcript varchar(50),
     genome_build varchar(50),
     bed_file varchar(50), #change to JSON when there is a JSON
-    UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, genes, transcript, genome_build, bed_file)
+    UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, transcript, genome_build, bed_file)
     );
 
 
