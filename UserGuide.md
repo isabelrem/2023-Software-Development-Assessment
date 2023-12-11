@@ -34,6 +34,9 @@ When prompted choose whether to generate a BED file::
     Generate BED file? (Y/N)
     > Y
 
+    For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'.
+    > 1
+
 A bed_files folder will be created and your BED file can be found here.
 
 Finally, it will ask whether you would like to save your results::
