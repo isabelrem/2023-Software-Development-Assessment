@@ -76,8 +76,8 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
 
         # pulls out first row of intersection - should only be one if code has worked previously  
-        print(result)
-        print(result == None)
+        #print(result)
+        #print(result == None)
     
         if result == None: # i.e. if there is no row which matches the input given
 
@@ -122,7 +122,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
             
 
             result = result.first()
-            print(result)
+            #print(result)
 
             if result == None:
                 conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
