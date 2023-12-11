@@ -141,7 +141,7 @@ def main():
         
         coord_type_no = ''
         while coord_type_no != '1' and coord_type_no != '2':
-            coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'.')
+            coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'. \n')
             if coord_type_no == '1':
                 coord_type = 'trans'
             elif coord_type_no == '2':
