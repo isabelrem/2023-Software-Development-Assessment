@@ -113,7 +113,7 @@ def main():
 
         if RESPONSE.status_code == 200:
             panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
-            print(panel_data)
+            #print(panel_data)
             logging.info("Panel data processed successfully")
 
             generate_bed = input("Generate BED file? (Y/N) \n")

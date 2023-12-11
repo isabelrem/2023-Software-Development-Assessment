@@ -79,26 +79,23 @@ def panelapp_search_parse(input, genome_build):
     for gene_dict in OUTPUT['Genes']:
         gene_list += list(gene_dict.keys())
         
-    # Put id's in query form for VV API:
-    vv_genes_query = ''
-    vv_genes_query += gene_list[0]
-    if len(gene_list) > 1:
-        for gene_id in gene_list[1:]:
-            vv_genes_query += f'|{gene_id}'
+    # Put id's in query from for VV API:
+    vv_genes_query = []
+    for gene in gene_list:
+        vv_genes_query.append(gene)
     
-    vv_genes_query = vv_genes_query.strip()
+    n = 5
+    split_list = [vv_genes_query[i * n:(i + 1) * n] for i in range((len(vv_genes_query) + n - 1) // n)]
 
-    # Perform a query to the VV API for that list:
-    VV_REQ = VVRequest(genome_build)
-    VV_RESP = VV_REQ.gene_to_transcripts(vv_genes_query, 'refseq')
-    
-    if VV_RESP.status_code != 200:
-        print(f'Could not get transcript and exon information from VV API.\nThe status code was: {VV_RESP.status_code}')
-        exit()
-    
-    if VV_RESP.status_code == 200:
-        OUTPUT = vv_request_parse(VV_RESP.json(), OUTPUT)
-    
+    for split in split_list:
+        # Perform a query to the VV API for that list:
+        query_string = '|'.join(split)
+        VV_REQ = VVRequest(genome_build)
+        VV_RESP = VV_REQ.gene_to_transcripts(query_string, 'refseq')
+
+        if VV_RESP.status_code == 200:
+            OUTPUT = vv_request_parse(VV_RESP.json(), OUTPUT)
+
 
 
     ### Print the summary of the panel ###

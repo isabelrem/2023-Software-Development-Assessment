@@ -91,7 +91,7 @@ def write_bed_file(beds, filename, coord_type):
         beds (list): List of BED data.
         filename (str): Filename for the output BED file.
 
-        coord_type(str): The type of coordinates, genomic or
+        coord_type (str): The type of coordinates, genomic or
                          transcript, used to generate the bed
                          file. 
     Returns:
