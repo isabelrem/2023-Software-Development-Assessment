@@ -141,9 +141,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 # add_new_cloud_record(pid = "Tres",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
 #
 # engine = connect_cloud_db()
-#
 # searches_table = pd.read_sql_table(table_name = "searches", con = engine)
 # print(table)
-#
 # patients_table = pd.read_sql_table(table_name = "patients", con = engine)
 # print(table)
