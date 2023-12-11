@@ -31,7 +31,7 @@ Release 1.0 of PanelSearch currently uses v5.1 of the National Genomic Testing D
 
 Dependencies
 ------------
-Python 3.1.2 or greater is required to run this app. This app connects to the PanelApp API so requires an internet connection. Also, a MySQL database is created through this app so we recommend installing MySQLWorkBench https://www.mysql.com/products/workbench/ .
+Python 3.10 or greater is required to run this app. This app connects to the PanelApp API so requires an internet connection. Also, a MySQL database is created through this app so we recommend installing MySQLWorkBench https://www.mysql.com/products/workbench/ .
 
 
 Features
