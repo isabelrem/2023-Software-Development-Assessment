@@ -10,23 +10,29 @@ def vv_request_parse(vv_output, panel_dict):
     
     for vv_gene_record in vv_output:
         ID = vv_gene_record['hgnc']
-        transcript = vv_gene_record['transcripts'][0]['reference']
+        try:
+            transcript = vv_gene_record['transcripts'][0]['reference'] # if the gene record has no transcript, this line can IndexError
+        except:
+            transcript = "No MANE SELECT transcript found"
+        try:
+            exon_coords = []
+            exons_record = list(vv_gene_record['transcripts'][0]['genomic_spans'].values())[0]['exon_structure']
+            for exon_record in exons_record:
+                exon_no = exon_record['exon_number']
+                gen_start = exon_record['genomic_start']
+                gen_end = exon_record['genomic_end']
+                trans_start = exon_record['transcript_start']
+                trans_end = exon_record['transcript_end']
 
-        exon_coords = []
-        exons_record = list(vv_gene_record['transcripts'][0]['genomic_spans'].values())[0]['exon_structure']
-        for exon_record in exons_record:
-            exon_no = exon_record['exon_number']
-            gen_start = exon_record['genomic_start']
-            gen_end = exon_record['genomic_end']
-            trans_start = exon_record['transcript_start']
-            trans_end = exon_record['transcript_end']
-
-            exon_coords.append({exon_no : [trans_start, trans_end, gen_start, gen_end]})
+                exon_coords.append({exon_no : [trans_start, trans_end, gen_start, gen_end]})
+        except:
+            exon_coords.append("No exon coordinates found")
+        #print(f'{exon_coords}\n\n')
 
         for gene_record in panel_dict['Genes']:
             if list(gene_record.keys())[0] == ID:
                 gene_record[ID].append(transcript)
                 gene_record[ID].append(exon_coords)
-    
+
     return panel_dict
 
