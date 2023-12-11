@@ -27,7 +27,7 @@ def vv_request_parse(vv_output, panel_dict):
                 exon_coords.append({exon_no : [trans_start, trans_end, gen_start, gen_end]})
         except:
             exon_coords.append("No exon coordinates found")
-        #print(f'{exon_coords}\n\n')
+        print(f'{exon_coords}\n\n')
 
         for gene_record in panel_dict['Genes']:
             if list(gene_record.keys())[0] == ID:
