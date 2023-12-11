@@ -117,7 +117,7 @@ def main():
             logging.info("Panel data processed successfully")
 
             generate_bed = input("Generate BED file? (Y/N) \n")
-            if generate_bed.lower() == 'Y':
+            if generate_bed.lower() == 'y':
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 filename = create_bed_filename(panel_name, SEARCH.genome_build)
@@ -126,7 +126,7 @@ def main():
 
             # Ask to save search into SQL DB
             save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
-            if save_search.lower() == 'Y':
+            if save_search.lower() == 'y':
                 #json_filename = filename.replace("bed","json") # implement with json later
 
                 panel_data_str = json.dumps(panel_data)

@@ -97,6 +97,7 @@ def panelapp_search_parse(input, genome_build):
             OUTPUT = vv_request_parse(VV_RESP.json(), OUTPUT)
 
 
+
     ### Print the summary of the panel ###
     print(f"Panel ID: {OUTPUT['Panel ID']}")
     print(f"Panel Name: {OUTPUT['Panel Name']}")
