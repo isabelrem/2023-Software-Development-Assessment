@@ -5,6 +5,7 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+# Import packages
 import json
 import subprocess
 import logging
@@ -42,8 +43,8 @@ class PanelSearch:
         elif genome_build_choice == '2':
             return 'GRch38'
         else:
-            print('Invalid option selected - exiting... Please try again.')
-            exit()
+            raise ValueError('Invalid option selected - exiting... Please try again.')
+
 
     def get_input_string_type(self):
         """ Asks the user whether they would like to input a R-code or disease description. """
@@ -53,9 +54,9 @@ class PanelSearch:
         elif input_type == '2':
             return 'disease_desc'
         else:
-            print('Invalid input type - exiting... Please try again.')
-            exit()
-    
+            raise ValueError('Invalid input type - exiting... Please try again.')
+
+
     def get_input_string(self):
         """ Asks the user for their search term and returns as a string. """
         input_string = input('Enter your search term: (e.g., R128 or pneumothorax)\n')
@@ -72,13 +73,20 @@ def create_bed_filename(panel_name, genome_build):
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
 
+
 def create_sql_record(panel_name,genome_build,pid):
     """ Description """
     print(panel_name)
     print(genome_build)
     PK_Parse_Data_to_SQL_cloud(pid,genome_build,PK = panel_name)
-    
-if __name__ == '__main__':
+
+
+# Run the app
+def main():
+    """
+    Use functions create above and in the other files to run PanelSearch
+    :return: PanelApp API information and BED file and allow user to store data
+    """
     SEARCH = PanelSearch()
     REQUEST = PanelAppRequest()
     RESPONSE = None
@@ -97,12 +105,12 @@ if __name__ == '__main__':
             logging.error('Server-side issue occurred with status code: %s', RESPONSE.status_code)
             print('A server-side issue occurred.\nPlease try again later.')
             exit()
-        
+
         elif RESPONSE.status_code == 404:
             logging.warning('Requested panel not found with status code: %s', RESPONSE.status_code)
             print('The requested panel could not be found.\nPlease review your search term and try again')
             exit()
-        
+
         if RESPONSE.status_code == 200:
             panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
             print(panel_data)
@@ -115,14 +123,27 @@ if __name__ == '__main__':
                 filename = create_bed_filename(panel_name, SEARCH.genome_build)
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
                 logging.info("BED file generation initiated")
-            
-            sql_record = input("Would you like to save this search against a patient ID? (y/n) \n")
-            if sql_record.lower() == 'y':
+
+            # Ask to save search into SQL DB
+            save_search = input("Would you like to save this search against a patient ID? (y/n) \n")
+            if save_search.lower() == 'y':
                 #json_filename = filename.replace("bed","json") # implement with json later
-                
+
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 pid = input("What patient ID would you like to save this search against? \n")
                 create_sql_record(panel_name,SEARCH.genome_build, pid)
+                print("Your search was saved")
+            else:
+                print("Your search was not saved")
+
+
 
                 # also, logging??
+
+            # Thank user and say goodbye
+            print("Thank you for using PanelSearch. Goodbye.")
+
+if __name__ == '__main__':
+    main()
+

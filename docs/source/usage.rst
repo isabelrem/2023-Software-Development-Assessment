@@ -38,3 +38,8 @@ This will output a temporary HTML page where you can copy and paste the BED file
 This BED file will be deleted after downloaded.
 
 Finally, it will ask whether you would like to save your results.
+
+Once you have finished remember to deactivate the conda environment::
+
+    conda deactivate
+    

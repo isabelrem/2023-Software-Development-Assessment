@@ -10,7 +10,7 @@ import urllib.parse
 import requests
 
 # Import local modules:
-import PanelApp_Request_Parse
+from PanelApp_Request_Parse import *
 
 
 class PanelAppRequest():
@@ -48,20 +48,18 @@ class PanelAppRequest():
         self.url = f'{self.base_url}/panels/{r_code}/'
 
         if self.request_data().status_code == 404:
-            print("A Panel could not be found under this R-code. Please check your R-code and try again.")
+            raise ValueError("A Panel could not be found under this R-code. Please check your R-code and try again.")
 
         return self.request_data()
 
     
-if __name__ == '__main__':
-    RQ = PanelAppRequest()
+#### TESTING ###
+# RQ = PanelAppRequest()
 
+### For testing purposes ###
+# PK = 'Fetal anomalies with a likely genetic cause'
+# response = RQ.pk_search(PK)
 
+# print(f"Status Code: {response.status_code}")
 
-    ### For testing purposes ###
-    PK = 'Fetal anomalies with a likely genetic cause'
-    response = RQ.pk_search(PK)
-
-    print(f"Status Code: {response.status_code}")
-
-    #PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')
+# PanelApp_Request_Parse.pk_search_parse(response.json(), 'GRch37')

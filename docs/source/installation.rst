@@ -9,6 +9,9 @@ Install PanelSearch by running::
     # Create conda environment
     conda env create -f environment.yaml
     
+    # Activate conda environment
+    conda activate vv_panelget
+    
     # Install python packages
     pip install -r requirements.txt
 
