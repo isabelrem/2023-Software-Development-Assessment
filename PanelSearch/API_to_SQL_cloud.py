@@ -8,7 +8,7 @@ RQ = PanelAppRequest()
 
 def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
     response = RQ.pk_search(PK)
-    result = PanelApp_Request_Parse.panelapp_search_parse(response.json(), genome_build)
+    result = panelapp_search_parse(response.json(), genome_build)
 
     #print(result)
     panel_id = result["Panel ID"]
