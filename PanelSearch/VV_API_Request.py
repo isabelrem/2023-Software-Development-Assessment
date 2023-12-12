@@ -41,14 +41,6 @@ class VVRequest():
         url_query = urllib.parse.quote(query)
         self.url = f"{self.base_url}VariantValidator/tools/gene2transcripts_v2/{url_query}/mane_select/{ref_type}/{self.genome_build_converted}?content-type=application%2Fjson"
         return self.request_data()
-    
-
-# Testing purposes
-# RQ = VVRequest('GRch37')
-# RESPONSE = RQ.gene_to_transcripts('HGNC:4982', 'refseq')
-
-# print(RESPONSE.status_code)
-# print(RESPONSE.json())
 
 
     

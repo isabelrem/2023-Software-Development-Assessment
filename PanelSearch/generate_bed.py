@@ -91,7 +91,7 @@ def write_bed_file(beds, filename, coord_type):
         beds (list): List of BED data.
         filename (str): Filename for the output BED file.
 
-        coord_type(str): The type of coordinates, genomic or
+        coord_type (str): The type of coordinates, genomic or
                          transcript, used to generate the bed
                          file. 
     Returns:
@@ -141,7 +141,7 @@ def main():
         
         coord_type_no = ''
         while coord_type_no != '1' and coord_type_no != '2':
-            coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'.')
+            coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'. \n')
             if coord_type_no == '1':
                 coord_type = 'trans'
             elif coord_type_no == '2':

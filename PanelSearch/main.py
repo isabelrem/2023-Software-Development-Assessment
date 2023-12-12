@@ -106,9 +106,7 @@ def main():
     """
     SEARCH = PanelSearch()
     REQUEST = PanelAppRequest()
-    RESPONSE = None
-
-    
+    RESPONSE = None  
 
     if SEARCH.existing_or_new == 'search_new':
 
@@ -160,9 +158,7 @@ def main():
 
 
 
-                    # also, logging??
-
-                
+                    # also, logging?            
 
     else:
         # the user has selected to browse existing records saved in the SQL database
