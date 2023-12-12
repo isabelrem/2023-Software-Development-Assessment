@@ -5,8 +5,10 @@ Connect to Google Cloud-based MySQL server and save API searches to database
 from sqlalchemy import *
 from pymysql import *
 import pandas as pd
+import datetime
+import os
 
-## Establishing connectivity - the engine
+# Establishing connectivity - the engine
 def connect_cloud_db():
     """
     Connect to the MySQL database on the cloud-hosted SQL server
@@ -68,9 +70,6 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
         int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
         result = conn.execute(int).first()
-        
-        #print(result)
-              
 
         #print("/////////// CHECK 3 /////////////////")
 
@@ -136,12 +135,116 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
     return result
 
+
+def browse_cloud_records(patient_id=NULL):
+        # connect to database
+        engine = connect_cloud_db()
+        # search patient id table and searches id table separately
+        # if no patient id supplied, show all of both tables
+        # if patient id supplied, show patient entry and then ask user if they want to look at the related searches entries and if so which
+        if patient_id == '':
+             patients_table = pd.read_sql_table(table_name = "patients", con = engine)
+             searches_table = pd.read_sql_table(table_name = "searches", con = engine)
+             print("### Patients table ###")
+             print(patients_table)
+             print("### Searches table ###")
+             print(searches_table)
+             return(patients_table,searches_table)
+        else:
+             with engine.connect() as conn:
+                meta = MetaData()
+
+                patients_table = Table(
+                    "patients",meta,
+                    Column('id',Integer,primary_key = True),
+                    Column('patient_id',String),
+                    Column('search_id',String),
+                    )
+            
+                meta.create_all(engine)
+
+                stmt1 = select(patients_table).where(patients_table.c.patient_id == patient_id)
+                patients_query = pd.read_sql(stmt1, con = engine)
+
+                if patients_query.empty:
+                    print("This patient ID does not exist in the SQL database")
+                    return "This patient ID does not exist in the SQL database"
+                else:
+                    print("### Patients table for: "+ patient_id + " ###")
+                    print(patients_query)
+                    
+                    searches_request = input("Would you like to see the searches information for this patient? (y/n)")
+                    if searches_request.lower() == "y":
+                        search_ids = patients_query['search_id'].tolist()
+                        
+                        searches_table = Table(
+                            "searches",meta,
+                            Column('id',Integer,primary_key = True),
+                            Column('panel_id',Integer),
+                            Column('panel_name',String),
+                            Column('panel_version',String),
+                            Column('GMS',String),
+                            Column('gene_number',Integer),
+                            Column('r_code',String),
+                            Column('transcript',String),
+                            Column('genome_build',String),
+                            Column('bed_file',String),
+                                    )
+                        meta.create_all(engine)
+
+                        stmt2 = select(searches_table).where(searches_table.c.id.in_(search_ids))
+                        searches_query = pd.read_sql(stmt2, con = engine)
+                        print(searches_query)
+                        return patients_query,searches_query
+                    else:
+                        return patients_query
+                
+
+# def create_record_filenames(file_name):
+#     """ Creates a filename for a downloaded SQL record based on the current date. """
+#     panelsearch_downloads = 'panelsearch_downloads'
+#     if not os.path.exists(panelsearch_downloads_dir):
+#         os.makedirs(panelsearch_downloads_dir)  # Create the folder if it doesn't exist
+
+#     date_str = datetime.datetime.now().strftime("%Y%m%d")
+    
+#     patients_filename = f"{date_str}_{file_name}_patients.csv"
+#     searches_filename = f"{date_str}_{file_name}_searches.csv"
+    
+#     return os.path.join(panelsearch_downloads_dir, patients_filename), os.path.join(panelsearch_downloads_dir, searches_filename)
+
+
+def download_records(patients_dataframe,searches_dataframe,file_name = ''):
+    """ Allows the user to download their SQL search as a CSV file. """
+    file_name = file_name.replace(' ','_')
+
+    panelsearch_downloads_dir = 'panelsearch_downloads'
+    if not os.path.exists(panelsearch_downloads_dir):
+        os.makedirs(panelsearch_downloads_dir)  # Create the folder if it doesn't exist
+
+    date_str = datetime.datetime.now().strftime("%Y%m%d")
+    
+    patients_filename = f"{date_str}_{file_name}_patients.csv"
+    searches_filename = f"{date_str}_{file_name}_searches.csv"
+
+    if type(searches_dataframe) == str:
+        patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
+
+    else:
+        patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
+        searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
         
+
+
+                    
 ### TESTING ###
-# add_new_cloud_record(pid = "Tres",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
+#add_new_cloud_record(pid = "ronald",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
 #
 # engine = connect_cloud_db()
 # searches_table = pd.read_sql_table(table_name = "searches", con = engine)
 # print(table)
 # patients_table = pd.read_sql_table(table_name = "patients", con = engine)
 # print(table)
+
+#browse_cloud_records()
+#browse_cloud_records('ronald')
