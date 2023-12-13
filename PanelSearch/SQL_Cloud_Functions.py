@@ -6,21 +6,23 @@ from sqlalchemy import *
 from pymysql import *
 import pandas as pd
 
+username = 'root'
+password = 'password'
+database_name = 'panelsearch'
+database_host = 'panelsearch-container'
+
+connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+
+
 ## Establishing connectivity - the engine
 def connect_cloud_db():
     """
     Connect to the MySQL database on the cloud-hosted SQL server
     """
-    engine = create_engine("mysql+pymysql://panelsearch_user:password@35.246.44.89/panelsearch")
-
-        # this is the login to the cloud hosted SQL server
-        # panelsearch_user = username
-        #  password = password
-        # 35.246.44.89 = host name
-        # panelsearch = database name
+    engine = create_engine(connection_string)
 
     return engine
-  
+    
 
 # Add record to the database
 def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
