@@ -68,6 +68,8 @@ Docker
                 -e MYSQL_ROOT_PASSWORD=password\
               -d mysql:8
 
+    docker exec panelsearch-container mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS panelsearch;"
+
     docker exec panelsearch-container mysql -uroot -ppassword -e \
     "CREATE DATABASE IF NOT EXISTS panelsearch;\
      CREATE TABLE IF NOT EXISTS panelsearch.patients( \
