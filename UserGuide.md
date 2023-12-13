@@ -57,6 +57,39 @@ Once you have finished remember to deactivate the conda environment::
     
 
 Docker
+
+    docker network create panelsearch-network
+    
+    docker volume create panelsearch-volume
+
+    docker run --name panelsearch-container\
+                 --network panelsearch-network\
+                --volume panelsearch-volume\
+                -e MYSQL_ROOT_PASSWORD=password\
+              -d mysql:8
+
+    docker exec panelsearch-container mysql -uroot -ppassword -e \
+    "CREATE DATABASE IF NOT EXISTS panelsearch;\
+     CREATE TABLE IF NOT EXISTS panelsearch.patients( \
+                    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,\
+                    patient_id varchar(50),\
+                    search_id int);\
+     CREATE TABLE IF NOT EXISTS panelsearch.searches( \
+                    id int KEY AUTO_INCREMENT, \
+                    panel_id int, \
+                    panel_name varchar(500),\
+                    panel_version varchar(50),\
+                    GMS varchar(50),\
+                    gene_number int,\
+                    r_code varchar(5),\
+                    transcript varchar(50),\
+                    genome_build varchar(50),\
+                    bed_file varchar(50),\
+                    UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, \
+                         transcript, genome_build, bed_file)\
+                    );"
+
+
 ------
 Build the docker image
     
@@ -64,4 +97,5 @@ Build the docker image
 
 Then, run the container with an interactive option and pseudo-terminal:
     
-    docker run -i -t panelsearch
+    docker run -it --name panelsearch --volume panelsearch-volume \ --network panelsearch-network panelsearch
+
