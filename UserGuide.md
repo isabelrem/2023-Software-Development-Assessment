@@ -99,5 +99,6 @@ Build the docker image
 
 Then, run the container with an interactive option and pseudo-terminal:
     
-    docker run -it --name panelsearch --volume panelsearch-volume \ --network panelsearch-network panelsearch
+    docker run -it --name panelsearch --volume panelsearch-volume \
+    --network panelsearch-network panelsearch
 
