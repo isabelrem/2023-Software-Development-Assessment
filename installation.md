@@ -16,6 +16,7 @@ Install PanelSearch by running:
     pip install -r requirements.txt
 
     # Run PanelSearch
+    cd PanelSearch
     python main.py
 
 Alternatively, use the pyproject.toml:
