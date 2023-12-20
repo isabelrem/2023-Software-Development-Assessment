@@ -15,9 +15,7 @@ Install PanelSearch by running:
     # Install python packages
     pip install -r requirements.txt
 
-    # Run PanelSearch
-    cd PanelSearch
-    python main.py
+
 
 Alternatively, use the pyproject.toml:
     
@@ -33,7 +31,6 @@ Alternatively, use the pyproject.toml:
     # Install pyproject.toml
     pip install -e .
 
-    # Run PanelSearch
-    python main.py
+
     
 **Then create SQL database by running panelsearch_db.sql file in MySQL Workbench**
