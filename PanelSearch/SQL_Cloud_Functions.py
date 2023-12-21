@@ -173,7 +173,7 @@ def browse_cloud_records(patient_id=NULL):
                     print("### Patients table for: "+ patient_id + " ###")
                     print(patients_query)
                     
-                    searches_request = input("Would you like to see the searches information for this patient? (Y/N) /n")
+                    searches_request = input("Would you like to see the searches information for this patient? (Y/N) \n")
                     if searches_request.lower() == "y":
                         search_ids = patients_query['search_id'].tolist()
                         
