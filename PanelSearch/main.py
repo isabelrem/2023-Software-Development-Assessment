@@ -173,7 +173,7 @@ def main():
                 patients_df = result
                 searches_df = ''
                          
-            save_choice = input("Would you like to save these tables locally? (Y/N) /n")
+            save_choice = input("Would you like to save these tables locally? (Y/N) \n")
             if save_choice.lower() == "y":
                 file_name_choice = input("Please enter your desired filename: ")
                 download_records(patients_df,searches_df,file_name_choice)
