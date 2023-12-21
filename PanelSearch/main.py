@@ -135,7 +135,7 @@ def main():
                 print(panel_data)
                 logging.info("Panel data processed successfully")
 
-                generate_bed = input("Generate BED file? (y/n)")
+                generate_bed = input("Generate BED file? (Y/N) \n")
                 if generate_bed.lower() == 'y':
                     panel_data_str = json.dumps(panel_data)
                     panel_name = panel_data.get("Panel Name", "UnknownPanel")
@@ -144,7 +144,7 @@ def main():
                     logging.info("BED file generation initiated")
 
                 # Ask to save search into SQL DB
-                save_search = input("Would you like to save this search against a patient ID? (y/n) \n")
+                save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
                 if save_search.lower() == 'y':
                     #json_filename = filename.replace("bed","json") # implement with json later
 
@@ -162,7 +162,7 @@ def main():
 
     else:
         # the user has selected to browse existing records saved in the SQL database
-        pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return : ")
+        pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return/Enter: ")
         result = browse_cloud_records(patient_id=pid)
 
         if result != "This patient ID does not exist in the SQL database":
@@ -173,7 +173,7 @@ def main():
                 patients_df = result
                 searches_df = ''
                          
-            save_choice = input("Would you like to save these tables locally? (y/n)")
+            save_choice = input("Would you like to save these tables locally? (Y/N) /n")
             if save_choice.lower() == "y":
                 file_name_choice = input("Please enter your desired filename: ")
                 download_records(patients_df,searches_df,file_name_choice)
