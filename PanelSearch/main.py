@@ -53,7 +53,7 @@ class PanelSearch:
 
     def existing_or_new(self):
         """ Asks the user whether they would like to get new panel information, or browse through existing records. """
-        existing_or_new_choice = input('Enter 1 to search for new panel information. Enter 2 to browse existing PanelSearch records.')
+        existing_or_new_choice = input('Enter 1 to search for new panel information. Enter 2 to browse existing PanelSearch records. \n')
         if existing_or_new_choice == '1':
             return 'search_new'
         elif existing_or_new_choice == '2':
