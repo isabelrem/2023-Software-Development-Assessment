@@ -164,15 +164,17 @@ def main():
             else:
                 print('Invalid input - try again')
         
-        padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter.')
+        padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter. \n')
 
         if not padding_input.isnumeric() or \
             int(padding_input) < 0 or \
             int(padding_input) > 15:
                 padding_value = 5
+                print('Padding set to 5 bp.')
     
         elif 0 <= int(padding_input) <= 15:
             padding_value = int(padding_input)
+            print('Padding set to {} bp.'.format(padding_input))
         
         logging.info(f"Using a padding value of +/- {padding_value} bp.")
 
