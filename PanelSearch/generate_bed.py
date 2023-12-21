@@ -20,7 +20,7 @@ logging.basicConfig(
     ]
 )
 
-def parse_panel_data(json_data, coord_type):
+def parse_panel_data(json_data, coord_type, padding):
     """
     Parses panel data from JSON and extracts gene information.
 
@@ -30,6 +30,10 @@ def parse_panel_data(json_data, coord_type):
         coord_type (str): string specifying whether the user wants
                           genomic or transcript coordiantes in the
                           produced bed file.
+        
+        padding (int): the number of base pairs added either side
+                       of exon boundaries extracted from the VV
+                       API.
     Returns:
         list: List of dictionaries representing BED data.
     """
@@ -52,10 +56,12 @@ def parse_panel_data(json_data, coord_type):
             symbol = info[0]
             chr = info[1][0]
             transcript = info[3]
+            strand = info[5]
 
             bed['chromosome'] = chr
             bed['gene'] = symbol
             bed['transcript'] = transcript
+            bed['strand'] = strand
 
             if coord_type == 'trans':
                 bed['coordinates'] = 'transcript'
@@ -70,12 +76,20 @@ def parse_panel_data(json_data, coord_type):
 
                 for k, v in exon.items():
                     exon_bed['exon_no'] = k
+                    
                     if coord_type == 'trans':
-                        exon_bed['start'] = v[0] # Do we need to adjust for zero-based indexing
-                        exon_bed['end'] = v[1]
+                        exon_bed['start'] = int(v[0]) - padding
+                        if int(exon_bed['start']) < 0:
+                            exon_bed['start'] = 0
+                        
+                        exon_bed['end'] = v[1] + padding
+                    
                     elif coord_type == 'gen':
-                        exon_bed['start'] = str(int(v[2]) - 1)
-                        exon_bed['end'] = str(int(v[3]) - 1)
+                        exon_bed['start'] = (int(v[2]) - 1) - padding
+                        if int(exon_bed['start']) < 0:
+                            exon_bed['start'] = 0
+                        
+                        exon_bed['end'] = (int(v[3]) - 1) + padding
                 
                 bed['exons'].append(exon_bed)
             
@@ -83,7 +97,7 @@ def parse_panel_data(json_data, coord_type):
                 
     return beds
 
-def write_bed_file(beds, filename, coord_type):
+def write_bed_file(beds, filename, coord_type, genome_build):
     """
     Writes BED data to a file in both BED and JSON formats.
 
@@ -101,17 +115,17 @@ def write_bed_file(beds, filename, coord_type):
         # Write to BED file
         with open(filename, 'w') as file:
             if coord_type == 'trans':
-                headline = 'chromosome\tstart\tend\ttranscript\tgene\texon'
+                headline = 'transcript\tstart\tend\tlabel\tscore\tstrand'
             elif coord_type == 'gen':
-                headline = 'chromosome\tstart\tend\tgene\texon'
+                headline = 'chromosome\tstart\tend\tlabel\tgene\tscore\tstrand'
             file.write(headline)
             
             for bed in beds:
                 for exon in bed['exons']:
                     if coord_type == 'trans':
-                        line = f"\n{bed['chromosome']}\t{exon['start']}\t{exon['end']}\t{bed['transcript']}\t{bed['gene']}\t{exon['exon_no']}"
+                        line = f"\n{bed['transcript']}\t{exon['start']}\t{exon['end']}\t{genome_build}_{bed['gene']}_ex{exon['exon_no']}\t---\t{bed['strand']}"
                     elif coord_type == 'gen':
-                        line = f"\n{bed['chromosome']}\t{exon['start']}\t{exon['end']}\t{bed['gene']}\t{exon['exon_no']}"
+                        line = f"\n{bed['chromosome']}\t{exon['start']}\t{exon['end']}\t{bed['transcript']}_{bed['gene']}_ex{exon['exon_no']}\t---\t{bed['strand']}"
                     file.write(line)
 
         # Write to JSON file
@@ -131,13 +145,14 @@ def main():
     """
     Main function to process panel data and generate BED and JSON files.
     """
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 4:
         logging.warning("Insufficient arguments provided. Exiting.")
         sys.exit(1)
 
     try:
         printed_panel_json = sys.argv[1]
         filename = sys.argv[2]
+        genome_build = sys.argv[3]
         
         coord_type_no = ''
         while coord_type_no != '1' and coord_type_no != '2':
@@ -148,9 +163,24 @@ def main():
                 coord_type = 'gen'
             else:
                 print('Invalid input - try again')
+        
+        padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter. \n')
 
-        beds = parse_panel_data(printed_panel_json, coord_type)
-        write_bed_file(beds, filename, coord_type)
+        if not padding_input.isnumeric() or \
+            int(padding_input) < 0 or \
+            int(padding_input) > 15:
+                padding_value = 5
+                print('Padding set to 5 bp.')
+    
+        elif 0 <= int(padding_input) <= 15:
+            padding_value = int(padding_input)
+            print('Padding set to {} bp.'.format(padding_input))
+        
+        logging.info(f"Using a padding value of +/- {padding_value} bp.")
+
+
+        beds = parse_panel_data(printed_panel_json, coord_type, padding_value)
+        write_bed_file(beds, filename, coord_type, genome_build)
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         sys.exit(1)
