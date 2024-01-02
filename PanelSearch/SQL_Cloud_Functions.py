@@ -1,5 +1,6 @@
 """
-Connect to Google Cloud-based MySQL server and save API searches to database
+Connect to local MySQL server stored in a separate docker container 'panelsearch-database' 
+and save API searches to database
 """
 # Install packages
 from sqlalchemy import *
