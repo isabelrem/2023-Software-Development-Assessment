@@ -57,13 +57,6 @@ Once you have finished remember to deactivate the conda environment::
     
 
 Docker
-
-    
-    sudo groupadd docker
-
-    sudo usermod -aG docker $USER
-    
-    newgrp docker
         
     docker network create panelsearch-network
     
@@ -109,7 +102,11 @@ Then, run the container with an interactive option and pseudo-terminal:
     docker run -it --name panelsearch --volume panelsearch-volume \
     --network panelsearch-network panelsearch
 
-Docker - troubleshooting
+After having run the app once, the container should exist the interactive terminal. To reenter the interactive terminal and use the app again, enter into the command line:
+
+    docker exec -it panelsearch bash -c "python PanelSearch/main.py"
+
+Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:' 
 
     sudo groupadd docker
 
@@ -117,6 +114,11 @@ Docker - troubleshooting
     
     newgrp docker
 
+Troubleshooting error message: 'ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+    * suggested tutorial: https://phoenixnap.com/kb/mysql-server-through-socket-var-run-mysqld-mysqld-sock-2
+
+    sudo service mysql start
+    
 Docker - all code in one block for copying purposes
       
         
