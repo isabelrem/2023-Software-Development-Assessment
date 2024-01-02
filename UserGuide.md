@@ -109,13 +109,16 @@ Then, run the container with an interactive option and pseudo-terminal:
     docker run -it --name panelsearch --volume panelsearch-volume \
     --network panelsearch-network panelsearch
 
-Docker - all code in one block for copying purposes
-    
+Docker - troubleshooting
+
     sudo groupadd docker
 
     sudo usermod -aG docker $USER
     
     newgrp docker
+
+Docker - all code in one block for copying purposes
+      
         
     docker network create panelsearch-network
     
