@@ -1,11 +1,18 @@
 # syntax=docker/dockerfile:1
 
+# runs buildx within the container, important for building steps
+FROM docker
+COPY --from=docker/buildx-bin /usr/libexec/docker/cli-plug
+RUN docker buildx version
+
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG PYTHON_VERSION=3.10
-FROM python:${PYTHON_VERSION}-slim as base
+#ARG PYTHON_VERSION=3.10
+#FROM python:${PYTHON_VERSION}-slim as base
+
+FROM python:3.10-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
