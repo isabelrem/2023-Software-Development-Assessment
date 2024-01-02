@@ -2,8 +2,8 @@
 
 # runs buildx within the container, important for building steps
 FROM docker
-COPY --from=docker/buildx-bin /usr/libexec/docker/cli-plug
-RUN docker buildx version
+COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
+
 
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Dockerfile reference guide at
