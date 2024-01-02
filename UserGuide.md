@@ -57,7 +57,9 @@ Once you have finished remember to deactivate the conda environment::
     
 
 Docker
-
+    
+    sudo chmod 666 /var/run/docker.sock
+    
     docker network create panelsearch-network
     
     docker volume create panelsearch-volume
