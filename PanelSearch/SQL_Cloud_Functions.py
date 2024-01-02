@@ -9,7 +9,7 @@ import pandas as pd
 username = 'root'
 password = 'password'
 database_name = 'panelsearch'
-database_host = 'panelsearch-container'
+database_host = 'panelsearch-database'
 
 connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
 
