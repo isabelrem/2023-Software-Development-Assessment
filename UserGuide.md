@@ -56,7 +56,7 @@ Once you have finished remember to deactivate the conda environment::
     conda deactivate
     
 
-Docker
+Docker - not natively compatible with windows?? seems unecessarily unhelpful.
         
     docker network create panelsearch-network
     
