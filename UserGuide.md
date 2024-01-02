@@ -64,15 +64,15 @@ Docker
     
     docker volume create panelsearch-volume
 
-    docker run --name panelsearch-container\
+    docker run --name panelsearch-database\
                  --network panelsearch-network\
                 --volume panelsearch-volume\
                 -e MYSQL_ROOT_PASSWORD=password\
               -d mysql:8
 
-    docker exec panelsearch-container mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS panelsearch;"
+    docker exec panelsearch-database mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS panelsearch;"
 
-    docker exec panelsearch-container mysql -uroot -ppassword -e \
+    docker exec panelsearch-database mysql -uroot -ppassword -e \
     "CREATE DATABASE IF NOT EXISTS panelsearch;\
      CREATE TABLE IF NOT EXISTS panelsearch.patients( \
                     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,\
