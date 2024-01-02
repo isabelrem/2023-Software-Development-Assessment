@@ -9,6 +9,8 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
+sleep 20
+
 # install docker buildx if not present
 REQUIRED_PKG="docker-buildx"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
@@ -18,11 +20,15 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
+sleep 20
+
 # make sure user has docker permissions # uncomment for next fresh install
-#sudo groupadd docker || true
+#sudo groupadd docker 
 #sudo usermod -aG docker ${USER}
 #newgrp docker
 #echo "User permissions for docker enabled"
+
+#sleep 20
 
 #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 #sudo chmod g+rwx "$HOME/.docker" -R
@@ -30,6 +36,8 @@ fi
 # makes sure docker is running
 sudo systemctl start docker
 echo "Docker running"
+
+sleep 20
 
 # install mysql-server if not present
 REQUIRED_PKG="mysql-server"
@@ -40,13 +48,19 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
+sleep 20
+
 # create docker network for containers to connect via 
 docker network create panelsearch-network
 echo "panelsearch-network created"
 
+sleep 20
+
 # create docker volume for sql data to be stored on
 docker volume create panelsearch-volume
 echo "panelsearch-volume created"
+
+sleep 20
 
 # create mysql server in the panelsearch-database container
 docker run --name panelsearch-database\
@@ -56,9 +70,13 @@ docker run --name panelsearch-database\
           -d mysql:8
 echo "panelsearch-database container created"
 
+sleep 20
+
 # start mysql 
 #echo "mySQL running"
 sudo service mysql start
+
+sleep 20
 
 # create panelsearch database and tables on the mysql server
 docker exec panelsearch-database mysql -uroot -ppassword -e \
@@ -84,6 +102,8 @@ docker exec panelsearch-database mysql -uroot -ppassword -e \
 echo "panelsearch database created"
 echo "database tables 'searches' and 'patients' created"
 
+sleep 20
+
 # make sure user has docker permissions
 #sudo groupadd docker
 #sudo usermod -aG docker ${USER}
@@ -93,6 +113,8 @@ echo "database tables 'searches' and 'patients' created"
 # build the app docker container using the Dockerfile in the repo
 docker buildx build -t panelsearch .
 echo "panelsearch app container created"
+
+sleep 20
 
 # run the docker container for the first time
 echo "running panelsearch app... "
