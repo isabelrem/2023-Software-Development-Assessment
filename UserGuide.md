@@ -58,6 +58,14 @@ Once you have finished remember to deactivate the conda environment::
 
 Docker
 ------
+Ensure you are in the root directory.
+
+Set up the Docker version of PanelSearch automatically::
+
+    ./setup.sh
+
+
+Set up the Docker version of PanelSearch manually::
         
     docker network create panelsearch-network
     
