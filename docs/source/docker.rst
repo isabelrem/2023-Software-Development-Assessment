@@ -99,7 +99,7 @@ Troubleshooting error message: 'ERROR: Cannot connect to the Docker daemon at un
   
 
 Troubleshooting error message: "ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)" 
-* suggested tutorial: https://phoenixnap.com/kb/mysql-server-through-socket-var-run-mysqld-mysqld-sock-2 
+  * suggested tutorial: https://phoenixnap.com/kb/mysql-server-through-socket-var-run-mysqld-mysqld-sock-2 
 
 
 Try ::
