@@ -29,9 +29,14 @@ How to run the Docker container
 
 Ensure you are in the root directory (2023-Software-Development-Assessment).
 
-Create the Docker Network::
+Set up the Docker version of PanelSearch automatically::
 
-          
+    ./setup.sh
+
+
+Set up the Docker version of PanelSearch manually::
+        
+    # Create the Docker Network
     docker network create panelsearch-network
     
     docker volume create panelsearch-volume
