@@ -121,7 +121,7 @@ def main():
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 filename = create_bed_filename(panel_name, SEARCH.genome_build)
-                subprocess.call(["python", "generate_bed.py", panel_data_str, filename])
+                subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename])
                 logging.info("BED file generation initiated")
 
             # Ask to save search into SQL DB
