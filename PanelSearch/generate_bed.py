@@ -15,8 +15,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s %(levelname)s %(message)s',
     handlers=[
-        RotatingFileHandler(log_file, maxBytes=10000, backupCount=1),
-        logging.StreamHandler(sys.stdout)
+        RotatingFileHandler(log_file, maxBytes=10000, backupCount=1)
     ]
 )
 
