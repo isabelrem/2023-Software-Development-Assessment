@@ -1,6 +1,6 @@
 General Usage
 -------------
-WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.
+*WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
 
 To run please type this code into the command line::
 
@@ -60,7 +60,7 @@ Once you have finished remember to deactivate the conda environment::
 
 Docker
 ------
-WARNING: BED files will save within Docker container and database only. BED files will not save locally.
+*WARNING: BED files will save within Docker container and database only. BED files will not save locally.*
 
 Ensure you are in the root directory.
 
