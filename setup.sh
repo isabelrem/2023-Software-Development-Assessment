@@ -9,8 +9,6 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
-sleep 20
-
 # install docker buildx if not present
 REQUIRED_PKG="docker-buildx"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
@@ -19,8 +17,6 @@ if [ "" = "$PKG_OK" ]; then
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
   sudo apt-get --yes install $REQUIRED_PKG
 fi
-
-sleep 20
 
 # make sure user has docker permissions # uncomment for next fresh install
 #sudo groupadd docker 
@@ -37,8 +33,6 @@ sleep 20
 sudo systemctl start docker
 echo "Docker running"
 
-sleep 20
-
 # install mysql-server if not present
 REQUIRED_PKG="mysql-server"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
@@ -48,38 +42,42 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
-sleep 20
-
 # create docker network for containers to connect via 
 docker network create panelsearch-network
 echo "panelsearch-network created"
-
-sleep 20
 
 # create docker volume for sql data to be stored on
 docker volume create panelsearch-volume
 echo "panelsearch-volume created"
 
-sleep 20
-
 # create mysql server in the panelsearch-database container
 docker run --name panelsearch-database\
-             --network panelsearch-network\
-            --volume panelsearch-volume\
-            -e MYSQL_ROOT_PASSWORD=password\
+             --network panelsearch-network \
+            --volume panelsearch-volume \
+            -e MYSQL_ROOT_PASSWORD=password \
           -d mysql:8
 echo "panelsearch-database container created"
-
-sleep 20
 
 # start mysql 
 #echo "mySQL running"
 sudo service mysql start
-
-sleep 20
+sudo chmod -R 755 /var/run/mysqld
 
 # create panelsearch database and tables on the mysql server
-docker exec panelsearch-database mysql -uroot -ppassword -e \
+
+# Set the maximum number of attempts
+max_attempts=100
+
+# Set a counter for the number of attempts
+attempt_num=1
+
+# Set a flag to indicate whether the command was successful
+success=false
+
+# Loop until the command is successful or the maximum number of attempts is reached
+while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
+  # Execute the command
+  docker exec panelsearch-database mysql -uroot -ppassword -e \
 "CREATE DATABASE IF NOT EXISTS panelsearch;\
  CREATE TABLE IF NOT EXISTS panelsearch.patients( \
                 id int PRIMARY KEY NOT NULL AUTO_INCREMENT,\
@@ -99,10 +97,32 @@ docker exec panelsearch-database mysql -uroot -ppassword -e \
                 UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, \
                      transcript, genome_build, bed_file)\
                 );"
+
+  # Check the exit code of the command
+  if [ $? -eq 0 ]; then
+    # The command was successful
+    success=true
+  else
+    # The command was not successful
+    echo "Attempt $attempt_num failed. Trying again..."
+    # Increment the attempt counter
+    attempt_num=$(( attempt_num + 1 ))
+  fi
+done
+
+# Check if the command was successful
+if [ $success = true ]; then
+  # The command was successful
+  echo "The command was successful after $attempt_num attempts."
+else
+  # The command was not successful
+  echo "The command failed after $max_attempts attempts."
+fi
+
+
+
 echo "panelsearch database created"
 echo "database tables 'searches' and 'patients' created"
-
-sleep 20
 
 # make sure user has docker permissions
 #sudo groupadd docker
@@ -113,8 +133,6 @@ sleep 20
 # build the app docker container using the Dockerfile in the repo
 docker buildx build -t panelsearch .
 echo "panelsearch app container created"
-
-sleep 20
 
 # run the docker container for the first time
 echo "running panelsearch app... "

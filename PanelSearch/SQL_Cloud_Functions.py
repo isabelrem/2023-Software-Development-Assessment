@@ -20,8 +20,14 @@ def connect_cloud_db():
     """
     Connect to the MySQL database on the cloud-hosted SQL server
     """
-    engine = create_engine(connection_string)
-
+    # try connecting to the sql database multiple times
+    # bc sometimes mysql needs a few tries
+    engine = None
+    while engine is None:
+        try:
+            engine = create_engine(connection_string)
+        except:
+            pass
     return engine
     
 
