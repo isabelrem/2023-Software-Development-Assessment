@@ -1,6 +1,8 @@
 General Usage
 =============
 
+*WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
+
 To run please type this code into the command line::
 
     cd PanelSearch
