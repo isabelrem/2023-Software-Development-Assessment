@@ -105,6 +105,7 @@ while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
   else
     # The command was not successful
     echo "Attempt $attempt_num failed. Trying again..."
+    sleep 5
     # Increment the attempt counter
     attempt_num=$(( attempt_num + 1 ))
   fi
@@ -117,6 +118,7 @@ if [ $success = true ]; then
 else
   # The command was not successful
   echo "The command failed after $max_attempts attempts."
+  exit "Setup aborted. Please try again"
 fi
 
 
