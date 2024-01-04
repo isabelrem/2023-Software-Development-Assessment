@@ -26,8 +26,8 @@ fi
 
 #sleep 20
 
-#sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-#sudo chmod g+rwx "$HOME/.docker" -R
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
 
 # makes sure docker is running
 sudo systemctl start docker
