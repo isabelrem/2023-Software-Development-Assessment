@@ -1,7 +1,9 @@
 Docker
 =====
 
-A Docker Container is available for this app. This still needs to be refined for full functionality with MySQL.
+A Docker Container is available for this app. This still needs to be refined for full functionality with MySQL. 
+
+*WARNING: BED files will save within Docker container and database only. BED files will not save locally.*
 
 
 
