@@ -3,7 +3,8 @@ General Usage
 
 To run please type this code into the command line::
 
-    run main.py
+    cd PanelSearch
+    python main.py
 
 
 When prompted choose option 1 for the GRCh37 reference genome build or

@@ -5,6 +5,7 @@ and use these to search PanelApp, via the PanelApp API, for a
 corresponding gene panel. Return the information associated with
 this panel.
 """
+
 # Import packages
 import json
 import subprocess
@@ -17,14 +18,13 @@ from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
 from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
 
-# Set up logging to include both file and console logging
+# Set up logging to include file logging only
 log_file = 'panel_search.log'
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,  # Set to DEBUG to capture all levels of logs
     format='%(asctime)s %(levelname)s: %(message)s',
     handlers=[
-        RotatingFileHandler(log_file, maxBytes=10000, backupCount=1),
-        logging.StreamHandler()
+        RotatingFileHandler(log_file, maxBytes=50000, backupCount=1)
     ]
 )
 
@@ -45,7 +45,6 @@ class PanelSearch:
         else:
             raise ValueError('Invalid option selected - exiting... Please try again.')
 
-
     def get_input_string_type(self):
         """ Asks the user whether they would like to input a R-code or disease description. """
         input_type = input('If you would like to search by R-code, enter 1. If you would like to enter a disease description, enter 2.\n')
@@ -55,7 +54,6 @@ class PanelSearch:
             return 'disease_desc'
         else:
             raise ValueError('Invalid input type - exiting... Please try again.')
-
 
     def get_input_string(self):
         """ Asks the user for their search term and returns as a string. """
@@ -73,15 +71,12 @@ def create_bed_filename(panel_name, genome_build):
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
 
-
-def create_sql_record(panel_name,genome_build,pid):
-    """ Description """
+def create_sql_record(panel_name, genome_build, pid):
+    """ Creates a SQL record. """
     print(panel_name)
     print(genome_build)
-    PK_Parse_Data_to_SQL_cloud(pid,genome_build,PK = panel_name)
+    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name)
 
-
-# Run the app
 def main():
     """
     Use functions create above and in the other files to run PanelSearch
@@ -113,37 +108,29 @@ def main():
 
         if RESPONSE.status_code == 200:
             panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
-            #print(panel_data)
             logging.info("Panel data processed successfully")
 
             generate_bed = input("Generate BED file? (Y/N) \n")
             if generate_bed.lower() == 'y':
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
-                filename = create_bed_filename(panel_name) #,SEARCH.genome_build
+                
+                filename = create_bed_filename(panel_name,SEARCH.genome_build)
                 subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+
                 logging.info("BED file generation initiated")
 
-            # Ask to save search into SQL DB
             save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
             if save_search.lower() == 'y':
-                #json_filename = filename.replace("bed","json") # implement with json later
-
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 pid = input("What patient ID would you like to save this search against? \n")
-                create_sql_record(panel_name,SEARCH.genome_build, pid)
+                create_sql_record(panel_name, SEARCH.genome_build, pid)
                 print("Your search was saved")
             else:
                 print("Your search was not saved")
 
-
-
-                # also, logging??
-
-            # Thank user and say goodbye
-            print("Thank you for using PanelSearch. Goodbye.")
+    print("Thank you for using PanelSearch. Goodbye.")
 
 if __name__ == '__main__':
     main()
-
