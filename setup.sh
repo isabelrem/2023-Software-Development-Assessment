@@ -132,6 +132,8 @@ echo "database tables 'searches' and 'patients' created"
 #newgrp docker
 #echo "User permissions for docker enabled"
 
+chmod 777 PanelSearch/panel_search.log
+
 # build the app docker container using the Dockerfile in the repo
 docker buildx build -t panelsearch .
 echo "panelsearch app container created"
