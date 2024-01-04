@@ -114,8 +114,10 @@ def main():
             if generate_bed.lower() == 'y':
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
-                filename = create_bed_filename(panel_name, SEARCH.genome_build)
-                subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                
+                filename = create_bed_filename(panel_name,SEARCH.genome_build)
+                subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+
                 logging.info("BED file generation initiated")
 
             save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
