@@ -20,7 +20,6 @@ from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
 
 # Set up logging to include file logging only
 log_file = 'panel_search.log'
-assert os.path.isfile(log_file)
 logging.basicConfig(
     level=logging.DEBUG,  # Set to DEBUG to capture all levels of logs
     format='%(asctime)s %(levelname)s: %(message)s',
