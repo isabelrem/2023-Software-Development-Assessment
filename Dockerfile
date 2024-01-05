@@ -1,11 +1,18 @@
 # syntax=docker/dockerfile:1
 
+# runs buildx within the container, important for building steps
+FROM docker
+COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
+
+
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG PYTHON_VERSION=3.10
-FROM python:${PYTHON_VERSION}-slim as base
+#ARG PYTHON_VERSION=3.10
+#FROM python:${PYTHON_VERSION}-slim as base
+
+FROM python:3.10-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -30,7 +37,7 @@ RUN adduser \
     --no-create-home \
     --uid "${UID}" \
     appuser
-
+RUN chown appuser:appuser -R /app
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
 # Leverage a bind mount to requirements.txt to avoid having to copy them into

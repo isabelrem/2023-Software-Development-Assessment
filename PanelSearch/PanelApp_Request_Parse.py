@@ -106,9 +106,9 @@ def panelapp_search_parse(input, genome_build):
     print(f"Gene Number: {OUTPUT['Gene Number']}")
 
     print('Gene List:')
-    print('HGNC_ID  Symbol  Coords  Ensembl_ID Mane_Select_Transcript')
+    print('HGNC_ID  Symbol  Coords  Mane_Select_Transcript')
     for gene in OUTPUT['Genes']:
         for k, v in gene.items():
-            print(f"{k} {v[0]}  {v[1][0]}:{v[1][1]} {v[2]} {v[3]}")
+            print(f"{k} {v[0]}  {v[1][0]}:{v[1][1]} {v[3]}")
     
     return OUTPUT
