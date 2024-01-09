@@ -1,27 +1,28 @@
-# Setting up the app
--------------
-Users should git clone the repository to their local machine, and navigate into the top level of the repository (2023-Software-Development-Assessment/)
-
-From here, users have a few choices on how to set up.
-
-
-General Usage
--------------
+# Reccommended usage
 *WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
 
-To run please type this code into the command line::
+## Running the app in a Docker container
+*WARNING: BED files will save within Docker container and database only. BED files will not save locally.*
 
-    cd PanelSearch
-    python main.py
+Users should git clone the repository to their local machine, and navigate into the top level of the repository (2023-Software-Development-Assessment/)
 
+### Setting up using the setup.sh script
+To setup the app and to run it for the first time, users should run the following code in the top level of the repository:
 
-When prompted choose option 1 for the GRCh37 reference genome build or
-option 2 for the GRCh38::
+    ./setup.sh
 
-    Which genome build would you like to use? Enter 1 for GRCh37. Enter 2 for GRCh38.
-    > 1
+This will initiate the setup.sh script. Users will be given the choice as to whether they want to set the app up with a dockerised SQL database, or whether they want to instead connect to a cloud database. If the user chooses to use the app with a dockerised SQL database, the setup scripts will create the database container and the database within. With both choices, a docker container for the app will be created and run.
 
-When prompted, choose option 1 if you know the R-code or option 2 if you would like to
+After the app has been setup, to rerun the app users should run the following code in the top level of the repository:
+
+    ./rerun.sh
+
+This will start the necessary docker containers, and reconnect to them.
+
+### General Usage
+Once the app had begun running, there are several points at which the user is prompted for input. 
+
+When prompted for input type, choose option 1 if you know the R-code or option 2 if you would like to
 search by disease name using keywords.
 
 R-code example::
@@ -37,6 +38,12 @@ Genetic disease keyword example::
     > 2
     Enter your search term:
     > Brugada
+
+When prompted for genome build, choose option 1 for the GRCh37 reference genome build or
+option 2 for the GRCh38::
+
+    Which genome build would you like to use? Enter 1 for GRCh37. Enter 2 for GRCh38.
+    > 1
 
 When prompted choose whether to generate a BED file::
 
@@ -60,10 +67,25 @@ Finally, it will ask whether you would like to save your results::
 
     Thank you for using PanelSearch. Goodbye.
 
-Once you have finished remember to deactivate the conda environment::
+# Alternative Usage
+The above is our recommended way to run the app for the smoothest user experience. However, users may install and run the app manually if they wish.
 
-    conda deactivate
-    
+## Alternative setups
+
+
+
+
+
+
+
+To run please type this code into the command line::
+
+    cd PanelSearch
+    python main.py
+
+
+
+
 
 Docker
 ------
