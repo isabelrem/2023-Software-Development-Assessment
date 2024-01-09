@@ -71,9 +71,7 @@ The above is our recommended way to run the app for the smoothest user experienc
 
 ## Alternative setups
 
-Unlike the setup and rerun scripts, manually building or running the app will not include automated installation of required programs. 
-
-Users must install the programs specified in requirements.txt for the app to work outside of a Docker container.
+Unlike the setup and rerun scripts, manually building or running the app will not include automated installation of all required programs. Users should expect to have to troubleshoot errors due to missing requirements.  
 
 ### Manual Docker PanelSearch setup
 
