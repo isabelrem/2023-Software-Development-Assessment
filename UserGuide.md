@@ -1,3 +1,10 @@
+# Setting up the app
+-------------
+Users should git clone the repository to their local machine, and navigate into the top level of the repository (2023-Software-Development-Assessment/)
+
+From here, users have a few choices on how to set up.
+
+
 General Usage
 -------------
 *WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
