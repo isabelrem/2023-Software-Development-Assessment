@@ -1,44 +1,5 @@
-"""
-Connect to local MySQL server stored in a separate docker container 'panelsearch-database' 
-and save API searches to database
-"""
-# Install packages
-from sqlalchemy import *
-from pymysql import *
-import pandas as pd
 
-#check to see whether docker SQL database container is running
-# this logic works - put it in its own function? or into connect()
 
-def docker_or_cloud():
-    # docker database details
-    username = 'root'
-    password = 'password'
-    database_name = 'panelsearch'
-    database_host = 'panelsearch-database'
-    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-    attempt = 0
-    engine = None
-    while (engine == None) and (attempt <= 10):
-        try:
-            engine = create_engine(connection_string)
-            engine.close()
-            print("yay!¬")
-            return connection_string
-        except:
-            attempt += 1
-            print("aa!")
-            pass
-    # google cloud database details
-    username = 'panelsearch_user'
-    password = 'panelsearch_password'
-    database_name = 'panelsearch'
-    database_host = '35.197.209.133'
-    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-    
-    return connection_string
-
-print(docker_or_cloud())
 """
 The main script to take a disease description or R code,
 and the genome build version in the form of inputted strings

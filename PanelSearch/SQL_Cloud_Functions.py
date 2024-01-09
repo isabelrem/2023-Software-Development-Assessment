@@ -8,8 +8,6 @@ from pymysql import *
 import pandas as pd
 
 #check to see whether docker SQL database container is running
-# this logic works - put it in its own function? or into connect()
-
 def docker_or_cloud():
     # docker database details
     username = 'root'
@@ -20,112 +18,32 @@ def docker_or_cloud():
     attempt = 0
     engine = None
 
-
-    # TODO: THIS NEEDS TO BE A FOR LOOP - LOGIC NOT LOGICING
-
-    # while (engine == None) and (attempt <= 10):
-    #     try:
-    #         engine = create_engine(connection_string)
-    #         engine.close()
-    #         print("yay!¬")
-    #         return connection_string
-    #     except:
-    #         attempt += 1
-    #         print("aa!")
-    #         pass
+    for i in range(1,10,1):
+        try:
+            engine = create_engine(connection_string)
+            conn = engine.connect()
+            conn.close()
+            engine.dispose()
+            print("successful connection to docker database")
+            return connection_string
+        except:
+            pass
+        
     # google cloud database details
     username = 'panelsearch_user'
     password = 'panelsearch_password'
     database_name = 'panelsearch'
     database_host = '35.197.209.133'
     connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-    
+    engine = create_engine(connection_string)
+    conn = engine.connect()
+    conn.close()
+    engine.dispose()
+    print("successful connection to sql database")
+
     return connection_string
 
-print(docker_or_cloud())
-    
-
-#     
-
-# try:
-#     username = 'root'
-#     password = 'password'
-#     database_name = 'panelsearch'
-#     database_host = 'panelsearch-database'
-#     connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-#     ## Establishing connectivity - the engine
-#     def connect_cloud_db():
-#         """
-#         Connect to the MySQL database on the cloud-hosted SQL server
-#         """
-#         # TODO try connecting to the sql database multiple times
-#         # bc sometimes mysql needs a few tries
-#         # TODO set a limit on this bc might not be possile to everr resolve
-#         engine = None
-#         while engine is None:
-#             try:
-#                 engine = create_engine(connection_string)
-#             except:
-#                 print("feck")
-#                 pass
-#         return engine
-        
-#     connect_cloud_db()
-# except:
-#     print("feck")
-
-
-
-# import subprocess
-
-
-#subprocess.call("pip install -q docker", shell = True)
-# #subprocess.call("pip install docker", shell = True)
-#status = subprocess.Popen("docker ps | grep -o panelsearch-database", stdout=subprocess.PIPE, shell=True)
-# status = status.communicate()[0]
- 
-# # if the docker SQL container cannot be found:
-# if str(status.decode()) == "":
-#     print("docker SQL container is not running. Connecting to cloud SQL database...")
-#     # google cloud database
-#     username = 'panelsearch_user'
-#     password = 'panelsearch_password'
-#     database_name = 'panelsearch'
-#     database_host = '35.197.209.133'
-# # if the docker SQL container can be found:
-# else:
-#     print("docker SQL container is running, connecting...")
-#     # docker database
-#     username = 'root'
-#     password = 'password'
-#     database_name = 'panelsearch'
-#     database_host = 'panelsearch-database'
-
-#with open("/tmp/output.log", "a") as output:
-#     subprocess.call("pip install docker", shell = True)
- #   status = subprocess.Popen("docker ps | grep -o panelsearch-database", stdout=subprocess.PIPE, shell=True)
-#     status = status.communicate()[0]
- 
-#     # if the docker SQL container cannot be found:
-#     if str(status.decode()) == "":
-#         print("docker SQL container is not running. Connecting to cloud SQL database...")
-#         # google cloud database
-#         username = 'panelsearch_user'
-#         password = 'panelsearch_password'
-#         database_name = 'panelsearch'
-#         database_host = '35.197.209.133'
-#     # if the docker SQL container can be found:
-#     else:
-#         print("docker SQL container is running, connecting...")
-#         # docker database
-#         username = 'root'
-#         password = 'password'
-#         database_name = 'panelsearch'
-#         database_host = 'panelsearch-database'
-
-
-connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-
+connection_string = docker_or_cloud()
 
 ## Establishing connectivity - the engine
 def connect_cloud_db():

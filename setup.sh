@@ -21,7 +21,8 @@ else
 
         # run the docker container for the first time
         echo "running panelsearch app... "
-        docker run -it --name panelsearch
+        docker run -i -t --name panelsearch panelsearch # one panelsearch is naming the container 
+        # the other is specifying the image to use
 fi
 
 
