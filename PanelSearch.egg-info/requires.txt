@@ -1,5 +1,5 @@
+requests
 pandas==2.1.2
-requests==2.31.0
 pytest==7.4.3
 openpyxl==3.1.2
 sphinx==7.2.6
@@ -8,6 +8,14 @@ myst-parser==2.0.0
 sqlalchemy==2.0.23
 pymysql==1.1.0
 cryptography==41.0.7
-google==3.0.0
-cloud-sql-python-connector==1.4.3
-docker==7.0.0 # FIXME
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[pdf]
+ReportLab>=1.2
+RXP
+
+[rest]
+docutils>=0.3
+pack==1.1,==1.3
