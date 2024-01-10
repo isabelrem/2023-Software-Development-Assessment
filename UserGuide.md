@@ -195,7 +195,7 @@ To run the docker container subsequently **when using either SQL database**:
 
     docker exec -it panelsearch bash -c "python PanelSearch/main.py"
 
-### Manual PanelSearch setup and usage
+# Manual PanelSearch setup and usage
 If the user wishes to run PanelSearch outside of a docker container, the user must install all requirements from requirements.txt locally.
 
 To run PanelSearch, the user should type this code into the command line:
@@ -203,7 +203,7 @@ To run PanelSearch, the user should type this code into the command line:
     cd PanelSearch
     python main.py
     
-# Troubleshooting - to remove?
+# Troubleshooting
 
 Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:' 
 
@@ -224,3 +224,10 @@ Troubleshooting error message: 'ERROR 2002 (HY000): Can't connect to local MySQL
     sudo apt install mysql-server
     sudo service mysql start
     
+
+References
+-----------
+https://docs.docker.com/guides/walkthroughs/containerize-your-app/#:~:text=Containerize%20your%20application%201%20Step%201%3A%20Run%20the,4%20Step%204%3A%20Update%20the%20Docker%20assets%20
+
+https://www.docker.com/blog/how-to-dockerize-your-python-applications/
+
