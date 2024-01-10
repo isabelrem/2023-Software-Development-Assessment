@@ -6,31 +6,68 @@ and save API searches to database
 from sqlalchemy import *
 from pymysql import *
 import pandas as pd
-
-username = 'root'
-password = 'password'
-database_name = 'panelsearch'
-database_host = 'panelsearch-database'
-
-connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-
+import os
+import datetime
 
 # Establishing connectivity - the engine
+#check to see whether docker SQL database container is running
+def docker_or_cloud():
+    # docker database details
+    username = 'root'
+    password = 'password'
+    database_name = 'panelsearch'
+    database_host = 'panelsearch-database'
+    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+    attempt = 0
+    engine = None
+
+    for i in range(1,10,1):
+        try:
+            engine = create_engine(connection_string)
+            conn = engine.connect()
+            conn.close()
+            engine.dispose()
+            print("successful connection to docker database")
+            return connection_string
+        except:
+            pass
+        
+    # google cloud database details
+    username = 'panelsearch_user'
+    password = 'panelsearch_password'
+    database_name = 'panelsearch'
+    database_host = '35.197.209.133'
+    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+    engine = create_engine(connection_string)
+    conn = engine.connect()
+    conn.close()
+    engine.dispose()
+    print("successful connection to sql database")
+
+    return connection_string
+
+
+
+## Establishing connectivity - the engine
 def connect_cloud_db():
     """
     Connect to the MySQL database on the cloud-hosted SQL server
     """
-    # try connecting to the sql database multiple times
+    # TODO try connecting to the sql database multiple times
     # bc sometimes mysql needs a few tries
+    # TODO set a limit on this bc might not be possile to everr resolve
+    connection_string = docker_or_cloud()
     engine = None
-    while engine is None:
+    attempt = 0
+    while (engine is None) and (attempt <= 10):
         try:
             engine = create_engine(connection_string)
         except:
+            attempt +=1
+            print(attempt)
             pass
     return engine
     
-
 # Add record to the database
 def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
     """
@@ -40,8 +77,6 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
     
     with engine.connect() as conn:
         meta = MetaData()
-
-       
           
         # initiate table object to allow use of certain functions in sqlalchemy    
         searches_table = Table(
@@ -142,7 +177,6 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
     return result
 
-
 def browse_cloud_records(patient_id=NULL):
         # connect to database
         engine = connect_cloud_db()
@@ -223,35 +257,51 @@ def browse_cloud_records(patient_id=NULL):
 
 def download_records(patients_dataframe,searches_dataframe,file_name = ''):
     """ Allows the user to download their SQL search as a CSV file. """
+    print(os.getcwd())
+    print(os.listdir())
+    # os.chdir('PanelSearch')
+    # print(os.getcwd())
+    # print(os.listdir())
+    print("Check 1")
     file_name = file_name.replace(' ','_')
-
+    print("Check 2")
     panelsearch_downloads_dir = 'panelsearch_downloads'
-    if not os.path.exists(panelsearch_downloads_dir):
-        os.makedirs(panelsearch_downloads_dir)  # Create the folder if it doesn't exist
+    print("Check 3")
+    if not os.path.exists('panelsearch_downloads'):
+        os.makedirs('panelsearch_downloads') 
+    print(os.getcwd())
+    print(os.listdir()) # Create the folder if it doesn't exist
+    print("Check 4")
 
-    date_str = datetime.datetime.now().strftime("%Y%m%d")
+    date_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+
+    print("Check 5")
     
-    patients_filename = f"{date_str}_{file_name}_patients.csv"
+    patients_filename = f"/app/./panelsearch_downloads/{date_str}_{file_name}_patients.csv"
     searches_filename = f"{date_str}_{file_name}_searches.csv"
 
-    if type(searches_dataframe) == str:
-        patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
+    print("Check 6")
 
+    if type(searches_dataframe) == str:
+        print("Check 7")
+        patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False,)
+        print("Check 8")
     else:
+        print("Check 10")
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
+        print("Check 11")
         searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
-        
+        print("Check 12")
 
 
                     
 ### TESTING ###
 #add_new_cloud_record(pid = "ronald",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
-#
 # engine = connect_cloud_db()
 # searches_table = pd.read_sql_table(table_name = "searches", con = engine)
 # print(table)
 # patients_table = pd.read_sql_table(table_name = "patients", con = engine)
 # print(table)
-
 #browse_cloud_records()
 #browse_cloud_records('ronald')
+

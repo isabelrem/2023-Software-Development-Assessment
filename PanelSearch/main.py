@@ -37,10 +37,7 @@ class PanelSearch:
             self.input_type = self.get_input_string_type()
             self.input = self.get_input_string()
             self.genome_build = self.get_genome_build()
-
-        
-            
-
+  
     def get_genome_build(self):
         """ Asks the user which genome build they would like genomic coordinates returned for. """
         genome_build_choice = input('Which genome build would you like to use? Enter 1 for GRCh37. Enter 2 for GRCh38.\n')
@@ -102,8 +99,7 @@ def main():
     REQUEST = PanelAppRequest()
     RESPONSE = None  
 
-    if SEARCH.existing_or_new == 'search_new':
-
+    if SEARCH.search_type == 'search_new':
         logging.info("Starting PanelSearch with input type: %s", SEARCH.input_type)
 
         if SEARCH.input_type == 'R-code':
@@ -124,29 +120,30 @@ def main():
                 print('The requested panel could not be found.\nPlease review your search term and try again')
                 exit()
 
-        if RESPONSE.status_code == 200:
-            panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
-            logging.info("Panel data processed successfully")
 
-            generate_bed = input("Generate BED file? (Y/N) \n")
-            if generate_bed.lower() == 'y':
-                panel_data_str = json.dumps(panel_data)
-                panel_name = panel_data.get("Panel Name", "UnknownPanel")
-                
-                filename = create_bed_filename(panel_name,SEARCH.genome_build)
-                subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+            if RESPONSE.status_code == 200:
+                panel_data = panelapp_search_parse(RESPONSE.json(), SEARCH.genome_build)
+                logging.info("Panel data processed successfully")
 
-                logging.info("BED file generation initiated")
-
-                    save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
-                if save_search.lower() == 'y':
-                        panel_data_str = json.dumps(panel_data)
+                generate_bed = input("Generate BED file? (Y/N) \n")
+                if generate_bed.lower() == 'y':
+                    panel_data_str = json.dumps(panel_data)
                     panel_name = panel_data.get("Panel Name", "UnknownPanel")
-                    pid = input("What patient ID would you like to save this search against? \n")
-                    create_sql_record(panel_name, SEARCH.genome_build, pid)
-                    print("Your search was saved")
-                else:
-                    print("Your search was not saved")
+                    
+                    filename = create_bed_filename(panel_name,SEARCH.genome_build)
+                    subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+
+                    logging.info("BED file generation initiated")
+
+        save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
+        if save_search.lower() == 'y':
+            panel_data_str = json.dumps(panel_data)
+            panel_name = panel_data.get("Panel Name", "UnknownPanel")
+            pid = input("What patient ID would you like to save this search against? \n")
+            create_sql_record(panel_name, SEARCH.genome_build, pid)
+            print("Your search was saved")
+        else:
+            print("Your search was not saved")
 
 
 
@@ -169,6 +166,8 @@ def main():
             if save_choice.lower() == "y":
                 file_name_choice = input("Please enter your desired filename: ")
                 download_records(patients_df,searches_df,file_name_choice)
+                print(os.getcwd())
+                print(os.listdir())
                 # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
     
     # Thank user and say goodbye
