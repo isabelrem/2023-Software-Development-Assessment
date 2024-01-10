@@ -1,11 +1,13 @@
-# Recommended usage: Running PanelSearch in a Docker container
+Recommended usage: Running PanelSearch in a Docker container
+========
 *WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
 
 *WARNING: BED files will save within Docker container and database only. BED files will not save locally.*
 
 Users should git clone the repository to their local machine, and navigate into the top level of the repository (2023-Software-Development-Assessment/)
 
-## Setting up using the setup.sh script
+Setting up using the setup.sh script
+-----
 To setup the app and to run it for the first time, users should run the following code in the top level of the repository:
 
     ./setup.sh
@@ -18,7 +20,8 @@ After the app has been setup, to rerun the app users should run the following co
 
 This will start the necessary docker containers, and reconnect to them.
 
-## General Usage
+General Usage
+-----
 Once the app had begun running, there are several points at which the user is prompted for input. 
 
 When prompted for input type, choose option 1 if you know the R-code or option 2 if you would like to
@@ -66,15 +69,16 @@ Finally, it will ask whether you would like to save your results::
 
     Thank you for using PanelSearch. Goodbye.
 
-# Alternative Usage
+Alternative Usage
+========
 The above is our recommended way to run the app for the smoothest user experience. However, users may install and run the app manually if they wish.
 
-## Alternative setups
-
+Alternative setups
+-------
 Unlike the setup and rerun scripts, manually building or running the app will not include automated installation of all required programs. Users should expect to have to troubleshoot errors due to missing requirements.  
 
-### Manual Docker PanelSearch setup
-
+Manual Docker PanelSearch setup
+--------
 These steps can also be found in docker_setup.sh, and involve creating the SQL database and PanelSearch app within Docker containers. Users must already have installed docker and mysql for these commands to work. 
 
 To create the SQL database within a docker container, a network for the two containers to connect via, and a volume for data persistence. If the user wishes to connect to the cloud SQL database instead of a local docker SQL database, **omit this step**.
@@ -195,7 +199,8 @@ To run the docker container subsequently **when using either SQL database**:
 
     docker exec -it panelsearch bash -c "python PanelSearch/main.py"
 
-# Manual PanelSearch setup and usage
+Manual PanelSearch setup and usage
+-------
 If the user wishes to run PanelSearch outside of a docker container, the user must install all requirements from requirements.txt locally.
 
 To run PanelSearch, the user should type this code into the command line:
@@ -203,8 +208,8 @@ To run PanelSearch, the user should type this code into the command line:
     cd PanelSearch
     python main.py
     
-# Troubleshooting
-
+Troubleshooting
+-------
 Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:' 
 
     sudo groupadd docker
