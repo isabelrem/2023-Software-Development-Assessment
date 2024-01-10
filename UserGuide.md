@@ -1,4 +1,4 @@
-# Reccommended usage: Running PanelSearch in a Docker container
+# Recommended usage: Running PanelSearch in a Docker container
 *WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
 
 *WARNING: BED files will save within Docker container and database only. BED files will not save locally.*

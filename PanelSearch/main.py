@@ -118,7 +118,7 @@ def main():
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 
                 filename = create_bed_filename(panel_name,SEARCH.genome_build)
-                subprocess.call(["python", "PanelSearch/generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
 
                 logging.info("BED file generation initiated")
 

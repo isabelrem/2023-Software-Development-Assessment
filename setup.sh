@@ -12,7 +12,7 @@ docker=1
 
 if [ $cloud_or_docker -eq $docker ]
 then
-        echo "Proceding with docker set up..."
+        echo "Proceeding with docker set up..."
         ./docker_setup.sh
 else
         # build the app docker container using the Dockerfile in the repo
