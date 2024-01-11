@@ -20,6 +20,9 @@ from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
 from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
 
+#subprocess.call(["chmod","-R","644","/app"])
+               
+
 # Set up logging to include file logging only
 log_file = 'panel_search.log'
 logging.basicConfig(
@@ -114,11 +117,13 @@ def main():
 
             generate_bed = input("Generate BED file? (Y/N) \n")
             if generate_bed.lower() == 'y':
+                 
                 panel_data_str = json.dumps(panel_data)
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 
                 filename = create_bed_filename(panel_name,SEARCH.genome_build)
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                
 
                 logging.info("BED file generation initiated")
 

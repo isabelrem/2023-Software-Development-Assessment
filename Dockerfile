@@ -38,6 +38,7 @@ RUN adduser \
     --uid "${UID}" \
     appuser
 RUN chown appuser:appuser -R /app
+RUN chmod 777 -R /app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
@@ -58,4 +59,10 @@ COPY . .
 EXPOSE 8000
 
 # Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container to keep running in detached mode untill it it killed manually
-CMD ["python", "./PanelSearch/main.py", "tail", "-f", "/dev/null"]
+#RUN cd ./PanelSearch
+#ENTRYPOINT [ "cd /app/PanelSearch" ]
+
+# Set the working directory to /app
+WORKDIR ./PanelSearch
+
+CMD ["python", "main.py", "tail", "-f", "/dev/null"]
