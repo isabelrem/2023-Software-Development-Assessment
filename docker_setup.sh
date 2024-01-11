@@ -1,22 +1,26 @@
 #!/bin/bash
 
 # install docker if not present
-REQUIRED_PKG="docker.io"
+
+# check if any docker is installed
+# if not, install docker.io and docker-buildx
+REQUIRED_PKG="docker*"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  sudo apt-get --yes install $REQUIRED_PKG
+  sudo apt-get --yes install docker.io
+  sudo apt-get --yes install docker-buildx
 fi
 
 # install docker buildx if not present
-REQUIRED_PKG="docker-buildx"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  sudo apt-get --yes install $REQUIRED_PKG
-fi
+# REQUIRED_PKG="docker-buildx"
+# PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+# echo Checking for $REQUIRED_PKG: $PKG_OK
+# if [ "" = "$PKG_OK" ]; then
+#   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+#   sudo apt-get --yes install $REQUIRED_PKG
+# fi
 
 # make sure user has docker permissions # uncomment for next fresh install
 #sudo groupadd docker 
@@ -132,6 +136,7 @@ echo "database tables 'searches' and 'patients' created"
 #newgrp docker
 #echo "User permissions for docker enabled"
 
+sudo chmod -R 777 .
 sudo chmod 777 PanelSearch/panel_search.log
 echo "permissions enabled"
 
