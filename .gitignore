@@ -10,3 +10,4 @@ venv
 .idea
 /Tests/__pycache__/
 __pycache__
+PanelSearch.egg-info

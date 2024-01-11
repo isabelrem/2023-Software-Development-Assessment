@@ -24,6 +24,12 @@ Features
 Directory Tree
 -------------
     .
+    ├── PanelSearch.egg-info
+    │   ├── PKG-INFO
+    │   ├── SOURCES.txt
+    │   ├── dependency_links.txt
+    │   ├── requires.txt
+    │   └──  top_level.txt
     ├── PanelSearch
     │   ├── __init__.py
     │   ├── API_to_SQL.py
@@ -35,6 +41,16 @@ Directory Tree
     │   ├── SQL_functions.py
     │   ├── VV_API_Request.py
     │   └── VV_Request_Parse.py
+    ├── docs/source
+    │   ├── api.rst
+    │   ├── conf.py
+    │   ├── docker.rst
+    │   ├── index.rst
+    │   ├── installation.rst
+    │   ├── jenkins.rst
+    │   ├── sql.rst
+    │   ├── sql_schema.png
+    │   └──  usage.rst
     ├── sql_fun
     │   ├── panelsearch_db.sql
     │   └── sql_schema.png
@@ -56,10 +72,15 @@ Directory Tree
     ├── README.md
     ├── UserGuide.md
     ├── compose.yaml
+    ├── docker_setup.sh
     ├── environment.yaml
     ├── installation.md
     ├── pyproject.toml
-    └── requirements.txt
+    ├── requirements.txt
+    ├── rerun.sh
+    ├── setup.sh
+    └── var
+
 
 Installation
 ------------
