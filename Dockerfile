@@ -38,13 +38,16 @@ RUN adduser \
     --uid "${UID}" \
     appuser
 RUN chown appuser:appuser -R /app
+RUN chmod 777 -R /app
+
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
 # Leverage a bind mount to requirements.txt to avoid having to copy them into
 # into this layer.
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
+    python -m pip install -r requirements.txt 
+
 
 # Switch to the non-privileged user to run the application.
 USER appuser
@@ -56,4 +59,8 @@ COPY . .
 EXPOSE 8000
 
 # Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container to keep running in detached mode untill it it killed manually
-CMD ["python", "./PanelSearch/main.py", "tail", "-f", "/dev/null"]
+
+# Set the working directory to /app
+WORKDIR ./PanelSearch
+
+CMD ["python", "main.py", "tail", "-f", "/dev/null"]

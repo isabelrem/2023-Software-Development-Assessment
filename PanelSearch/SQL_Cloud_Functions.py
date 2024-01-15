@@ -7,29 +7,64 @@ from sqlalchemy import *
 from pymysql import *
 import pandas as pd
 
-username = 'root'
-password = 'password'
-database_name = 'panelsearch'
-database_host = 'panelsearch-database'
+#check to see whether docker SQL database container is running
+def docker_or_cloud():
+    # docker database details
+    username = 'root'
+    password = 'password'
+    database_name = 'panelsearch'
+    database_host = 'panelsearch-database'
+    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+    attempt = 0
+    engine = None
 
-connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+    for i in range(1,10,1):
+        try:
+            engine = create_engine(connection_string)
+            conn = engine.connect()
+            conn.close()
+            engine.dispose()
+            print("successful connection to docker database")
+            return connection_string
+        except:
+            pass
+        
+    # google cloud database details
+    username = 'panelsearch_user'
+    password = 'panelsearch_password'
+    database_name = 'panelsearch'
+    database_host = '35.197.209.133'
+    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
+    engine = create_engine(connection_string)
+    conn = engine.connect()
+    conn.close()
+    engine.dispose()
+    print("successful connection to sql database")
 
+    return connection_string
+
+connection_string = docker_or_cloud()
 
 ## Establishing connectivity - the engine
 def connect_cloud_db():
     """
     Connect to the MySQL database on the cloud-hosted SQL server
     """
-    # try connecting to the sql database multiple times
+    # TODO try connecting to the sql database multiple times
     # bc sometimes mysql needs a few tries
+    # TODO set a limit on this bc might not be possile to everr resolve
     engine = None
-    while engine is None:
+    attempt = 0
+    while (engine is None) and (attempt <= 10):
         try:
             engine = create_engine(connection_string)
         except:
+            attempt +=1
+            print(attempt)
             pass
     return engine
     
+connect_cloud_db()
 
 # Add record to the database
 def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file):
