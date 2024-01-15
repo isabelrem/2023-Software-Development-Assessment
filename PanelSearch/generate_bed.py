@@ -8,11 +8,9 @@ import json
 import sys
 import logging
 from logging.handlers import RotatingFileHandler
-import subprocess
 
 # Set up logging to include both file and console logging
 log_file = 'generate_bed.log'
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s %(levelname)s %(message)s',

@@ -1,5 +1,3 @@
-
-
 """
 The main script to take a disease description or R code,
 and the genome build version in the form of inputted strings
@@ -19,9 +17,6 @@ from select_disease import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
 from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
-
-#subprocess.call(["chmod","-R","644","/app"])
-               
 
 # Set up logging to include file logging only
 log_file = 'panel_search.log'

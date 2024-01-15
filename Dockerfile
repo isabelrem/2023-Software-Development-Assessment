@@ -12,7 +12,7 @@ COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-bui
 #ARG PYTHON_VERSION=3.10
 #FROM python:${PYTHON_VERSION}-slim as base
 
-FROM python:3.10-slim
+FROM python:3.10-slim as base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -59,8 +59,6 @@ COPY . .
 EXPOSE 8000
 
 # Start the container by running a specific Python script. The "tail", "-f", "/dev/null" command allows the container to keep running in detached mode untill it it killed manually
-#RUN cd ./PanelSearch
-#ENTRYPOINT [ "cd /app/PanelSearch" ]
 
 # Set the working directory to /app
 WORKDIR ./PanelSearch
