@@ -1,6 +1,8 @@
 
-General Usage - this seems out of date, no mention of how to use with docker
+General Usage (for manual non-Docker use; not recommended)
 =============
+
+Please see `Recommended usage: Running PanelSearch in a Docker container`_.
 
 *WARNING: If the user does not want to run their SQL database inside a docker container, please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
 
