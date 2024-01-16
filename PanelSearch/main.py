@@ -135,7 +135,7 @@ def main():
                 subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
                 
 
-                    logging.info("BED file generation initiated")
+                logging.info("BED file generation initiated")
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
         if save_search.lower() == 'y':
