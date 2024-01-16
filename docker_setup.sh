@@ -156,4 +156,4 @@ echo "panelsearch app container created"
 # run the docker container for the first time
 echo "running panelsearch app... "
 docker run -it --name panelsearch --volume panelsearch-volume \
---network panelsearch-network panelsearch
+ --network panelsearch-network panelsearch
