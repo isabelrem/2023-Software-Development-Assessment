@@ -46,7 +46,7 @@ def docker_or_cloud():
 
     return connection_string
 
-
+connection_string = docker_or_cloud()
 
 ## Establishing connectivity - the engine
 def connect_cloud_db():

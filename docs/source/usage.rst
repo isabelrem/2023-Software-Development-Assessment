@@ -1,9 +1,14 @@
-General Usage
+
+General Usage (for manual non-Docker use; not recommended)
 =============
 
-*WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
+Please see :doc:`docker`.
 
-To run please type this code into the command line::
+*WARNING: If the user does not want to run their SQL database inside a docker container, please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
+
+If the user wishes to run PanelSearch outside of a docker container, the user must install all requirements from requirements.txt locally.
+
+To run PanelSearch, the user should type this code into the command line::
 
     cd PanelSearch
     python main.py
@@ -58,4 +63,3 @@ Finally, it will ask whether you would like to save your results::
 Once you have finished remember to deactivate the conda environment::
 
     conda deactivate
-    
