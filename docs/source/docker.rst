@@ -8,16 +8,16 @@ Users should git clone the repository to their local machine, and navigate into 
 
 Setting up using the setup.sh script
 ------
-To setup the app and to run it for the first time, users should run the following code in the top level of the repository:
-
+To setup the app and to run it for the first time, users should run the following code in the top level of the repository::
+    
     ./setup.sh
-
+    
 This will initiate the setup.sh script. Users will be given the choice as to whether they want to set the app up with a dockerised SQL database, or whether they want to instead connect to a cloud database. If the user chooses to use the app with a dockerised SQL database, the setup scripts will create the database container and the database within. With both choices, a docker container for the app will be created and run.
 
-After the app has been setup, to rerun the app users should run the following code in the top level of the repository:
-
+After the app has been setup, to rerun the app users should run the following code in the top level of the repository::
+    
     ./rerun.sh
-
+    
 This will start the necessary docker containers, and reconnect to them.
 
 General Usage
@@ -81,16 +81,16 @@ Manual Docker PanelSearch setup
 ---
 These steps can also be found in docker_setup.sh, and involve creating the SQL database and PanelSearch app within Docker containers. Users must already have installed docker and mysql for these commands to work.
 
-To create the SQL database within a docker container, a network for the two containers to connect via, and a volume for data persistence. If the user wishes to connect to the cloud SQL database instead of a local docker SQL database, **omit this step**.
-
+To create the SQL database within a docker container, a network for the two containers to connect via, and a volume for data persistence. If the user wishes to connect to the cloud SQL database instead of a local docker SQL database, **omit this step**::
+    
     # create docker network for containers to connect via
     docker network create panelsearch-network
     echo "panelsearch-network created"
-
+    
     # create docker volume for sql data to be stored on
     docker volume create panelsearch-volume
     echo "panelsearch-volume created"
-
+    
     # create mysql server in the panelsearch-database container
     docker run --name panelsearch-database\
                  --network panelsearch-network \
@@ -98,23 +98,23 @@ To create the SQL database within a docker container, a network for the two cont
                 -e MYSQL_ROOT_PASSWORD=password \
               -d mysql:8
     echo "panelsearch-database container created"
-
+    
     # start mysql
     #echo "mySQL running"
     sudo service mysql start
     sudo chmod -R 755 /var/run/mysqld
-
+    
     # create panelsearch database and tables on the mysql server
-
+    
     # Set the maximum number of attempts
     max_attempts=100
-
+    
     # Set a counter for the number of attempts
     attempt_num=1
-
+    
     # Set a flag to indicate whether the command was successful
     success=false
-
+    
     # Loop until the command is successful or the maximum number of attempts is reached
     while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
       # Execute the command
@@ -138,7 +138,7 @@ To create the SQL database within a docker container, a network for the two cont
                     UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, \
                          transcript, genome_build, bed_file)\
                     );"
-
+      
       # Check the exit code of the command
       if [ $? -eq 0 ]; then
         # The command was successful
@@ -151,7 +151,7 @@ To create the SQL database within a docker container, a network for the two cont
         attempt_num=$(( attempt_num + 1 ))
       fi
     done
-
+    
     # Check if the command was successful
     if [ $success = true ]; then
       # The command was successful
@@ -161,67 +161,69 @@ To create the SQL database within a docker container, a network for the two cont
       echo "The command failed after $max_attempts attempts."
       exit "Setup aborted. Please try again"
     fi
-
-
-
+    
+    
+    
     echo "panelsearch database created"
     echo "database tables 'searches' and 'patients' created"
-
+    
     # make sure user has docker permissions
     #sudo groupadd docker
     #sudo usermod -aG docker ${USER}
     #newgrp docker
     #echo "User permissions for docker enabled"
-
+    
     sudo chmod 777 PanelSearch/panel_search.log
     echo "permissions enabled"
-
-To build the docker image:
-
+    
+To build the docker image:: 
+    
     # build the app docker container using the Dockerfile in the repo
     docker buildx build -t panelsearch .
     echo "panelsearch app container created"
-
-To run the docker container for the first time **when using a docker SQL database**:
-
+    
+To run the docker container for the first time **when using a docker SQL database**::
+    
     # run the docker container for the first time
     echo "running panelsearch app... "
     docker run -it --name panelsearch --volume panelsearch-volume \
     --network panelsearch-network panelsearch
-
-To run the docker container for the first time **when using a cloud SQL database**:
-
+    
+To run the docker container for the first time **when using a cloud SQL database**::
+    
     # run the docker container for the first time
     echo "running panelsearch app... "
     docker run -it --name panelsearch panelsearch
-
-To run the docker container subsequently **when using either SQL database**:
-
+    
+To run the docker container subsequently **when using either SQL database**::
+    
     docker exec -it panelsearch bash -c "python PanelSearch/main.py"
-
+    
 
 
 Troubleshooting
 -----
-Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:'
-
+Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:'::
+    
     sudo groupadd docker
-
+    
     sudo usermod -aG docker $USER
-
+    
     newgrp docker
-
-Troubleshooting error message: 'ERROR: Cannot connect to the Docker daemon at unix://?var/run/docker.sock. Is the docker daemon running?
-
+    
+Troubleshooting error message: 'ERROR: Cannot connect to the Docker daemon at unix://?var/run/docker.sock. Is the docker daemon running?::
+    
     sudo systemct1 start docker
-
+    
 
 Troubleshooting error message: 'ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
     * suggested tutorial: https://phoenixnap.com/kb/mysql-server-through-socket-var-run-mysqld-mysqld-sock-2
 
+Try::
+    
     sudo apt install mysql-server
     sudo service mysql start
-
+    
 
 
 
