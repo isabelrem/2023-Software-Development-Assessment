@@ -26,6 +26,6 @@ else
 fi
 
 # grabs the contents of the directory instead of the directory - prevents system getting grouchy about overwrite?
-docker cp panelsearch:"/app/panelsearch_downloads/*" .
+#docker cp panelsearch:"/app/panelsearch_downloads/*" ../panelsearch_downloads
 
 

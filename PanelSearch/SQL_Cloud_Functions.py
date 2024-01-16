@@ -292,6 +292,9 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
         print("Check 11")
         searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
         print("Check 12")
+    
+    # export files to local directory
+    
 
 
                     
