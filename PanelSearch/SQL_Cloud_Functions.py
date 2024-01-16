@@ -46,7 +46,7 @@ def docker_or_cloud():
 
     return connection_string
 
-connection_string = docker_or_cloud()
+
 
 ## Establishing connectivity - the engine
 def connect_cloud_db():
@@ -262,39 +262,29 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
     # os.chdir('PanelSearch')
     # print(os.getcwd())
     # print(os.listdir())
-    print("Check 1")
     file_name = file_name.replace(' ','_')
-    print("Check 2")
-    panelsearch_downloads_dir = 'panelsearch_downloads'
-    print("Check 3")
-    if not os.path.exists('panelsearch_downloads'):
-        os.makedirs('panelsearch_downloads') 
-    print(os.getcwd())
-    print(os.listdir()) # Create the folder if it doesn't exist
-    print("Check 4")
+    panelsearch_downloads_dir = '/app/panelsearch_downloads/'
+    if not os.path.exists('/app/panelsearch_downloads/'):
+        os.makedirs('/app/panelsearch_downloads/') 
+    #print(os.getcwd())
+    #print(os.listdir()) # Create the folder if it doesn't exist
 
-    date_str = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    date_str = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M")
 
-    print("Check 5")
     
-    patients_filename = f"/app/./panelsearch_downloads/{date_str}_{file_name}_patients.csv"
+    patients_filename = f"{date_str}_{file_name}_patients.csv"
     searches_filename = f"{date_str}_{file_name}_searches.csv"
 
-    print("Check 6")
 
     if type(searches_dataframe) == str:
-        print("Check 7")
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False,)
-        print("Check 8")
-    else:
-        print("Check 10")
+    else: 
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
-        print("Check 11")
         searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
-        print("Check 12")
     
-    # export files to local directory
-    
+    # print(os.listdir())
+    # os.chdir('panelsearch_downloads')
+    # print(os.listdir())
 
 
                     
