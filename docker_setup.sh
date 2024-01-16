@@ -4,14 +4,23 @@
 
 # check if any docker is installed
 # if not, install docker.io and docker-buildx
-REQUIRED_PKG="docker*"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+# REQUIRED_PKG="docker*"
+# PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+# echo Checking for $REQUIRED_PKG: $PKG_OK
+# if [ "" = "$PKG_OK" ]; then
+#   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+#   sudo apt-get --yes install docker.io
+#   sudo apt-get --yes install docker-buildx
+# fi
+
+if [ -x "$(command -v docker)" ]; then
+  echo "A version of docker is already installed"
+else
+  echo "No docker installed. Setting up docker..."
   sudo apt-get --yes install docker.io
   sudo apt-get --yes install docker-buildx
 fi
+
 
 # install docker buildx if not present
 # REQUIRED_PKG="docker-buildx"
@@ -100,7 +109,7 @@ while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
                 bed_file varchar(50),\
                 UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, \
                      transcript, genome_build, bed_file)\
-                );"
+                );" 2>/dev/null
 
   # Check the exit code of the command
   if [ $? -eq 0 ]; then
@@ -108,7 +117,7 @@ while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
     success=true
   else
     # The command was not successful
-    echo "Attempt $attempt_num failed. Trying again..."
+    echo "Connecting, please wait..."
     sleep 5
     # Increment the attempt counter
     attempt_num=$(( attempt_num + 1 ))
@@ -118,10 +127,10 @@ done
 # Check if the command was successful
 if [ $success = true ]; then
   # The command was successful
-  echo "The command was successful after $attempt_num attempts."
+  echo "Successfully connected to docker SQL database."
 else
   # The command was not successful
-  echo "The command failed after $max_attempts attempts."
+  echo "Connection failed after $max_attempts attempts."
   exit "Setup aborted. Please try again"
 fi
 
