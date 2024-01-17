@@ -263,9 +263,14 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
     # print(os.getcwd())
     # print(os.listdir())
     file_name = file_name.replace(' ','_')
-    panelsearch_downloads_dir = '/app/panelsearch_downloads/'
-    if not os.path.exists('/app/panelsearch_downloads/'):
-        os.makedirs('/app/panelsearch_downloads/') 
+    try:
+        panelsearch_downloads_dir = '/app/panelsearch_downloads/'
+        if not os.path.exists('/app/panelsearch_downloads/'):
+            os.makedirs('/app/panelsearch_downloads/')
+    except:
+        panelsearch_downloads_dir = '../panelsearch_downloads/'
+        if not os.path.exists('../panelsearch_downloads/'):
+            os.makedirs('../panelsearch_downloads/')
     #print(os.getcwd())
     #print(os.listdir()) # Create the folder if it doesn't exist
 

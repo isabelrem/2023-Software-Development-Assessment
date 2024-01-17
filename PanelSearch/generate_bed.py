@@ -131,7 +131,6 @@ def write_bed_file(beds, filename, coord_type, genome_build):
         json_filename = filename.replace('.bed', '.json')
         with open(json_filename, 'w') as json_file:
             json.dump({'bed_regions': beds}, json_file, indent=4)
-
         logging.info(f"BED and JSON files written successfully.")
         return True, "Success"
 

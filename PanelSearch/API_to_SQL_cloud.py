@@ -6,7 +6,7 @@ import pandas as pd
 # opens API connection
 RQ = PanelAppRequest()
 
-def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
+def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK, bed_filename):
     response = RQ.pk_search(PK)
     result = panelapp_search_parse(response.json(), genome_build)
 
@@ -17,10 +17,16 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK):
     gene_number = result["Gene Number"]
     r_code = result["R Codes"]
     panel_version = result["Version"] 
+    bed_file = "No BED file generated"
+    print(bed_filename)
 
+    if bed_filename != "no BED file generated":
+        bed_file = pd.read_csv(bed_filename, delimiter = '\t')
+        bed_file = bed_file.to_string(index = False)
+     
     connect_cloud_db()
 
-    add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file="placeholder")
+    add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file=bed_file)
 
     return "Function run"
 

@@ -84,11 +84,11 @@ def create_bed_filename(panel_name, genome_build):
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
 
-def create_sql_record(panel_name, genome_build, pid):
+def create_sql_record(panel_name, genome_build, pid, bed_filename):
     """ Creates a SQL record. """
     print(panel_name)
     print(genome_build)
-    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name)
+    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name, bed_filename = bed_filename)
 
 def main():
     """
@@ -138,15 +138,20 @@ def main():
                     subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
                
                 logging.info("BED file generation initiated")
+            else:
+                filename = "no BED file generated"
+        
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
         if save_search.lower() == 'y':
             panel_data_str = json.dumps(panel_data)
             panel_name = panel_data.get("Panel Name", "UnknownPanel")
+            print(os.getcwd())
             pid = input("What patient ID would you like to save this search against? \n")
+            create_sql_record(panel_name, SEARCH.genome_build, pid, bed_filename = filename) # PUT THIS BACK IN TRY SECTION LATER
+             
             try:
-                create_sql_record(panel_name, SEARCH.genome_build, pid)
-                print("Your search was saved")
+                  print("Your search was saved")
             except:
                 print('''Unfortunately the SQL database cannot be accessed at this time. Your search was not saved.''')
         else:
