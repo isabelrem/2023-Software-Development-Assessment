@@ -173,7 +173,7 @@ def main():
                 # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
     
     # Thank user and say goodbye
-    print("Thank you for using PanelSearch. Goodbye.")
+    return "Thank you for using PanelSearch. Goodbye."
 
 if __name__ == '__main__':
     main()

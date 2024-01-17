@@ -11,3 +11,4 @@ venv
 /Tests/__pycache__/
 __pycache__
 PanelSearch.egg-info
+/PanelSearch/panel_search.log
