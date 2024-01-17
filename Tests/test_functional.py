@@ -1,22 +1,18 @@
 """
 Functional test to test app runs by connection to API's and SQL database
 """
-
-# import pytest
+# Import function main() from PanelSearch/main.py
 from PanelSearch.main import *
 
-# @pytest.mark.functional
-# def test_print_name(new, rcode, term, build, bed, exon, padding, save, ID):
-#     main()
-
-# To run
-# py.test -s ./Tests/functional.py
-
-def test_say_hello(monkeypatch):
+# Test main() works
+def test_main_works(monkeypatch):
+    """
+    Try new search with r-code R128 and build GRCh37. Save BED file in SQL database with patient ID Tester.
+    """
     inputs = iter(['1', '1', 'R128', '1', 'Y', 'Y', 'Tester'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     result = main()
     assert result == "Thank you for using PanelSearch. Goodbye."
 
-# To run
+# To run standalone from root directory
 # pytest ./Tests/functional.py
