@@ -145,12 +145,8 @@ def main():
             create_sql_record(panel_name, SEARCH.genome_build, pid)
             print("Your search was saved")
         else:
-            print("Your search was not saved")
-
-
-
-                    # also, logging?            
-
+            print("Your search was not saved")          
+    
     else:
         # the user has selected to browse existing records saved in the SQL database
         pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return/Enter: ")

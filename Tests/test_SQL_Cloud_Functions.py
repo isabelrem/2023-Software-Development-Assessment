@@ -68,10 +68,11 @@ def test_browse_cloud_records_wrong_id():
     assert actual == expected
 
 
-def test_download_records():
+def test_download_records(monkeypatch):
     """
     Test download_record() function downloads SQL record as CSV files
     """
+    monkeypatch.setattr('builtins.input', lambda _: "Y") # Choose to view searches information for patient
     result = browse_cloud_records("Patient 1")  # Get tables from database
     patients_df = result[0]  # Store patients table info
     searches_df = result[1]  # Store search table info
