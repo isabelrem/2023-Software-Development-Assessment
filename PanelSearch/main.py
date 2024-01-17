@@ -132,9 +132,11 @@ def main():
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 
                 filename = create_bed_filename(panel_name,SEARCH.genome_build)
-                subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
-                
-
+                try:
+                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                except:
+                    subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+               
                 logging.info("BED file generation initiated")
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
@@ -146,8 +148,7 @@ def main():
                 create_sql_record(panel_name, SEARCH.genome_build, pid)
                 print("Your search was saved")
             except:
-                print('''Unfortunately the SQL database cannot be accessed at this time. 
-                Your search was not saved.''')
+                print('''Unfortunately the SQL database cannot be accessed at this time. Your search was not saved.''')
         else:
             print("Your search was not saved")
 
