@@ -168,8 +168,8 @@ def main():
             if save_choice.lower() == "y":
                 file_name_choice = input("Please enter your desired filename: ")
                 download_records(patients_df,searches_df,file_name_choice)
-                print(os.getcwd())
-                print(os.listdir())
+                #print(os.getcwd())
+                #print(os.listdir())
                 # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
     
     # Thank user and say goodbye
