@@ -24,8 +24,9 @@ pipeline {
  //                   pip install -r requirements.txt
  //               '''
                  
-                 sh 'docker build -t panelsearch .'
+//                 sh 'docker build -t panelsearch .'
 //                 sh 'docker run -i -t panelsearch'
+                 sh './setup.sh'
             }
         }
         
