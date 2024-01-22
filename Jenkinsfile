@@ -61,7 +61,7 @@ pipeline {
                             connectionSuccessful = true
                             echo "Connected successfully! Running pytest..."
 
-                            // Run pytest && Run Codecov with the provided token and branch name
+                            // Run pytest
                             sh 'docker exec panelsearch pytest tests/'
 
                             // Check for test failures in the captured output
