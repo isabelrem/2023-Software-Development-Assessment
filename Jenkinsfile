@@ -5,6 +5,7 @@ pipeline {
 //            image 'python:3.10-slim'
 //        }
 //    }
+    agent { dockerfile true}
 
     stages {
         stage('Build') {
