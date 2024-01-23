@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+//    agent any
           // Tried to create docker env but got docker command not recognised error
 //        docker {
 //            image 'python:3.10-slim'
