@@ -69,6 +69,8 @@ Select *Multibranch Pipeline* and click *OK*.
 
 Under *Dashboard --> <Pipeline name> --> Configure --> Branch Sources* add the GitHub repository https://github.com/isabelrem/2023-Software-Development-Assessment and add the correct credentials (see below for instruction on how to create credentials).
 
+Under *Dashboard --> <Pipeline name> --> Configure --> Branch Sources --> Behaviours --> Discover Branches* change the strategy to *Only branches that are also filed as PRs*.
+
 Under *Dashboard --> Pipeline --> Configure --> Scan Repository Triggers* tick the option and choose the appropriate interval. This will run the process automatically.
 
 Under *Dashboard --> Pipeline* click *Scan Respository Now* Now to run the process manually.
