@@ -22,10 +22,6 @@ Instructions::
   docker ps  # Note down Container ID
   docker logs <Container ID>  # Note down Password
   
-  # Alternative way of finding password
-  cd /var/jenkins_home/secrets
-  less initialAdminPassword
-  
   # Enter the container by its name and access its bash shell
   docker exec -it jenkins-docker /bin/bash 
   
@@ -35,7 +31,12 @@ Instructions::
   apt install python3.11-venv
   apt install pip
   apt install python3-pytest
-
+  apt install less
+  
+  # Alternative way of finding password
+  cd /var/jenkins_home/secrets
+  less initialAdminPassword
+  
   # Run the following command to setup a safe workspace for your Jenkins projects
   git config --global --add safe.directory "*"
 
