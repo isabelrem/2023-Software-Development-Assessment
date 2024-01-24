@@ -132,9 +132,11 @@ def main():
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 
                 filename = create_bed_filename(panel_name,SEARCH.genome_build)
-                subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
-                
-
+                try:
+                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                except:
+                    subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+               
                 logging.info("BED file generation initiated")
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
@@ -142,8 +144,11 @@ def main():
             panel_data_str = json.dumps(panel_data)
             panel_name = panel_data.get("Panel Name", "UnknownPanel")
             pid = input("What patient ID would you like to save this search against? \n")
-            create_sql_record(panel_name, SEARCH.genome_build, pid)
-            print("Your search was saved")
+            try:
+                create_sql_record(panel_name, SEARCH.genome_build, pid)
+                print("Your search was saved")
+            except:
+                print('''Unfortunately the SQL database cannot be accessed at this time. Your search was not saved.''')
         else:
             print("Your search was not saved")
 
@@ -154,24 +159,26 @@ def main():
     else:
         # the user has selected to browse existing records saved in the SQL database
         pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return/Enter: ")
-        result = browse_cloud_records(patient_id=pid)
+        try:
+            result = browse_cloud_records(patient_id=pid)
 
-        if result != "This patient ID does not exist in the SQL database":
-            try:
-                patients_df = result[0]
-                searches_df = result[1]
-            except:
-                patients_df = result
-                searches_df = ''
-                         
-            save_choice = input("Would you like to save these tables locally? (Y/N) \n")
-            if save_choice.lower() == "y":
-                file_name_choice = input("Please enter your desired filename: ")
-                download_records(patients_df,searches_df,file_name_choice)
-                #print(os.getcwd())
-                #print(os.listdir())
-                # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
-    
+            if result != "This patient ID does not exist in the SQL database":
+                try:
+                    patients_df = result[0]
+                    searches_df = result[1]
+                except:
+                    patients_df = result
+                    searches_df = ''
+                            
+                save_choice = input("Would you like to save these tables locally? (Y/N) \n")
+                if save_choice.lower() == "y":
+                    file_name_choice = input("Please enter your desired filename: ")
+                    download_records(patients_df,searches_df,file_name_choice)
+                    #print(os.getcwd())
+                    #print(os.listdir())
+                    # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
+        except:
+            print("Unfortunately the SQL database cannot be accessed at this time.")
     # Thank user and say goodbye
     print("Thank you for using PanelSearch. Goodbye.")
 
