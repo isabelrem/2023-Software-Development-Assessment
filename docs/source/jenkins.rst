@@ -32,6 +32,7 @@ Instructions::
   apt install pip
   apt install python3-pytest
   apt install less
+  apt install docker
   
   # Alternative way of finding password
   cd /var/jenkins_home/secrets
