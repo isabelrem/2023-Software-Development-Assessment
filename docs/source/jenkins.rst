@@ -16,7 +16,7 @@ Instructions::
   docker volume create jenkins-shared-space
 
   # Run Jenkins
-  docker run -d -u root --name jenkins-docker -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-shared-space:/var/shared-data jenkins/jenkins:lts-jdk11 
+  docker run -d -u root --name jenkins-docker -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-shared-space:/var/shared-data -v $(which docker):/usr/bin/docker jenkins/jenkins:lts-jdk11 
   
   # Get admin password for Jenkins
   docker ps  # Note down Container ID
