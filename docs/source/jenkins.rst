@@ -26,6 +26,7 @@ Instructions::
   docker exec -it jenkins-docker /bin/bash 
    
   # Alternative way of finding password
+  apt install less
   cd /var/jenkins_home/secrets
   less initialAdminPassword
   
@@ -35,7 +36,6 @@ Instructions::
   apt install python3.11-venv
   apt install pip
   apt install python3-pytest
-  apt install less
   apt install docker
    
   # Run the following command to setup a safe workspace for your Jenkins projects
