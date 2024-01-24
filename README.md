@@ -102,9 +102,9 @@ To run tests make sure you are in the root directory before typing the following
 You should see::
     
     ============================================================================================= test session starts =============================================================================================
-    platform win32 -- Python 3.10.5, pytest-7.4.3, pluggy-1.3.0 -- C:\Users\jessica\AppData\Local\Programs\Python\Python310\python.exe
+    platform win32 -- Python 3.10.5, pytest-7.4.3, pluggy-1.3.0 -- C:\Users\AppData\Local\Programs\Python\Python310\python.exe
     cachedir: .pytest_cache
-    rootdir: C:\Users\jessica\2023-Software-Development-Assessment
+    rootdir: C:\Users\2023-Software-Development-Assessment
     collected 35 items
     
     Tests/test_API_to_SQL_cloud.py::test_PK_Parse_Data_to_SQL_cloud_works PASSED                                                                                                                             [  2%]
