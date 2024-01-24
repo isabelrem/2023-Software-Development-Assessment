@@ -18,12 +18,16 @@ Instructions::
   # Run Jenkins
   docker run -d -u root --name jenkins-docker -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v jenkins-shared-space:/var/shared-data -v $(which docker):/usr/bin/docker jenkins/jenkins:lts-jdk11 
   
-  # Get admin password for Jenkins
+  # Get admin password for Jenkins (see below for alternative method)
   docker ps  # Note down Container ID
   docker logs <Container ID>  # Note down Password
   
   # Enter the container by its name and access its bash shell
   docker exec -it jenkins-docker /bin/bash 
+   
+  # Alternative way of finding password
+  cd /var/jenkins_home/secrets
+  less initialAdminPassword
   
   # Run the following commands to setup docker within the container
   apt update
@@ -33,13 +37,14 @@ Instructions::
   apt install python3-pytest
   apt install less
   apt install docker
-  
-  # Alternative way of finding password
-  cd /var/jenkins_home/secrets
-  less initialAdminPassword
-  
+   
   # Run the following command to setup a safe workspace for your Jenkins projects
   git config --global --add safe.directory "*"
+   
+  # Add Jenkins to Docker group for permissions purposes
+  groupadd -g 993 docker
+  gpasswd -a jenkins docker
+  
 
 
 GUI set-up
