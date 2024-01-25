@@ -1,0 +1,15 @@
+bed_files/
+generate_bed.log
+*.json
+/shelf/
+/workspace.xml
+/PanelSearch/__pycache__/
+/.idea/inspectionProfiles/profiles_settings.xml
+panel_search.log
+venv
+.idea
+/Tests/__pycache__/
+__pycache__
+/PanelSearch.egg-info
+/PanelSearch/panel_search.log
+/panelsearch_downloads
