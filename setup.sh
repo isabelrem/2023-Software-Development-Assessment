@@ -25,5 +25,9 @@ else
         # the other is specifying the image to use
 fi
 
+# grabs the contents of the directory instead of the directory - prevents system getting grouchy about overwrite?
+
+docker cp panelsearch:/app/panelsearch_downloads .
+docker cp panelsearch:/app/PanelSearch/panel_search.log ./PanelSearch
 
 
