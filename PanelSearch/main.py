@@ -177,12 +177,8 @@ def main():
             except:
                 print('''Unfortunately the SQL database cannot be accessed at this time. Your search was not saved.''')
         else:
-            print("Your search was not saved")
-
-
-
-                    # also, logging?            
-
+            print("Your search was not saved")          
+    
     else:
         # the user has selected to browse existing records saved in the SQL database
         pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return/Enter: ")
@@ -207,7 +203,7 @@ def main():
         except:
             print("Unfortunately the SQL database cannot be accessed at this time.")
     # Thank user and say goodbye
-    print("Thank you for using PanelSearch. Goodbye.")
+    return "Thank you for using PanelSearch. Goodbye."
 
 if __name__ == '__main__':
     main()

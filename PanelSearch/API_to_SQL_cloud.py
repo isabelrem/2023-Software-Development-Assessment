@@ -6,6 +6,7 @@ import pandas as pd
 # opens API connection
 RQ = PanelAppRequest()
 
+
 def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK, bed_filename, bed_config):
     response = RQ.pk_search(PK)
     result = panelapp_search_parse(response.json(), genome_build)
@@ -28,7 +29,11 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK, bed_filename, bed_config):
 
     add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_config = bed_config, bed_file=bed_file)
 
-    return "Function run"
+
+        return panel_id
+
+    except:
+        raise ValueError("Please enter correct panel ID, genome build, and panel name.")
 
 ### TESTING ###
 
