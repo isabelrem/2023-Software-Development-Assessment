@@ -197,3 +197,117 @@
 2024-01-26 15:52:06,681 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
 2024-01-26 15:52:06,687 INFO: Panel data processed successfully
 2024-01-26 15:52:11,320 INFO: BED file generation initiated
+2024-01-26 16:00:49,400 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:00:49,420 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:00:50,357 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:00:50,369 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:00:50,763 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:00:50,767 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:00:51,146 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:00:51,154 INFO: Panel data processed successfully
+2024-01-26 16:00:55,522 INFO: BED file generation initiated
+2024-01-26 16:02:14,140 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:02:14,144 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:02:14,625 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:02:14,636 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:02:15,139 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:02:15,160 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:02:15,655 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:02:15,664 INFO: Panel data processed successfully
+2024-01-26 16:02:19,406 INFO: BED file generation initiated
+2024-01-26 16:04:08,153 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:04:08,170 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:04:08,699 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:04:08,712 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:04:09,210 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:04:09,215 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:04:09,487 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:04:09,497 INFO: Panel data processed successfully
+2024-01-26 16:04:12,127 INFO: BED file generation initiated
+2024-01-26 16:05:00,900 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:05:00,915 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:05:01,750 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:05:01,761 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:05:02,261 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:05:02,267 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:05:02,657 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:05:02,660 INFO: Panel data processed successfully
+2024-01-26 16:05:06,711 INFO: BED file generation initiated
+2024-01-26 16:06:00,383 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:06:00,391 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:06:01,351 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:06:01,357 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:06:02,370 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:06:02,374 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:06:02,700 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:06:02,707 INFO: Panel data processed successfully
+2024-01-26 16:06:20,528 INFO: BED file generation initiated
+2024-01-26 16:07:02,337 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:07:02,353 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:07:03,097 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:07:03,110 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:07:03,602 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:07:03,618 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:07:04,116 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:07:04,124 INFO: Panel data processed successfully
+2024-01-26 16:07:07,238 INFO: BED file generation initiated
+2024-01-26 16:07:09,858 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:07:10,255 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:07:10,269 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:07:10,696 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:09:25,335 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:09:25,354 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:09:26,143 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:09:26,156 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:09:26,655 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:09:26,677 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:09:27,169 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:09:27,177 INFO: Panel data processed successfully
+2024-01-26 16:09:31,017 INFO: BED file generation initiated
+2024-01-26 16:09:34,233 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:09:34,742 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:09:34,757 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:09:35,150 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:12:39,048 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:12:39,062 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:12:39,569 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:12:39,579 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:12:39,978 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:12:39,991 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:12:40,803 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:12:40,807 INFO: Panel data processed successfully
+2024-01-26 16:12:44,886 INFO: BED file generation initiated
+2024-01-26 16:12:50,957 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:12:52,060 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:12:52,072 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:12:52,472 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:13:42,643 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:13:42,650 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:13:43,569 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:13:43,574 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:13:44,087 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:13:44,100 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:13:44,600 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:13:44,607 INFO: Panel data processed successfully
+2024-01-26 16:13:50,117 INFO: BED file generation initiated
+2024-01-26 16:13:54,341 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:13:55,146 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:13:55,158 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:13:55,669 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:16:16,855 INFO: Starting PanelSearch with input type: R-code
+2024-01-26 16:16:16,873 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:16:17,330 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:16:17,343 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:16:17,740 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R122/ HTTP/1.1" 200 None
+2024-01-26 16:16:17,756 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:16:18,469 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:16:18,471 INFO: Panel data processed successfully
+2024-01-26 16:16:21,218 INFO: BED file generation initiated
+2024-01-26 16:16:24,838 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:16:25,431 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:16:25,447 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:16:25,941 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589
+2024-01-26 16:16:28,460 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-01-26 16:16:29,018 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Factor%20XIII%20deficiency/ HTTP/1.1" 200 None
+2024-01-26 16:16:29,033 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-01-26 16:16:29,528 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A3531%7CHGNC%3A3534/mane_select/refseq/GRCh37?content-type=application%2Fjson HTTP/1.1" 200 9589

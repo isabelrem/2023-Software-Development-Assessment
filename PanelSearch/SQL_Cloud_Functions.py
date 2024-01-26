@@ -69,7 +69,7 @@ def connect_cloud_db():
     return engine
     
 # Add record to the database
-def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_config,bed_file):
+def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config,bed_file):
     """
     Add a new record to the searches and patients tables in the database
     """
@@ -90,11 +90,11 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
             Column('r_code',String),
             Column('transcript',String),
             Column('genome_build',String),
-            Column('bed_config',String),
+            Column('bed_file_config',String),
             Column('bed_file',String),
                 )
         
-        #print("/////////// CHECK 1 /////////////////")
+        print("/////////// CHECK 1 /////////////////")
 
         meta.create_all(engine)
 
@@ -106,15 +106,15 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
         stmt6 = select(searches_table).where(searches_table.c.r_code == r_code)
         stmt7 = select(searches_table).where(searches_table.c.transcript == transcript)
         stmt8 = select(searches_table).where(searches_table.c.genome_build == genome_build)
-        stmt9 = select(searches_table).where(searches_table.c.bed_config == bed_config)
+        stmt9 = select(searches_table).where(searches_table.c.bed_file_config == bed_file_config)
 
-        #print("/////////// CHECK 2 /////////////////")
+        print("/////////// CHECK 2 /////////////////")
 
         int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
         result = conn.execute(int).first()
 
-        #print("/////////// CHECK 3 /////////////////")
+        print("/////////// CHECK 3 /////////////////")
 
 
         # pulls out first row of intersection - should only be one if code has worked previously  
@@ -123,20 +123,24 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
     
         if result == None: # i.e. if there is no row which matches the input given
 
-            #print("/////////// CHECK 4 /////////////////")
+            print("/////////// CHECK 4 /////////////////")
         
             # insert input as new row into table
-            result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_config, bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_config, :bed_file)"),
-                  [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "transcript":transcript,"genome_build":genome_build,"bed_file":bed_file}],
+            result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config, bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_file_config, :bed_file)"),
+                  [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "transcript":transcript,"genome_build":genome_build,"bed_file":bed_file,"bed_file_config":bed_file_config}],
                   )
             # grab the auto-generated id from the newly inserted entry
             # so we can add the search id to the patients table
+            
+            print("/////////// CHECK 5 /////////////////")
             searches_id = result.lastrowid 
             print(searches_id)
 
             conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
                        [{"patient_id":pid, "search_id":searches_id}])
             conn.commit()
+
+            print("/////////// CHECK 6 /////////////////")
 
         else: # i.e. if there is a row which matches the input given
             # grab the search id from the intersection result
@@ -230,8 +234,8 @@ def browse_cloud_records(patient_id=NULL):
                             Column('r_code',String),
                             Column('transcript',String),
                             Column('genome_build',String),
-                            Column('bed_config')
-                            Column('bed_file',String),
+                            Column('bed_file_config'),
+                            Column('bed_file',String)
                                     )
                         meta.create_all(engine)
 
