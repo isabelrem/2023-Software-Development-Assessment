@@ -84,11 +84,11 @@ def create_bed_filename(panel_name, genome_build):
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
     return os.path.join(bed_files_dir, filename)
 
-def create_sql_record(panel_name, genome_build, pid, bed_filename):
+def create_sql_record(panel_name, genome_build, pid, bed_config):
     """ Creates a SQL record. """
     print(panel_name)
     print(genome_build)
-    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name, bed_filename = bed_filename)
+    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name, bed_config = bed_config)
 
 def main():
     """
@@ -132,26 +132,48 @@ def main():
                 panel_name = panel_data.get("Panel Name", "UnknownPanel")
                 
                 filename = create_bed_filename(panel_name,SEARCH.genome_build)
+                
+                coord_type_no = ''
+                while coord_type_no != '1' and coord_type_no != '2':
+                    coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'. \n')
+                    if coord_type_no == '1':
+                        coord_type = 'trans'
+                    elif coord_type_no == '2':
+                        coord_type = 'gen'
+                    else:
+                        print('Invalid input - try again')
+                
+                padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter. \n')
+
+                if not padding_input.isnumeric() or \
+                    int(padding_input) < 0 or \
+                    int(padding_input) > 15:
+                        padding_value = 5
+                        print('Padding set to 5 bp.')
+            
+                elif 0 <= int(padding_input) <= 15:
+                    padding_value = int(padding_input)
+                    print('Padding set to {} bp.'.format(padding_input))
+
                 try:
-                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build, coord_type, padding_input])
+                    print("YEET")
+                
                 except:
                     subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
-               
                 logging.info("BED file generation initiated")
-            else:
-                filename = "no BED file generated"
-        
+
+        bed_config = coord_type + "-" + str(padding_value)
+        print(bed_config)
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
         if save_search.lower() == 'y':
             panel_data_str = json.dumps(panel_data)
             panel_name = panel_data.get("Panel Name", "UnknownPanel")
-            print(os.getcwd())
             pid = input("What patient ID would you like to save this search against? \n")
-            create_sql_record(panel_name, SEARCH.genome_build, pid, bed_filename = filename) # PUT THIS BACK IN TRY SECTION LATER
-             
             try:
-                  print("Your search was saved")
+                create_sql_record(panel_name, SEARCH.genome_build, pid, bed_config)
+                print("Your search was saved")
             except:
                 print('''Unfortunately the SQL database cannot be accessed at this time. Your search was not saved.''')
         else:
