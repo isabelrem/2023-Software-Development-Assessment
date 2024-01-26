@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS searches(
     r_code varchar(5),
     transcript varchar(50),
     genome_build varchar(50),
-    bed_file varchar(50), #change to JSON when there is a JSON
+    bed_file longtext, 
     UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, transcript, genome_build, bed_file)
     );
 

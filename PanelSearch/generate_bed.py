@@ -131,7 +131,6 @@ def write_bed_file(beds, filename, coord_type, genome_build):
         json_filename = filename.replace('.bed', '.json')
         with open(json_filename, 'w') as json_file:
             json.dump({'bed_regions': beds}, json_file, indent=4)
-
         logging.info(f"BED and JSON files written successfully.")
         return True, "Success"
 
@@ -152,34 +151,20 @@ def main():
         printed_panel_json = sys.argv[1]
         filename = sys.argv[2]
         genome_build = sys.argv[3]
+        coord_type = sys.argv[4]
+        padding_value = sys.argv[5]
         
-        coord_type_no = ''
-        while coord_type_no != '1' and coord_type_no != '2':
-            coord_type_no = input('For exon coordinates on transcript, press \'1\'. For genomic coordinates, press \'2\'. \n')
-            if coord_type_no == '1':
-                coord_type = 'trans'
-            elif coord_type_no == '2':
-                coord_type = 'gen'
-            else:
-                print('Invalid input - try again')
         
-        padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter. \n')
-
-        if not padding_input.isnumeric() or \
-            int(padding_input) < 0 or \
-            int(padding_input) > 15:
-                padding_value = 5
-                print('Padding set to 5 bp.')
-    
-        elif 0 <= int(padding_input) <= 15:
-            padding_value = int(padding_input)
-            print('Padding set to {} bp.'.format(padding_input))
         
         logging.info(f"Using a padding value of +/- {padding_value} bp.")
 
 
         beds = parse_panel_data(printed_panel_json, coord_type, padding_value)
         write_bed_file(beds, filename, coord_type, genome_build)
+
+        bed_file_config = coord_type + "-" + str(padding_value)
+        return bed_file_config
+    
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         sys.exit(1)
