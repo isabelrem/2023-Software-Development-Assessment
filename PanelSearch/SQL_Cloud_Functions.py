@@ -94,7 +94,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
             Column('bed_file',String),
                 )
         
-        print("/////////// CHECK 1 /////////////////")
+        #print("/////////// CHECK 1 /////////////////")
 
         meta.create_all(engine)
 
@@ -108,13 +108,13 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
         stmt8 = select(searches_table).where(searches_table.c.genome_build == genome_build)
         stmt9 = select(searches_table).where(searches_table.c.bed_file_config == bed_file_config)
 
-        print("/////////// CHECK 2 /////////////////")
+        #print("/////////// CHECK 2 /////////////////")
 
         int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
         result = conn.execute(int).first()
 
-        print("/////////// CHECK 3 /////////////////")
+        #print("/////////// CHECK 3 /////////////////")
 
 
         # pulls out first row of intersection - should only be one if code has worked previously  
@@ -123,7 +123,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
     
         if result == None: # i.e. if there is no row which matches the input given
 
-            print("/////////// CHECK 4 /////////////////")
+            #print("/////////// CHECK 4 /////////////////")
         
             # insert input as new row into table
             result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config, bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_file_config, :bed_file)"),
@@ -132,7 +132,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
             # grab the auto-generated id from the newly inserted entry
             # so we can add the search id to the patients table
             
-            print("/////////// CHECK 5 /////////////////")
+            #print("/////////// CHECK 5 /////////////////")
             searches_id = result.lastrowid 
             print(searches_id)
 
@@ -140,7 +140,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
                        [{"patient_id":pid, "search_id":searches_id}])
             conn.commit()
 
-            print("/////////// CHECK 6 /////////////////")
+            #print("/////////// CHECK 6 /////////////////")
 
         else: # i.e. if there is a row which matches the input given
             # grab the search id from the intersection result

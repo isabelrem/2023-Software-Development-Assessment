@@ -157,7 +157,6 @@ def main():
 
                 try:
                     subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build, coord_type, padding_input])
-                    print("YEET")
                 
                 except:
                     subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
