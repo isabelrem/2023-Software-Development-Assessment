@@ -106,11 +106,13 @@ while [ $success = false ] && [ $attempt_num -le $max_attempts ]; do
                 r_code varchar(5),\
                 transcript varchar(50),\
                 genome_build varchar(50),\
+                bed_file_config varchar(50),\
                 bed_file longtext,\
                 UNIQUE (panel_id, panel_name, panel_version, GMS, gene_number, r_code, \
-                     transcript, genome_build, bed_file)\
+                     transcript, genome_build, bed_file_config)\
                 );" 2>/dev/null
-
+  # need a field for bed file combination, (exon or genome, padding), bc otherwsie can only save one bed file per gene test
+  # will have to add to cloud too
   # Check the exit code of the command
   if [ $? -eq 0 ]; then
     # The command was successful
