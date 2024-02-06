@@ -29,11 +29,7 @@ def PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK, bed_filename, bed_file_con
 
     add_new_cloud_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file_config = bed_file_config, bed_file=bed_file)
 
-
-        return panel_id
-
-    except:
-        raise ValueError("Please enter correct panel ID, genome build, and panel name.")
+    return "Function run"
 
 ### TESTING ###
 

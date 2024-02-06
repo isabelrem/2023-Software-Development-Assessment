@@ -75,14 +75,14 @@ class PanelSearch:
 
 def create_bed_filename(panel_name, genome_build):
     """ Creates a filename for the BED file based on the panel name, genome build, and current date. """
-    bed_files_dir = 'bed_files'
-    if not os.path.exists(bed_files_dir):
-        os.makedirs(bed_files_dir)  # Create the folder if it doesn't exist
+    #bed_files_dir = 'bed_files'
+    if not os.path.exists('bed_files'):
+        os.makedirs('bed_files')  # Create the folder if it doesn't exist
 
     date_str = datetime.datetime.now().strftime("%Y%m%d")
     formatted_panel_name = panel_name.replace(" ", "_").replace("/", "_").replace("\\", "_")
     filename = f"{formatted_panel_name}_{genome_build}_{date_str}.bed"
-    return os.path.join(bed_files_dir, filename)
+    return os.path.join('bed_files', filename)
 
 def create_sql_record(panel_name, genome_build, pid, filename, bed_file_config):
     """ Creates a SQL record. """
@@ -154,16 +154,14 @@ def main():
                 elif 0 <= int(padding_input) <= 15:
                     padding_value = int(padding_input)
                     print('Padding set to {} bp.'.format(padding_input))
-
                 try:
-                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build, coord_type, padding_input])
+                    subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build, coord_type, str(padding_value)])
                 
                 except:
-                    subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build])
+                    subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build,coord_type, str(padding_value)])
                 logging.info("BED file generation initiated")
 
         bed_file_config = coord_type + "-" + str(padding_value)
-        print(bed_file_config)
 
         save_search = input("Would you like to save this search against a patient ID? (Y/N) \n")
         if save_search.lower() == 'y':

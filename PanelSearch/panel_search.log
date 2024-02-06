@@ -1,0 +1,28 @@
+2024-02-06 14:11:07,661 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-02-06 14:11:07,890 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R127/ HTTP/1.1" 200 None
+2024-02-06 14:11:07,903 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-02-06 14:11:08,197 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R127/ HTTP/1.1" 200 None
+2024-02-06 14:11:08,215 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:08,665 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A1390%7CHGNC%3A1442%7CHGNC%3A1445%7CHGNC%3A1449%7CHGNC%3A6240/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 24434
+2024-02-06 14:11:08,679 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:09,009 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A6251%7CHGNC%3A6263%7CHGNC%3A6294%7CHGNC%3A10593%7CHGNC%3A6242/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 23261
+2024-02-06 14:11:09,033 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:09,423 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A27365%7CHGNC%3A12261%7CHGNC%3A379%7CHGNC%3A23162%7CHGNC%3A31088/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 35180
+2024-02-06 14:11:09,447 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:09,880 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A493%7CHGNC%3A1529%7CHGNC%3A6243%7CHGNC%3A6266%7CHGNC%3A16859/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 23375
+2024-02-06 14:11:09,900 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:10,218 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A10484%7CHGNC%3A10592%7CHGNC%3A11167/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 35293
+2024-02-06 14:11:10,247 INFO: Panel data processed successfully
+2024-02-06 14:11:21,670 INFO: BED file generation initiated
+2024-02-06 14:11:42,724 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-02-06 14:11:43,014 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/Long%20QT%20syndrome/ HTTP/1.1" 200 None
+2024-02-06 14:11:43,036 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:43,427 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A1390%7CHGNC%3A1442%7CHGNC%3A1445%7CHGNC%3A1449%7CHGNC%3A6240/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 24434
+2024-02-06 14:11:43,451 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:43,835 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A6251%7CHGNC%3A6263%7CHGNC%3A6294%7CHGNC%3A10593%7CHGNC%3A6242/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 23261
+2024-02-06 14:11:43,849 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:44,185 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A27365%7CHGNC%3A12261%7CHGNC%3A379%7CHGNC%3A23162%7CHGNC%3A31088/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 35180
+2024-02-06 14:11:44,211 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:44,566 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A493%7CHGNC%3A1529%7CHGNC%3A6243%7CHGNC%3A6266%7CHGNC%3A16859/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 23375
+2024-02-06 14:11:44,589 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
+2024-02-06 14:11:44,785 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A10484%7CHGNC%3A10592%7CHGNC%3A11167/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 35293

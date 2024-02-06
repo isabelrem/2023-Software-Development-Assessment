@@ -36,6 +36,7 @@ def parse_panel_data(json_data, coord_type, padding):
     Returns:
         list: List of dictionaries representing BED data.
     """
+    padding = int(padding)
     try:
         printed_panel = json.loads(json_data)
         logging.debug("JSON data parsed successfully.")
@@ -46,10 +47,8 @@ def parse_panel_data(json_data, coord_type, padding):
     genes = printed_panel.get('Genes', [])
     beds = []
     for gene_dict in genes:
-        for hgnc_id, info in gene_dict.items():
-            
+        for hgnc, info in gene_dict.items():
             # Basic information:
-            
             bed = {}
 
             symbol = info[0]
@@ -83,6 +82,7 @@ def parse_panel_data(json_data, coord_type, padding):
                         
                         exon_bed['end'] = v[1] + padding
                     
+
                     elif coord_type == 'gen':
                         exon_bed['start'] = (int(v[2]) - 1) - padding
                         if int(exon_bed['start']) < 0:
@@ -93,7 +93,7 @@ def parse_panel_data(json_data, coord_type, padding):
                 bed['exons'].append(exon_bed)
             
             beds.append(bed)
-                
+             
     return beds
 
 def write_bed_file(beds, filename, coord_type, genome_build):
@@ -126,7 +126,6 @@ def write_bed_file(beds, filename, coord_type, genome_build):
                     elif coord_type == 'gen':
                         line = f"\n{bed['chromosome']}\t{exon['start']}\t{exon['end']}\t{bed['transcript']}_{bed['gene']}_ex{exon['exon_no']}\t---\t{bed['strand']}"
                     file.write(line)
-
         # Write to JSON file
         json_filename = filename.replace('.bed', '.json')
         with open(json_filename, 'w') as json_file:
@@ -156,9 +155,7 @@ def main():
         
         
         
-        logging.info(f"Using a padding value of +/- {padding_value} bp.")
-
-
+        logging.info(f"Using a padding value of +/- {padding_value} bp.")       
         beds = parse_panel_data(printed_panel_json, coord_type, padding_value)
         write_bed_file(beds, filename, coord_type, genome_build)
 

@@ -142,7 +142,8 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
             #print("/////////// CHECK 6 /////////////////")
 
-        else: # i.e. if there is a row which matches the input given
+        elif result != None:
+             # i.e. if there is a row which matches the input given
             # grab the search id from the intersection result
             searches_id = result[0]
 
@@ -168,7 +169,7 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
             
 
             result = result.first()
-            #print(result)
+            print(result)
 
             if result == None:
                 conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
@@ -182,13 +183,13 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
     return result
 
-def browse_cloud_records(patient_id=NULL):
+def browse_cloud_records(patient_id=''):
         # connect to database
         engine = connect_cloud_db()
         # search patient id table and searches id table separately
         # if no patient id supplied, show all of both tables
         # if patient id supplied, show patient entry and then ask user if they want to look at the related searches entries and if so which
-        if patient_id == NULL:
+        if patient_id == '':
              patients_table = pd.read_sql_table(table_name = "patients", con = engine)
              searches_table = pd.read_sql_table(table_name = "searches", con = engine)
              print("### Patients table ###")
