@@ -2,7 +2,10 @@
 
 echo """
 Welcome to PanelSearch! 
-If you would like to setup the app with a Docker container SQL database, please enter '1'. If you would like to setup the app with a cloud SQL database, please enter '2'."""
+If you would like to setup the app with a Docker container SQL database, please enter '1'."""
+
+# If you would like to setup the app with a cloud SQL database, please enter '2'."""
+# cloud set up doesn't seem to be working - unknown why
 
 read cloud_or_docker
 
