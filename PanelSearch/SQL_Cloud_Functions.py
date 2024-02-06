@@ -188,7 +188,7 @@ def browse_cloud_records(patient_id=NULL):
         # search patient id table and searches id table separately
         # if no patient id supplied, show all of both tables
         # if patient id supplied, show patient entry and then ask user if they want to look at the related searches entries and if so which
-        if patient_id == '':
+        if patient_id == NULL:
              patients_table = pd.read_sql_table(table_name = "patients", con = engine)
              searches_table = pd.read_sql_table(table_name = "searches", con = engine)
              print("### Patients table ###")
@@ -279,20 +279,22 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
             os.makedirs('../panelsearch_downloads/')
     #print(os.getcwd())
     #print(os.listdir()) # Create the folder if it doesn't exist
-
+    
     date_str = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M")
-
+    
     
     patients_filename = f"{date_str}_{file_name}_patients.csv"
     searches_filename = f"{date_str}_{file_name}_searches.csv"
-
-
+    
+    
     if type(searches_dataframe) == str:
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False,)
     else: 
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False)
         searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
     
+    return patients_filename
+
     # print(os.listdir())
     # os.chdir('panelsearch_downloads')
     # print(os.listdir())
