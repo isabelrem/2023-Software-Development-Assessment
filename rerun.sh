@@ -21,6 +21,8 @@ docker exec -it panelsearch bash -c "python main.py"
 
 docker cp panelsearch:/app/panelsearch_downloads .
 docker cp panelsearch:/app/PanelSearch/panel_search.log ./PanelSearch
+docker cp panelsearch:/app/bed_files .
+docker cp panelsearch:/app/PanelSearch/bed_files .
 
 
 
