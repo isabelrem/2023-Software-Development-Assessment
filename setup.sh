@@ -9,6 +9,8 @@ read cloud_or_docker
 cloud=2
 docker=1
 
+# does cloud setup fail unless docker setup has happened before?
+
 
 if [ $cloud_or_docker -eq $docker ]
 then
@@ -16,6 +18,7 @@ then
         ./docker_setup.sh
 else
         # build the app docker container using the Dockerfile in the repo
+        sudo chmod -R 777 .
         docker buildx build -t panelsearch .
         echo "panelsearch app container created"
 
