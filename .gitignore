@@ -1,4 +1,4 @@
-bed_files/
+bed_files/*
 generate_bed.log
 *.json
 /shelf/
@@ -12,4 +12,4 @@ venv
 __pycache__
 /PanelSearch.egg-info
 /PanelSearch/panel_search.log
-/panelsearch_downloads
+/panelsearch_downloads/*

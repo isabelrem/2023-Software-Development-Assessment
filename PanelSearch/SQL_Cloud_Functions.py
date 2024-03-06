@@ -271,7 +271,7 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
     # print(os.listdir())
     file_name = file_name.replace(' ','_')
     try:
-        panelsearch_downloads_dir = '/app/panelsearch_downloads/'
+        panelsearch_downloads_dir = '/app/panelsearch_downloads/' # change to just panelsearch_downloads - like how the bedfile is made in the main.py?
         if not os.path.exists('/app/panelsearch_downloads/'):
             os.makedirs('/app/panelsearch_downloads/')
     except:
