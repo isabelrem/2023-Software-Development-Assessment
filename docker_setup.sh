@@ -55,6 +55,17 @@ if [ "" = "$PKG_OK" ]; then
   sudo apt-get --yes install $REQUIRED_PKG
 fi
 
+# delete all previous panelsearch docker resources
+# e.g. in case some are partially built
+sudo aa-remove-unknown
+docker stop panelsearch-database
+docker stop panelsearch
+docker rm panelsearch-database
+docker rm panelsearch
+docker image rm panelsearch
+docker network rm panelsearch-network
+docker volume rm panelsearch-volume
+
 # create docker network for containers to connect via 
 docker network create panelsearch-network
 echo "panelsearch-network created"
@@ -160,3 +171,7 @@ echo "running panelsearch app... "
 docker run -it --name panelsearch --volume panelsearch-volume \
  --network panelsearch-network panelsearch
 
+docker cp panelsearch:/app/panelsearch_downloads .
+docker cp panelsearch:/app/PanelSearch/panel_search.log ./PanelSearch
+docker cp panelsearch:/app/bed_files .
+docker cp panelsearch:/app/PanelSearch/bed_files .
