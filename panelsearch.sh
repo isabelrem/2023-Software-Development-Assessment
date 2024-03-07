@@ -30,8 +30,8 @@ then
 
         # download the files created in the container
         docker cp panelsearch:/app/panelsearch_downloads .
-        docker cp panelsearch:/app/PanelSearch/panel_search.log ./PanelSearch
-        docker cp panelsearch:/app/PanelSearch/bed_files .
+        docker cp panelsearch:/app/panel_search.log ./PanelSearch
+        docker cp panelsearch:/app//bed_files .
         
     else
         echo "Database is present but App container is not. Running setup..."

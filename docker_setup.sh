@@ -57,14 +57,14 @@ fi
 
 # delete all previous panelsearch docker resources
 # e.g. in case some are partially built
-sudo aa-remove-unknown
-docker stop panelsearch-database
-docker stop panelsearch
-docker rm panelsearch-database
-docker rm panelsearch
-docker image rm panelsearch
-docker network rm panelsearch-network
-docker volume rm panelsearch-volume
+sudo aa-remove-unknown 2>/dev/null
+docker stop panelsearch-database 2>/dev/null
+docker stop panelsearch 2>/dev/null
+docker rm panelsearch-database 2>/dev/null
+docker rm panelsearch 2>/dev/null
+docker image rm panelsearch 2>/dev/null
+docker network rm panelsearch-network 2>/dev/null
+docker volume rm panelsearch-volume 2>/dev/null
 
 # create docker network for containers to connect via 
 docker network create panelsearch-network

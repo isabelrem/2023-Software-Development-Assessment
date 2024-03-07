@@ -5,4 +5,5 @@
 * simplified setup.sh to proceed straight to docker setup rather than querying the user which SQL db they want to use
 * modified gitignore so only contents of panelsearch_downloads folder is ignored by git, not the folder itself. Modified setup.sh so that the contents of docker panelsearch_downloads is copied into the local panelsearch_downloads, rather than the local panelsearch_downloads directory being overwritten entirely.
 * as above but with the bed_files directory.
-* created panelsearch.sh file - combined setup.sh and rerun.sh, hopefully making an easier user experience bc their input for running for the first time or rerunning the app will be no different. 
+* created panelsearch.sh file - combined setup.sh and rerun.sh, hopefully making an easier user experience bc their input for running for the first time or rerunning the app will be no different.
+* app now runs on a loop so users wanting to make multiple searches at one time only have to run the panelsearch.sh or reset.sh file once.
