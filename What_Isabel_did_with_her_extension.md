@@ -7,3 +7,4 @@
 * as above but with the bed_files directory.
 * created panelsearch.sh file - combined setup.sh and rerun.sh, hopefully making an easier user experience bc their input for running for the first time or rerunning the app will be no different.
 * app now runs on a loop so users wanting to make multiple searches at one time only have to run the panelsearch.sh or reset.sh file once.
+* removed all mention of 'cloud' from the code, since no cloud db is used anymore.

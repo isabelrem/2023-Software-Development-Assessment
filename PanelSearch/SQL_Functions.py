@@ -9,54 +9,19 @@ import pandas as pd
 import os
 import datetime
 
-# Establishing connectivity - the engine
-#check to see whether docker SQL database container is running
-def docker_or_cloud():
+## Establishing connectivity - the engine
+def connect_db():
+    """
+    Connect to the MySQL database in the docker container
+    """
     # docker database details
     username = 'root'
     password = 'password'
     database_name = 'panelsearch'
     database_host = 'panelsearch-database'
     connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-    attempt = 0
-    engine = None
-
-    for i in range(1,10,1):
-        try:
-            engine = create_engine(connection_string)
-            conn = engine.connect()
-            conn.close()
-            engine.dispose()
-            print("successful connection to docker database")
-            return connection_string
-        except:
-            pass
-        
-    # google cloud database details
-    username = 'panelsearch_user'
-    password = 'panelsearch_password'
-    database_name = 'panelsearch'
-    database_host = '35.197.209.133'
-    connection_string = f'mysql+pymysql://{username}:{password}@{database_host}:3306/{database_name}'
-    engine = create_engine(connection_string)
-    conn = engine.connect()
-    conn.close()
-    engine.dispose()
-    print("successful connection to sql database")
-
-    return connection_string
-
-
-
-## Establishing connectivity - the engine
-def connect_cloud_db():
-    """
-    Connect to the MySQL database on the cloud-hosted SQL server
-    """
-    # TODO try connecting to the sql database multiple times
-    # bc sometimes mysql needs a few tries
-    # TODO set a limit on this bc might not be possile to everr resolve
-    connection_string = docker_or_cloud()
+    
+    # attempt to create database engine using docker db details
     engine = None
     attempt = 0
     while (engine is None) and (attempt <= 10):
@@ -69,11 +34,11 @@ def connect_cloud_db():
     return engine
     
 # Add record to the database
-def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config,bed_file):
+def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config,bed_file):
     """
     Add a new record to the searches and patients tables in the database
     """
-    engine = connect_cloud_db()
+    engine = connect_db()
     
     with engine.connect() as conn:
         meta = MetaData()
@@ -183,9 +148,9 @@ def add_new_cloud_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r
 
     return result
 
-def browse_cloud_records(patient_id=''):
+def browse_records(patient_id=''):
         # connect to database
-        engine = connect_cloud_db()
+        engine = connect_db()
         # search patient id table and searches id table separately
         # if no patient id supplied, show all of both tables
         # if patient id supplied, show patient entry and then ask user if they want to look at the related searches entries and if so which
@@ -303,12 +268,12 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
 
                     
 ### TESTING ###
-#add_new_cloud_record(pid = "ronald",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
-# engine = connect_cloud_db()
+#add_new_record(pid = "ronald",panel_id = 9,panel_name = "heart stuff",panel_version = 1,GMS= "yes",gene_number= 2,r_code= "R38", transcript = "a really good one",genome_build = 37,bed_file= "placeholder")
+# engine = connect_db()
 # searches_table = pd.read_sql_table(table_name = "searches", con = engine)
 # print(table)
 # patients_table = pd.read_sql_table(table_name = "patients", con = engine)
 # print(table)
-#browse_cloud_records()
-#browse_cloud_records('ronald')
+#browse_records()
+#browse_records('ronald')
 

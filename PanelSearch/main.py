@@ -16,8 +16,8 @@ import os
 from select_disease import get_clinical_indications, find_match
 from PanelApp_API_Request import PanelAppRequest
 from PanelApp_Request_Parse import panelapp_search_parse
-from API_to_SQL_cloud import PK_Parse_Data_to_SQL_cloud
-from SQL_Cloud_Functions import browse_cloud_records, download_records
+from API_to_SQL import PK_Parse_Data_to_SQL
+from SQL_Functions import browse_records, download_records
 
 # Set up logging to include file logging only
 log_file = 'panel_search.log'
@@ -88,7 +88,7 @@ def create_sql_record(panel_name, genome_build, pid, filename, bed_file_config):
     """ Creates a SQL record. """
     print(panel_name)
     print(genome_build)
-    PK_Parse_Data_to_SQL_cloud(pid, genome_build, PK = panel_name, bed_filename = filename, bed_file_config = bed_file_config)
+    PK_Parse_Data_to_SQL(pid, genome_build, PK = panel_name, bed_filename = filename, bed_file_config = bed_file_config)
 
 def main():
     """
@@ -182,7 +182,7 @@ def main():
             # the user has selected to browse existing records saved in the SQL database
             pid = input("Please enter the patient ID here. If you wish to see all saved records, press Return/Enter: ")
             try:
-                result = browse_cloud_records(patient_id=pid)
+                result = browse_records(patient_id=pid)
 
                 if result != "This patient ID does not exist in the SQL database":
                     try:
