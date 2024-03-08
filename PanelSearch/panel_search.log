@@ -208,3 +208,6 @@
 2024-03-08 13:45:11,110 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A29450%7CHGNC%3A21424%7CHGNC%3A21474%7CHGNC%3A28949%7CHGNC%3A29068/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 27406
 2024-03-08 13:45:11,124 DEBUG: Starting new HTTPS connection (1): rest.variantvalidator.org:443
 2024-03-08 13:45:11,612 DEBUG: https://rest.variantvalidator.org:443 "GET /VariantValidator/tools/gene2transcripts_v2/HGNC%3A30497%7CHGNC%3A7121%7CHGNC%3A7508%7CHGNC%3A7508%7CHGNC%3A2567/mane_select/refseq/GRCh38?content-type=application%2Fjson HTTP/1.1" 200 20077
+2024-03-08 13:56:23,983 INFO: Starting PanelSearch with input type: R-code
+2024-03-08 13:56:24,033 DEBUG: Starting new HTTPS connection (1): panelapp.genomicsengland.co.uk:443
+2024-03-08 13:56:24,249 DEBUG: https://panelapp.genomicsengland.co.uk:443 "GET /api/v1/panels/R126/ HTTP/1.1" 404 23

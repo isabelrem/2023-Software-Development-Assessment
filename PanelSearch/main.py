@@ -34,9 +34,9 @@ class PanelSearch:
     def __init__(self):
         self.search_type = self.existing_or_new()
         if self.search_type == 'search_new':
+            self.genome_build = self.get_genome_build()
             self.input_type = self.get_input_string_type()
             self.input = self.get_input_string()
-            self.genome_build = self.get_genome_build()
   
     def get_genome_build(self):
         """ Asks the user which genome build they would like genomic coordinates returned for. """
