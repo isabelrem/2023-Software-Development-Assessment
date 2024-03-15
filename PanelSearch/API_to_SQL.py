@@ -11,7 +11,6 @@ def PK_Parse_Data_to_SQL(pid, genome_build, PK, bed_filename, bed_file_config):
     response = RQ.pk_search(PK)
     result = panelapp_search_parse(response.json(), genome_build)
 
-    #print(result)
     panel_id = result["Panel ID"]
     panel_name = result["Panel Name"]
     GMS = result["GMS Signed-off"]
@@ -19,7 +18,6 @@ def PK_Parse_Data_to_SQL(pid, genome_build, PK, bed_filename, bed_file_config):
     r_code = result["R Codes"]
     panel_version = result["Version"] 
     bed_file = "No BED file generated"
-    print(bed_filename)
 
     if bed_filename != "no BED file generated":
         bed_file = pd.read_csv(bed_filename, delimiter = '\t')

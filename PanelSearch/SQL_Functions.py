@@ -29,7 +29,6 @@ def connect_db():
             engine = create_engine(connection_string)
         except:
             attempt +=1
-            print(attempt)
             pass
     return engine
     
@@ -58,9 +57,6 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
             Column('bed_file_config',String),
             Column('bed_file',String),
                 )
-        
-        #print("/////////// CHECK 1 /////////////////")
-
         meta.create_all(engine)
 
         stmt1 = select(searches_table).where(searches_table.c.panel_id == panel_id)
@@ -73,48 +69,30 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
         stmt8 = select(searches_table).where(searches_table.c.genome_build == genome_build)
         stmt9 = select(searches_table).where(searches_table.c.bed_file_config == bed_file_config)
 
-        #print("/////////// CHECK 2 /////////////////")
-
         int = intersect_all(stmt1,stmt2,stmt3,stmt4,stmt5,stmt6,stmt7,stmt8,stmt9)
 
+        # pulls out first row of intersection - should only be one if code has worked previously  
         result = conn.execute(int).first()
 
-        #print("/////////// CHECK 3 /////////////////")
-
-
-        # pulls out first row of intersection - should only be one if code has worked previously  
-        #print(result)
-        #print(result == None)
-    
         if result == None: # i.e. if there is no row which matches the input given
 
-            #print("/////////// CHECK 4 /////////////////")
-        
             # insert input as new row into table
             result = conn.execute(text("INSERT INTO searches (panel_id,panel_name,panel_version,GMS,gene_number,r_code,transcript,genome_build,bed_file_config, bed_file) VALUES (:panel_id, :panel_name, :panel_version, :GMS, :gene_number, :r_code, :transcript, :genome_build, :bed_file_config, :bed_file)"),
                   [{"panel_id": panel_id, "panel_name": panel_name, "panel_version":panel_version, "GMS":GMS, "gene_number":gene_number, "r_code":r_code, "transcript":transcript,"genome_build":genome_build,"bed_file":bed_file,"bed_file_config":bed_file_config}],
                   )
             # grab the auto-generated id from the newly inserted entry
             # so we can add the search id to the patients table
-            
-            #print("/////////// CHECK 5 /////////////////")
             searches_id = result.lastrowid 
-            print(searches_id)
-
             conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
                        [{"patient_id":pid, "search_id":searches_id}])
             conn.commit()
 
-            #print("/////////// CHECK 6 /////////////////")
-
         elif result != None:
-             # i.e. if there is a row which matches the input given
+            # i.e. if there is a row which matches the input given
             # grab the search id from the intersection result
             searches_id = result[0]
 
-            # search for duplicate entries for patients table here too
-        
-            # initiate table object to allow use of certain functions in sqlalchemy    
+            # initiate table object to allow use of certain functions in sqlalchemy
             patients_table = Table(
                 "patients",meta,
                 Column('id',Integer,primary_key = True),
@@ -134,8 +112,7 @@ def add_new_record(pid,panel_id,panel_name,panel_version,GMS,gene_number,r_code,
             
 
             result = result.first()
-            print(result)
-
+            
             if result == None:
                 conn.execute(text("INSERT INTO patients (patient_id,search_id) VALUES (:patient_id, :search_id)"),
                                 [{"patient_id":pid, "search_id":searches_id}])
@@ -207,52 +184,30 @@ def browse_records(patient_id=''):
 
                         stmt2 = select(searches_table).where(searches_table.c.id.in_(search_ids))
                         searches_query = pd.read_sql(stmt2, con = engine)
+                        print("### Searches table for: "+ patient_id + " ###")
                         print(searches_query)
                         return patients_query,searches_query
                     else:
                         return patients_query
                 
 
-# def create_record_filenames(file_name):
-#     """ Creates a filename for a downloaded SQL record based on the current date. """
-#     panelsearch_downloads = 'panelsearch_downloads'
-#     if not os.path.exists(panelsearch_downloads_dir):
-#         os.makedirs(panelsearch_downloads_dir)  # Create the folder if it doesn't exist
-
-#     date_str = datetime.datetime.now().strftime("%Y%m%d")
-    
-#     patients_filename = f"{date_str}_{file_name}_patients.csv"
-#     searches_filename = f"{date_str}_{file_name}_searches.csv"
-    
-#     return os.path.join(panelsearch_downloads_dir, patients_filename), os.path.join(panelsearch_downloads_dir, searches_filename)
-
-
 def download_records(patients_dataframe,searches_dataframe,file_name = ''):
     """ Allows the user to download their SQL search as a CSV file. """
-    print(os.getcwd())
-    print(os.listdir())
-    # os.chdir('PanelSearch')
-    # print(os.getcwd())
-    # print(os.listdir())
     file_name = file_name.replace(' ','_')
     try:
-        panelsearch_downloads_dir = '/app/panelsearch_downloads/' # change to just panelsearch_downloads - like how the bedfile is made in the main.py?
+        panelsearch_downloads_dir = '/app/panelsearch_downloads/' 
         if not os.path.exists('/app/panelsearch_downloads/'):
             os.makedirs('/app/panelsearch_downloads/')
     except:
         panelsearch_downloads_dir = '../panelsearch_downloads/'
         if not os.path.exists('../panelsearch_downloads/'):
             os.makedirs('../panelsearch_downloads/')
-    #print(os.getcwd())
-    #print(os.listdir()) # Create the folder if it doesn't exist
-    
+
     date_str = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M")
-    
-    
+
     patients_filename = f"{date_str}_{file_name}_patients.csv"
     searches_filename = f"{date_str}_{file_name}_searches.csv"
-    
-    
+
     if type(searches_dataframe) == str:
         patients_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, patients_filename),index = False,)
     else: 
@@ -260,10 +215,6 @@ def download_records(patients_dataframe,searches_dataframe,file_name = ''):
         searches_dataframe.to_csv(os.path.join(panelsearch_downloads_dir, searches_filename),index = False)
     
     return patients_filename
-
-    # print(os.listdir())
-    # os.chdir('panelsearch_downloads')
-    # print(os.listdir())
 
 
                     

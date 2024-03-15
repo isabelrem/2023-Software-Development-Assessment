@@ -1,6 +1,5 @@
 # Remaining issues
 * when selecting disease name from list - would be nice if we could select by numbered position on list rather than having to write out the whole condition name - any typo and goes straight back to beginning. 
-* get it to ask for the genome build before the test code / test name
 * clean up print statements and errant comments
 * documentation - needs major rework.
 * You have chosen cystic renal disease
@@ -15,4 +14,8 @@
     File "/app/PanelSearch/VV_Request_Parse.py", line 14, in vv_request_parse
         genome_direction = list(vv_gene_record['transcripts'][0]['genomic_spans'].values())[0]['orientation']
     IndexError: list index out of range
+from vv request parse
+    try:
+            transcript = vv_gene_record['transcripts'][0]['reference'] # if the gene record has no transcript, this line can IndexError
 * have actual transcript instead of placeholder.
+* follow pylint suggestions

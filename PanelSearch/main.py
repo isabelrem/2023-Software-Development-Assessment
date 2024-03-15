@@ -75,7 +75,6 @@ class PanelSearch:
 
 def create_bed_filename(panel_name, genome_build):
     """ Creates a filename for the BED file based on the panel name, genome build, and current date. """
-    #bed_files_dir = 'bed_files'
     if not os.path.exists('bed_files'):
         os.makedirs('bed_files')  # Create the folder if it doesn't exist
 
@@ -99,7 +98,7 @@ def main():
     while searching == True:
         SEARCH = PanelSearch()
         REQUEST = PanelAppRequest()
-        RESPONSE = None  
+        RESPONSE = None
 
         if SEARCH.search_type == 'search_new':
             logging.info("Starting PanelSearch with input type: %s", SEARCH.input_type)
@@ -144,7 +143,7 @@ def main():
                             coord_type = 'gen'
                         else:
                             print('Invalid input - try again')
-                    
+
                     padding_input = input('Standard +/- 5 bp padding used in beds file for exon - enter a number between 0-15 to change this. Otherwise press enter. \n')
 
                     if not padding_input.isnumeric() or \
@@ -158,9 +157,13 @@ def main():
                         print('Padding set to {} bp.'.format(padding_input))
                     try:
                         subprocess.call(["python", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build, coord_type, str(padding_value)])
-                    
+                        print("BED file created!")
                     except:
-                        subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build,coord_type, str(padding_value)])
+                        try:
+                            subprocess.call(["python3", "generate_bed.py", panel_data_str, filename, SEARCH.genome_build,coord_type, str(padding_value)])
+                            print("BED file created!")
+                        except:
+                            print("Unfortunately the BED file could not be created at this time.")
                     logging.info("BED file generation initiated")
 
             bed_file_config = coord_type + "-" + str(padding_value)
@@ -196,9 +199,6 @@ def main():
                     if save_choice.lower() == "y":
                         file_name_choice = input("Please enter your desired filename: ")
                         download_records(patients_df,searches_df,file_name_choice)
-                        #print(os.getcwd())
-                        #print(os.listdir())
-                        # download_records(patients_dataframe,searches_dataframe,file_name = '') # these are the parameters - what if no searches table?
             except:
                 print("Unfortunately the SQL database cannot be accessed at this time.")
     
