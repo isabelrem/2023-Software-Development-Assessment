@@ -1,28 +1,35 @@
-Recommended usage: Running PanelSearch in a Docker container
+Recommended usage: Running PanelSearch in a Docker container using the automated scripts
 ========
-*WARNING: Please ask Isabel to turn on the cloud-based SQL database before attempting to run code. Alternatively, use MySQL Workbench to manually create a database and modify the code to run locally.*
-
-*WARNING: BED files will save within Docker container and database only. BED files will not save locally.*
 
 Users should git clone the repository to their local machine, and navigate into the top level of the repository (2023-Software-Development-Assessment/)
 
-Setting up using the setup.sh script
+Installing and running the app using the panelsearch.sh script
 -----
-To setup the app and to run it for the first time, users should run the following code in the top level of the repository:
+To run the app for the first time in its docker container, and to run the app every time after that, Users need only run the following code in the top level of the repository:
 
-    ./setup.sh
+    ./panelsearch.sh
 
-This will initiate the setup.sh script. Users will be given the choice as to whether they want to set the app up with a dockerised SQL database, or whether they want to instead connect to a cloud database. If the user chooses to use the app with a dockerised SQL database, the setup scripts will create the database container and the database within. With both choices, a docker container for the app will be created and run.
+This will initiate the panelsearch.sh script. This script will search for evidence that the panelsearch app has previously been installed, and if it does not find it, will proceed with installing the panelsearch app in a docker container. Following this, the app will run.
 
-After the app has been setup, to rerun the app users should run the following code in the top level of the repository:
+If at any point the User is prompted for a password, the User should enter their sudo password. If the User does not have Sudo permissions, they will have to run the app locally rather than in a docker container.
 
-    ./rerun.sh
+Reinstalling the app using the reset.sh script
+-----
+If Users encounter unexplained errors, or otherwise suspect that their installation of the panelsearch app may have been faulty, users may remove their previous installation and reinstall the app by running the following code in the top level of the repository:
 
-This will start the necessary docker containers, and reconnect to them.
+    ./reset.sh
+
+Please note that this reinstallation *should not* remove any User files already saved to the panelsearch_downloads and bed_files directories.
+Once reinstallation has completed, Users can once again run the app using the following code in the top level of the repostitory:
+
+    ./panelsearch.sh
+
+If at any point the User is prompted for a password, the User should enter their sudo password. If the User does not have Sudo permissions, they will have to run the app locally rather than in a docker container.
+
 
 General Usage
 -----
-Once the app had begun running, there are several points at which the user is prompted for input. 
+Once the app has begun running, there are several points at which the user is prompted for input.
 
 When prompted for input type, choose option 1 if you know the R-code or option 2 if you would like to
 search by disease name using keywords.
@@ -81,7 +88,7 @@ Manual Docker PanelSearch setup
 --------
 These steps can also be found in docker_setup.sh, and involve creating the SQL database and PanelSearch app within Docker containers. Users must already have installed docker and mysql for these commands to work. 
 
-To create the SQL database within a docker container, a network for the two containers to connect via, and a volume for data persistence. If the user wishes to connect to the cloud SQL database instead of a local docker SQL database, **omit this step**.
+To create the SQL database within a docker container, a network for the two containers to connect via, and a volume for data persistence.
     
     # create docker network for containers to connect via 
     docker network create panelsearch-network
@@ -182,32 +189,17 @@ To build the docker image:
     docker buildx build -t panelsearch .
     echo "panelsearch app container created"
 
-To run the docker container for the first time **when using a docker SQL database**:
+To run the docker container for the first time:
     
     # run the docker container for the first time
     echo "running panelsearch app... "
     docker run -it --name panelsearch --volume panelsearch-volume \
     --network panelsearch-network panelsearch
 
-To run the docker container for the first time **when using a cloud SQL database**:
-    
-    # run the docker container for the first time
-    echo "running panelsearch app... "
-    docker run -it --name panelsearch panelsearch
-
-To run the docker container subsequently **when using either SQL database**:
+To run the docker container subsequently:
 
     docker exec -it panelsearch bash -c "python PanelSearch/main.py"
 
-Manual PanelSearch setup and usage
--------
-If the user wishes to run PanelSearch outside of a docker container, the user must install all requirements from requirements.txt locally.
-
-To run PanelSearch, the user should type this code into the command line:
-
-    cd PanelSearch
-    python main.py
-    
 Troubleshooting
 -------
 Troubleshooting error messsage: 'docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock:' 

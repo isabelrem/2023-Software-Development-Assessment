@@ -1,6 +1,5 @@
 # Remaining issues
 * when selecting disease name from list - would be nice if we could select by numbered position on list rather than having to write out the whole condition name - any typo and goes straight back to beginning. 
-* clean up print statements and errant comments
 * documentation - needs major rework.
 * You have chosen cystic renal disease
     GRch37 build selected.
@@ -19,3 +18,4 @@ from vv request parse
             transcript = vv_gene_record['transcripts'][0]['reference'] # if the gene record has no transcript, this line can IndexError
 * have actual transcript instead of placeholder.
 * follow pylint suggestions
+* error when choose not to generate bed file

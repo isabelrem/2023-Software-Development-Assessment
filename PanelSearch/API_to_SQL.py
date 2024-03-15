@@ -10,6 +10,16 @@ def PK_Parse_Data_to_SQL(pid, genome_build, PK, bed_filename, bed_file_config):
 
     response = RQ.pk_search(PK)
     result = panelapp_search_parse(response.json(), genome_build)
+    
+    transcript_list = []
+
+    for gene in result['Genes']:
+        for k, v in gene.items():
+            transcript_list.append(v[3])
+
+    transcripts=', '.join([str(item) for item in transcript_list])
+    print(transcripts)
+
 
     panel_id = result["Panel ID"]
     panel_name = result["Panel Name"]
@@ -25,7 +35,7 @@ def PK_Parse_Data_to_SQL(pid, genome_build, PK, bed_filename, bed_file_config):
      
     connect_db()
 
-    add_new_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = "a really good one",genome_build = genome_build,bed_file_config = bed_file_config, bed_file=bed_file)
+    add_new_record(pid = pid,panel_id = panel_id,panel_name = panel_name, panel_version = panel_version,GMS= GMS,gene_number= gene_number,r_code= r_code , transcript = transcripts,genome_build = genome_build,bed_file_config = bed_file_config, bed_file=bed_file)
 
     return "Function run"
 

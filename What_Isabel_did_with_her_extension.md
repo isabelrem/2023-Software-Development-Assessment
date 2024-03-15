@@ -10,3 +10,4 @@
 * removed all mention of 'cloud' from the code, since no cloud db is used anymore.
 * got the app to ask for the genome build before the test code / test name
 * cleaned up print and errant comments.
+* have added transcript field which contains actual transcript info - but already present in more readable form in BED file I've noticed - more sense to remove transcript field?
